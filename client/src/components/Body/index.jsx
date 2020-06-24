@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import LooksCard from "../LooksCard";
 import { Grid } from "@material-ui/core";
 // importing useAPI to generate random user
-import eyeMakeup from "../LooksCard/images/eyeMakeup.jpg";
+// import eyeMakeup from "../LooksCard/images/eyeMakeup.jpg";
 import randomUserList from "./staticTrends";
 
 const Body = () => {

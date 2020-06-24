@@ -1,27 +1,30 @@
-import eyePop from "./staticImages/eyePop.jpg";
-import look2 from "./staticImages/look2.jpg";
-import odunsi from "./staticImages/odunsi.jpg";
+// These is dummy data for trending looks cards - this is only for development
+
+// import eyePop from "../Body/staticImages/eyePop.jpg";
+// import look2 from "./staticImages/look2.jpg";
+// import odunsi from "./staticImages/odunsi.jpg";
+import Silhouette from "./staticImages/face-silhouette.png";
 
 export default [
   {
     title: "Looking FIERCE!",
     subtitle: "drop dead gorgeous I tell you!",
     description: "Felt cute...might post another selfie...",
-    avatarUrl: "https://randomuser.me/api/portraits/thumb/women/92.jpg",
-    imageUrl: { eyePop },
+    avatarUrl: "https://randomuser.me/api/portraits/thumb/women/53.jpg",
+    imageUrl: Silhouette,
   },
   {
     title: "Hunny...",
     subtitle: "PLEASE AND THANK YOU.",
     description: "a picture speaks a thousand words",
     avatarUrl: "https://randomuser.me/api/portraits/thumb/women/55.jpg",
-    imageUrl: { look2 },
+    imageUrl: Silhouette,
   },
   {
     title: "Beau",
     subtitle: "simple and sublime.",
     description: "sometimes you just want to feel good about yourself",
     avatarUrl: "https://randomuser.me/api/portraits/thumb/women/69.jpg",
-    imageUrl: { odunsi },
+    imageUrl: Silhouette,
   },
 ];
