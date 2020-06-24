@@ -1,5 +1,5 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
@@ -11,14 +11,7 @@ import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import ShareIcon from "@material-ui/icons/Share";
 
-// const useStyles = makeStyles({
-//   title: {
-//     fontSize: 40,
-//   },
-// });
-
 const LooksCard = (props) => {
-  //   const classes = useStyles();
   const { avatarUrl, title, subtitle, description, imageUrl } = props;
 
   return (
