@@ -3,6 +3,7 @@ const express = require("express");
 // const mongoose = require("mongoose");
 const routes = require("./routes/user-route");
 const routes2 = require("./routes/look-route");
+const routes3 = require("./routes/avatar-route");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === "production") {
 // Add routes, both API and view
 app.use('/api', routes);
 app.use('/api', routes2);
+app.use('/api', routes3);
 
 const db = require('./client/src/db');
 
