@@ -19,7 +19,7 @@ const Header = () => {
     <AppBar position="static">
       <Toolbar>
         <Typography className={classes.typographyStyles}>
-          <h1>PRITY</h1>
+          <h1 onClick={() => (window.location.href = "/")}>PRITY</h1>
         </Typography>
         <Button
           variant="contained"
@@ -32,7 +32,7 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={(event) => (window.location.href = "/createlook")}
+          onClick={() => (window.location.href = "/createlook")}
         >
           Create Look!
         </Button>
