@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Grid, Button } from "@material-ui/core";
+import createLookAPI from "../utils/createLookAPI";
 
 const btnStyles = {
   padding: 10,
@@ -14,22 +15,18 @@ class CreateLook extends Component {
           <h1>Customize Your Avatar</h1>
         </Grid>
         <Grid item xs={12}>
-          <Button variant="contained" color="primary" style={btnStyles}>
-            Face
-          </Button>
-          <Button variant="contained" color="primary" style={btnStyles}>
-            Hair
-          </Button>
-          <Button variant="contained" color="primary" style={btnStyles}>
-            Nose
-          </Button>
-          <Button variant="contained" color="primary" style={btnStyles}>
-            Lips
+          <Button
+            variant="contained"
+            color="primary"
+            style={btnStyles}
+            onClick={() => createLookAPI}
+          >
+            Search Products
           </Button>
         </Grid>
-        <Grid item>
+        {/* <Grid item>
           <img src="https://via.placeholder.com/450" alt="placeholder"></img>
-        </Grid>
+        </Grid> */}
       </Grid>
     );
   }
