@@ -13,25 +13,37 @@ class createLookApi extends Component {
   // }
 
   getProducts() {
+    console.log("getproducts called");
     axios
       .get(
         "http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=lipstick"
       )
-      .then((response) =>
-        response.map((product) => ({
+      .then((response) => {
+        return response.data.map((product) => ({
           name: `${product.name}`,
-          colors: `${product.product_colors.colour_name}`,
-        }))
-      )
+          colors: `${product.product_colors.map(
+            (colour) => colour.colour_name
+          )}`,
+        }));
+      })
       // Let's make sure to change the loading state to display the data
       .then((products) => {
-        this.setState({
-          products,
-          isLoading: false,
-        });
+        this.setState(
+          {
+            products,
+            isLoading: false,
+          },
+          () => {
+            console.log(this.state);
+          }
+        );
       })
       // We can still use the `.catch()` method since axios is promise-based
-      .catch((error) => this.setState({ error, isLoading: false }));
+      .catch((error) =>
+        this.setState({ error, isLoading: false }, () => {
+          console.log(this.state);
+        })
+      );
   }
 
   render(props) {
@@ -43,7 +55,7 @@ class createLookApi extends Component {
         <Button
           variant="contained"
           color="default"
-          onClick={() => this.getProducts}
+          onClick={() => this.getProducts()}
         >
           CALL API
         </Button>
