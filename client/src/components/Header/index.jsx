@@ -24,6 +24,7 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
+          onClick={(event) => (window.location.href = "/searchProd")}
         >
           Search Products
         </Button>
@@ -31,7 +32,7 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/createlook")}
+          onClick={(event) => (window.location.href = "/createLook")}
         >
           Create Look!
         </Button>

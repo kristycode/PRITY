@@ -1,6 +1,6 @@
 const Avatar = require('../models/avatars');
 
-createLook = (req, res) => {
+createAvatar = (req, res) => {
     const body = req.body;
 
     if (!body) {
@@ -33,7 +33,7 @@ createLook = (req, res) => {
         });
 }
 
-getLookById = async (req, res) => {
+getAvatarById = async (req, res) => {
     await Avatar.findOne({ _id: req.params.id }, (err, avatar) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
@@ -48,7 +48,7 @@ getLookById = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
-getLooks = async (req, res) => {
+getAvatars = async (req, res) => {
     await Avatar.find({}, (err, avatars) => {
         if (err) {
             return res.status(400).json({ success: false, error: err })
