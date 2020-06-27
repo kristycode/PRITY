@@ -5,7 +5,7 @@ import { Grid } from "@material-ui/core";
 // import eyeMakeup from "../LooksCard/images/eyeMakeup.jpg";
 import randomUserList from "./staticTrends";
 import OutlinedCard from "../AboutPrity";
-import AboutPrity from "../AboutPrity/";
+// import AboutPrity from "../AboutPrity/";
 
 const Body = () => {
   const getUserCard = (userCardObj) => {
