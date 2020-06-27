@@ -24,20 +24,21 @@
   },
   "homepage": "https://github.com/kristycode/PRITY#readme",
   "dependencies": {
-    "@svgr/webpack": "^5.4.0",
-    "express": "^4.17.1",
-    "if-env": "^1.0.4",
-    "mongoose": "^5.9.19",
-    "react-inlinesvg": "^2.0.0",
-    "react-mdl": "^2.1.0",
-    "react-spring": "^8.0.27",
-    "styled-components": "^5.1.1",
     "@material-ui/core": "^4.10.2",
     "@material-ui/icons": "^4.9.1",
     "@material-ui/styles": "^4.10.0",
+    "@svgr/webpack": "^5.4.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "classnames": "^2.2.6",
     "concurrently": "^5.2.0",
-    "nodemon": "^2.0.4"
+    "express": "^4.17.1",
+    "if-env": "^1.0.4",
+    "mongoose": "^5.9.19",
+    "nodemon": "^2.0.4",
+    "react-inlinesvg": "^2.0.0",
+    "react-mdl": "^2.1.0",
+    "react-spring": "^8.0.27",
+    "styled-components": "^5.1.1"
   }
 }
