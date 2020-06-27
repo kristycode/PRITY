@@ -15,12 +15,10 @@ class createLookApi extends Component {
   getProducts() {
     console.log("getproducts called");
     axios
-      .get(
-        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=lipstick"
-      )
+      .get("http://makeup-api.herokuapp.com/api/v1/products.json?")
       .then((response) => {
         return response.data.map((product) => ({
-          name: `${product.name}`,
+          price: `${product.price}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
           )}`,
@@ -62,17 +60,17 @@ class createLookApi extends Component {
         <div>
           {!isLoading ? (
             products.map((product) => {
-              const { name, colors } = product;
+              const { price, colors } = product;
               return (
                 <div>
-                  <p>Product Name:{name}</p>
-                  <p>Product Color:{colors}</p>
+                  <p>Product price: {price}</p>
+                  <p>Product Color: {colors}</p>
                   <hr />
                 </div>
               );
             })
           ) : (
-            <p>Loading...</p>
+            <p>Click to See Selection</p>
           )}
         </div>
       </Grid>
