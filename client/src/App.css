@@ -36,3 +36,11 @@
     transform: rotate(360deg);
   }
 }
+
+/* .svg-container {
+  color: black;
+} */
+
+.avatar_makeup_base_svg__cls-4 {
+  fill: black;
+}
