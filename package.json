@@ -24,8 +24,16 @@
   },
   "homepage": "https://github.com/kristycode/PRITY#readme",
   "dependencies": {
+    "@svgr/webpack": "^5.4.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.9.19"
+    "mongoose": "^5.9.19",
+    "react-inlinesvg": "^2.0.0",
+    "react-mdl": "^2.1.0",
+    "react-spring": "^8.0.27",
+    "styled-components": "^5.1.1"
+  },
+  "devDependencies": {
+    "@svgr/cli": "^5.4.0"
   }
 }
