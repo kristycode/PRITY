@@ -1,6 +1,6 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import Base from '../SvgAvatarMakeupBase'
+import Base from './SVG/SvgAvatarMakeupBase'
 
 const StyledBase = styled(Base)`
   width: 500px;

@@ -1,4 +1,5 @@
 # Logs
+/routes/index.js
 logs
 *.log
 npm-debug.log*
@@ -102,3 +103,6 @@ dist
 
 # TernJS port file
 .tern-port
+
+# vscode color theme
+.vscode/
