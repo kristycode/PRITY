@@ -7,8 +7,9 @@ import "./App.css";
 // import { Link } from 'react-router-dom';
 import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
-import Body from "./components/Body/index.jsx";
-import CreateLook from "./components/createLook";
+// import Body from "./components/Body/index.jsx";
+// import CreateLook from "./components/createLook";
+import Main from "./components/main";
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
         <Grid item container>
           <Grid item xs={0} sm={2} />
           <Grid item xs={12} sm={8}>
-            <Route exact path="/" component={Body} />
-            <Route exact path="/createlook" component={CreateLook} />
+            <Main/>
+            {/* <Route exact path="/" component={Body} />
+            <Route exact path="/createlook" component={CreateLook} /> */}
           </Grid>
         </Grid>
       </Grid>
