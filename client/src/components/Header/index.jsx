@@ -36,6 +36,14 @@ const Header = () => {
         >
           Create Look!
         </Button>
+        <Button
+          variant="contained"
+          color="secondary"
+          className={classes.buttonStyles}
+          onClick={(event) => (window.location.href = "/avatarTestingPage")}
+        >
+          Avatar Testing Page!
+        </Button>
       </Toolbar>
     </AppBar>
   );
