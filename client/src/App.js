@@ -9,7 +9,6 @@ import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
 // import Body from "./components/Body/index.jsx";
 // import CreateLook from "./components/createLook";
-import Main from "./components/main";
 
 function App() {
   return (

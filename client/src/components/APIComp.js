@@ -47,13 +47,15 @@ class APIComponent extends React.Component {
       const litag = [];
 
       for (const [index, value] of items.entries()){
-        litag.push(
-        <Grid item xs={3} key={index}>
-          <h3>{value.name}</h3>
-          <h5> by {value.brand}</h5>
-          <img src={value.image_link} height="60px" width="60px"/>
-          <p>{value.colour_name}</p>
-        </Grid>)
+        while (index<10){
+          litag.push(
+          <Grid item xs={3} key={index}>
+            <h3>{value.name}</h3>
+            <h5> by {value.brand}</h5>
+            <img src={value.image_link} height="60px" width="60px"/>
+            <p>{value.colour_name}</p>
+          </Grid>)
+        }
       }
       
       return (
