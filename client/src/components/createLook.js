@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Grid, Button, Paper } from "@material-ui/core";
-import { makeStyles } from "@material-ui/core/styles";
+import { Grid, Button, Paper, Chip } from "@material-ui/core";
+// import { makeStyles } from "@material-ui/core/styles";
 
 class createLookApi extends Component {
   state = {
@@ -61,15 +61,11 @@ class createLookApi extends Component {
           {!isLoading ? (
             products.map((product) => {
               const { name, colors, hexValue } = product;
-              const hexPaper = hexValue.split(",").map((singleColor) => {
+              const hexChip = hexValue.split(",").map((singleColor) => {
                 const singleSwatch = {
                   backgroundColor: singleColor,
                 };
-                return (
-                  <Paper elevation={3} style={singleSwatch}>
-                    testing
-                  </Paper>
-                );
+                return <Chip style={singleSwatch}>testing</Chip>;
               });
 
               return (
@@ -79,16 +75,15 @@ class createLookApi extends Component {
                       <strong>Product Name: </strong>
                       {name}
                     </p>
-                  </Grid>
-                  <Grid item>
                     <p>
                       <strong>Product Color: </strong>
                       {colors}
                     </p>
-                  </Grid>
-                  <Grid item>
-                    {hexPaper}
-                    {/* <hr /> */}
+                    <p>
+                      <strong>Palette: </strong>
+                      {hexChip}
+                    </p>
+                    <hr />
                   </Grid>
                 </Grid>
               );
