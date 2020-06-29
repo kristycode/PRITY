@@ -61,25 +61,35 @@ class createLookApi extends Component {
           {!isLoading ? (
             products.map((product) => {
               const { name, colors, hexValue } = product;
-              const colorSwatch = {
-                backgroundColor: hexValue,
-              };
-              const hexPaper = [];
-              for (var i = 0; i < hexValue.length; i++) {
-                hexPaper.push(<Paper style={colorSwatch}></Paper>);
-              }
+              const hexPaper = hexValue.split(",").map((singleColor) => {
+                const singleSwatch = {
+                  backgroundColor: singleColor,
+                };
+                return (
+                  <Paper elevation={3} style={singleSwatch}>
+                    testing
+                  </Paper>
+                );
+              });
+
               return (
                 <Grid container>
-                  <p>
-                    <strong>Product Name: </strong>
-                    {name}
-                  </p>
-                  <p>
-                    <strong>Product Color: </strong>
-                    {colors}
-                  </p>
-                  {hexPaper}
-                  <hr />
+                  <Grid item>
+                    <p>
+                      <strong>Product Name: </strong>
+                      {name}
+                    </p>
+                  </Grid>
+                  <Grid item>
+                    <p>
+                      <strong>Product Color: </strong>
+                      {colors}
+                    </p>
+                  </Grid>
+                  <Grid item>
+                    {hexPaper}
+                    {/* <hr /> */}
+                  </Grid>
                 </Grid>
               );
             })

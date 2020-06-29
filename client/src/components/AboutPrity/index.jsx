@@ -19,9 +19,9 @@ export default function SimplePaper() {
   const classes = useStyles();
 
   // ***just experimenting with styling paper components
-  // const paperStyle = {
-  //   backgroundColor: "green",
-  // };
+  const paperStyle = {
+    backgroundColor: "green",
+  };
 
   return (
     <Grid conatainer spacing={2}>
@@ -30,7 +30,9 @@ export default function SimplePaper() {
       </Grid>
       <Grid item xs={12}>
         <div className={classes.root}>
-          <Paper elevation={3}>Words</Paper>
+          <Paper elevation={3} style={paperStyle}>
+            Words
+          </Paper>
           <Paper elevation={3}>Go</Paper>
           <Paper elevation={3}>Here</Paper>
         </div>
