@@ -18,8 +18,13 @@ const useStyles = makeStyles((theme) => ({
 export default function SimplePaper() {
   const classes = useStyles();
 
+  // ***just experimenting with styling paper components
+  // const paperStyle = {
+  //   backgroundColor: "green",
+  // };
+
   return (
-    <Grid conatainer spaceing={2}>
+    <Grid conatainer spacing={2}>
       <Grid item>
         <h1>Enhance Your Beauty with PRITY...</h1>
       </Grid>
