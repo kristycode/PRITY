@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Grid, Button } from "@material-ui/core";
+import { Grid, Button, Paper } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
 
 class createLookApi extends Component {
   state = {
@@ -8,20 +9,19 @@ class createLookApi extends Component {
     isLoading: true,
   };
 
-  // componentDidMount() {
-  //   this.getProducts();
-  // }
-
   getProducts() {
     console.log("getproducts called");
     axios
-      .get("http://makeup-api.herokuapp.com/api/v1/products.json?")
+      .get(
+        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=lipstick"
+      )
       .then((response) => {
         return response.data.map((product) => ({
-          price: `${product.price}`,
+          name: `${product.name}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
           )}`,
+          hexValue: `${product.product_colors.map((hex) => hex.hex_value)}`,
         }));
       })
       // Let's make sure to change the loading state to display the data
@@ -44,7 +44,7 @@ class createLookApi extends Component {
       );
   }
 
-  render(props) {
+  render() {
     const { products, isLoading } = this.state;
 
     return (
@@ -60,13 +60,27 @@ class createLookApi extends Component {
         <div>
           {!isLoading ? (
             products.map((product) => {
-              const { price, colors } = product;
+              const { name, colors, hexValue } = product;
+              const colorSwatch = {
+                backgroundColor: hexValue,
+              };
+              const hexPaper = [];
+              for (var i = 0; i < hexValue.length; i++) {
+                hexPaper.push(<Paper style={colorSwatch}></Paper>);
+              }
               return (
-                <div>
-                  <p>Product price: {price}</p>
-                  <p>Product Color: {colors}</p>
+                <Grid container>
+                  <p>
+                    <strong>Product Name: </strong>
+                    {name}
+                  </p>
+                  <p>
+                    <strong>Product Color: </strong>
+                    {colors}
+                  </p>
+                  {hexPaper}
                   <hr />
-                </div>
+                </Grid>
               );
             })
           ) : (
