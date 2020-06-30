@@ -2,12 +2,11 @@ import React from "react";
 import { Switch, Route } from "react-router-dom";
 
 // import SearchLook from './searchLook';
-import SearchProd from './searchProd';
-import Body from './Body/index';
-import APIComponent from './APIComp';
+import SearchProd from "./searchProd";
+import Body from "./Body/index";
+import APIComponent from "./APIComp";
 import CreateLookApi from "./createLook";
-import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage"
-
+import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
 
 const Main = () => (
   <Switch>
@@ -16,8 +15,9 @@ const Main = () => (
     <Route path="/searchProd" component={SearchProd} />
     <Route exact path="/createlook" component={CreateLookApi} />
     <Route path="/APIComp" component={APIComponent} />
-    <Route path="/avatarTestingPage" component={AvatarTestingPage} />
-
+    <Route path="/avatarTestingPage">
+      <AvatarTestingPage eyes="blue" blush="orange" />
+    </Route>
   </Switch>
 );
 
