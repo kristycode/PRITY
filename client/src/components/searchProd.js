@@ -9,9 +9,6 @@ import FormGroup from '@material-ui/core/FormGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import APIComponent from './APIComp';
-// import RadioGroup from '@material-ui/core/RadioGroup';
-// import Radio from '@material-ui/core/Radio';
-//import Paper from '@material-ui/core/Paper';
 
 const PrettoSlider = withStyles({
     root: {
@@ -66,6 +63,21 @@ const SearchProd = () => {
         setBrand(event.target.value);
     }
 
+    // const selectionprod = [];
+
+    // const switchRender = (selection)=>{
+    //     switch(selection){
+    //         case "product":
+    //             selectionprod.push(
+    //                 <Grid><h3>hello</h3></Grid>
+    //             );
+    //         default:
+    //             selectionprod.push(
+    //                 <APIComponent></APIComponent>
+    //             );
+    //     }
+    // }
+
     const brands = [ "almay", "alva", "anna sui", "annabelle", "benefit", "boosh", "burt's bees", "butter london",
         "c'est moi", "cargo cosmetics", "china glaze", "clinique", "coastal classic creation", "colourpop", 
         "covergirl", "dalish", "deciem", "dior", "dr. hauschka", "e.l.f.", "essie", "fenty", "glossier", 
@@ -79,69 +91,6 @@ const SearchProd = () => {
 
     const prodname = ["blush","bronzer","eyebrow", "eyeliner","eyeshadow", "foundation","lipliner", "lipstick", "mascara", "nail polish"];
 
-
-    // const products = [
-    //     {
-    //         blush: {
-    //             name: "blush",
-    //             categories: ["cream", "powder"]
-    //         }
-    //     },
-    //     {
-    //         bronzer: {
-    //             name: "bronzer",
-    //             categories: [ "powder" ]
-    //         }
-    //     },
-    //     {
-    //         eyebrow: {
-    //             name: "eyebrow",
-    //             categories: [ "pencil"]
-    //         }
-    //     },
-    //     {
-    //         eyeliner: {
-    //             name: "eyeliner",
-    //             categories: ["liquid", "pencil", "gel", "cream"]
-    //         }
-    //     },
-    //     {
-    //         eyeshadow: {
-    //             name: "eyeshadow",
-    //             categories: ["palette", "pencil", "cream"]
-    //         }
-    //     },
-    //     {
-    //         foundation: {
-    //             name: "foundation",
-    //             categories: ["liquid", "contour", "bb cc", "concealer", "cream", "mineral", "powder", "highlighter"]
-    //         }
-    //     },
-    //     {
-    //         lipliner: {
-    //             name: "lipliner",
-    //             categories: [ "pencil" ]
-    //         }
-    //     },
-    //     {
-    //         lipstick: {
-    //             name: "lipstick",
-    //             categories: ["lipstick", "liquid", "lip gloss","lip stain"]
-    //         }
-    //     },
-    //     {
-    //         mascara: {
-    //             name: "mascara",
-    //             categories: []
-    //         }
-    //     },
-    //     {
-    //         nailpolish: {
-    //             name: "nail polish",
-    //             categories: []
-    //         }
-    //     }
-    // ];
     
     const menui = [];
     const coloritems = [];

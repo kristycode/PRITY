@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Button } from '@material-ui/core';
 
-class APIComponent extends React.Component {
+class APICompBlush extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -13,7 +13,7 @@ class APIComponent extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://makeup-api.herokuapp.com/api/v1/products.json?")
+    fetch("https://makeup-api.herokuapp.com/api/v1/products.json?product_type=blush")
       .then((res) => res.json())
       .then(
         (result) => {
@@ -66,4 +66,4 @@ class APIComponent extends React.Component {
   }
 }
 
-export default APIComponent;
+export default APICompBlush;
