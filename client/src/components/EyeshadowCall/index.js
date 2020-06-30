@@ -1,9 +1,13 @@
 import React, { Component } from "react";
+import Radio from "@material-ui/core/Radio";
+import RadioGroup from "@material-ui/core/RadioGroup";
+import FormControlLabel from "@material-ui/core/FormControlLabel";
+import FormControl from "@material-ui/core/FormControl";
+import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Button, Chip } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/core/styles";
 
-class createLookApi extends Component {
+class ProductTab extends Component {
   state = {
     products: [],
     isLoading: true,
@@ -13,11 +17,10 @@ class createLookApi extends Component {
     console.log("getproducts called");
     axios
       .get(
-        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=covergirl&product_type=eyeshadow"
+        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=almay&product_type=eyeshadow"
       )
       .then((response) => {
         return response.data.map((product) => ({
-          name: `${product.name}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
           )}`,
@@ -50,17 +53,17 @@ class createLookApi extends Component {
     return (
       <Grid container>
         <h1>Product Results</h1>
-        <Button
+        {/* <Button
           variant="contained"
           color="default"
           onClick={() => this.getProducts()}
         >
           CALL API
-        </Button>
+        </Button> */}
         <div>
           {!isLoading ? (
             products.map((product) => {
-              const { name, colors, hexValue } = product;
+              const { colors, hexValue } = product;
               const hexChip = hexValue.split(",").map((singleColor) => {
                 const singleSwatch = {
                   backgroundColor: singleColor,
@@ -71,10 +74,6 @@ class createLookApi extends Component {
               return (
                 <Grid container>
                   <Grid item>
-                    <p>
-                      <strong>Product Name: </strong>
-                      {name}
-                    </p>
                     <p>
                       <strong>Product Color: </strong>
                       {colors}
@@ -97,4 +96,31 @@ class createLookApi extends Component {
   }
 }
 
-export default createLookApi;
+export default function EyeshadowCall() {
+  const [value, setValue] = React.useState("female");
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+
+  return (
+    <FormControl component="fieldset">
+      <FormLabel component="legend">Select Brand</FormLabel>
+      <RadioGroup
+        aria-label="brand"
+        name="eyeshadow brands"
+        value={value}
+        onChange={handleChange}
+      >
+        <FormControlLabel
+          onClick={() => getProducts()}
+          value="Almay"
+          control={<Radio />}
+          label="Almay"
+        />
+        <FormControlLabel value="Boosh" control={<Radio />} label="Boosh" />
+        <FormControlLabel value="Nyx" control={<Radio />} label="Nyx" />
+      </RadioGroup>
+    </FormControl>
+  );
+}
