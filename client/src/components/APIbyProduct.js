@@ -1,73 +1,101 @@
-import React from 'react';
-import { Grid, Button } from '@material-ui/core';
-const prodtype;
+import React, { Component } from "react";
+import axios from "axios";
+import { Grid, Button, Chip } from "@material-ui/core";
+// import { makeStyles } from "@material-ui/core/styles";
 
-class APIComponent extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      count: 0,
-      error: null,
-      isLoaded: false,
-      items: []
-    };
-  }
+class ApiByProd extends Component {
+  state = {
+    products: [],
+    isLoading: true,
+  };
 
-  componentDidMount() {
-    fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${prodtype}`)
-      .then(res => res.json())
-      .then(
-        (result) => {
-          console.log(JSON.stringify(result[0]));
-          this.setState({
-            isLoaded: true,
-            items: result
-          });
-        },
-        // Note: it's important to handle errors here
-        // instead of a catch() block so that we don't swallow
-        // exceptions from actual bugs in components.
-        (error) => {
-          this.setState({
-            isLoaded: true,
-            error
-          });
-        }
+  getProducts() {
+    const selProduct;
+    console.log("getproducts called");
+    axios
+      .get(
+        `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=${selProduct}`
       )
+      .then((response) => {
+        return response.data.map((product) => ({
+          name: `${product.name}`,
+          colors: `${product.product_colors.map(
+            (colour) => colour.colour_name
+          )}`,
+          hexValue: `${product.product_colors.map((hex) => hex.hex_value)}`,
+        }));
+      })
+      // Let's make sure to change the loading state to display the data
+      .then((products) => {
+        this.setState(
+          {
+            products,
+            isLoading: false,
+          },
+          () => {
+            console.log(this.state);
+          }
+        );
+      })
+      // We can still use the `.catch()` method since axios is promise-based
+      .catch((error) =>
+        this.setState({ error, isLoading: false }, () => {
+          console.log(this.state);
+        })
+      );
   }
-
 
   render() {
+    const { products, isLoading } = this.state;
 
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
+    return (
+      <Grid container>
+        <h1>Product Results</h1>
+        <Button
+          variant="contained"
+          color="default"
+          onClick={() => this.getProducts()}
+        >
+          CALL API
+        </Button>
+        <div>
+          {!isLoading ? (
+            products.map((product) => {
+              const { name, colors, hexValue } = product;
+              const hexChip = hexValue.split(",").map((singleColor) => {
+                const singleSwatch = {
+                  backgroundColor: singleColor,
+                };
+                return <Chip style={singleSwatch}>testing</Chip>;
+              });
 
-      const litag = [];
-
-      for (const [index, value] of items.entries()){
-        if (index<this.state.count){
-          litag.push(
-          <Grid item xs={3} key={index}>
-            <h3>{value.name}</h3>
-            <h5> by {value.brand}</h5>
-            <img src={value.image_link} height="60px" width="60px"/>
-            <p>{value.colour_name}</p>
-          </Grid>)
-        }
-      }
-      
-      return (
-        <Grid container xs={9}>
-          {litag}
-          <Button onClick={()=>this.setState({count:this.state.count+20})}>Load More</Button>
-        </Grid>
-      );
-    }
+              return (
+                <Grid container>
+                  <Grid item>
+                    <p>
+                      <strong>Product Name: </strong>
+                      {name}
+                    </p>
+                    <p>
+                      <strong>Product Color: </strong>
+                      {colors}
+                    </p>
+                    <p>
+                      <strong>Palette: </strong>
+                      {hexChip}
+                    </p>
+                    <hr />
+                  </Grid>
+                </Grid>
+              );
+            })
+          ) : (
+            <p>Click to See Selection</p>
+          )}
+        </div>
+      </Grid>
+    );
   }
 }
 
-  export default APIComponent;
+export default ApiByProd;
