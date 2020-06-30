@@ -63,6 +63,21 @@ const SearchProd = () => {
         setBrand(event.target.value);
     }
 
+    // const selectionprod = [];
+
+    // const switchRender = (selection)=>{
+    //     switch(selection){
+    //         case "product":
+    //             selectionprod.push(
+    //                 <Grid><h3>hello</h3></Grid>
+    //             );
+    //         default:
+    //             selectionprod.push(
+    //                 <APIComponent></APIComponent>
+    //             );
+    //     }
+    // }
+
     const brands = [ "almay", "alva", "anna sui", "annabelle", "benefit", "boosh", "burt's bees", "butter london",
         "c'est moi", "cargo cosmetics", "china glaze", "clinique", "coastal classic creation", "colourpop", 
         "covergirl", "dalish", "deciem", "dior", "dr. hauschka", "e.l.f.", "essie", "fenty", "glossier", 

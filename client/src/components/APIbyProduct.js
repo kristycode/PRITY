@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Button } from '@material-ui/core';
+const prodtype;
 
 class APIComponent extends React.Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class APIComponent extends React.Component {
   }
 
   componentDidMount() {
-    fetch("https://makeup-api.herokuapp.com/api/v1/products.json?")
+    fetch(`https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${prodtype}`)
       .then(res => res.json())
       .then(
         (result) => {
