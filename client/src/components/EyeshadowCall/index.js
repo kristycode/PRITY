@@ -7,20 +7,24 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Button, Chip } from "@material-ui/core";
 
-class ProductTab extends Component {
-  state = {
+export default function EyeshadowCall() {
+  const [value, setValue] = React.useState("female");
+  const [apiState, setApiState] = React.useState({
     products: [],
     isLoading: true,
+  });
+  const handleChange = (event) => {
+    setValue(event.target.value);
   };
 
-  getProducts() {
+  const getProducts = (brand) => {
+    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeshadow`;
     console.log("getproducts called");
     axios
-      .get(
-        "http://makeup-api.herokuapp.com/api/v1/products.json?brand=almay&product_type=eyeshadow"
-      )
+      .get(makeupURL)
       .then((response) => {
         return response.data.map((product) => ({
+          name: `${product.name}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
           )}`,
@@ -29,15 +33,10 @@ class ProductTab extends Component {
       })
       // Let's make sure to change the loading state to display the data
       .then((products) => {
-        this.setState(
-          {
-            products,
-            isLoading: false,
-          },
-          () => {
-            console.log(this.state);
-          }
-        );
+        setApiState({
+          products,
+          isLoading: false,
+        });
       })
       // We can still use the `.catch()` method since axios is promise-based
       .catch((error) =>
@@ -45,62 +44,6 @@ class ProductTab extends Component {
           console.log(this.state);
         })
       );
-  }
-
-  render() {
-    const { products, isLoading } = this.state;
-
-    return (
-      <Grid container>
-        <h1>Product Results</h1>
-        {/* <Button
-          variant="contained"
-          color="default"
-          onClick={() => this.getProducts()}
-        >
-          CALL API
-        </Button> */}
-        <div>
-          {!isLoading ? (
-            products.map((product) => {
-              const { colors, hexValue } = product;
-              const hexChip = hexValue.split(",").map((singleColor) => {
-                const singleSwatch = {
-                  backgroundColor: singleColor,
-                };
-                return <Chip style={singleSwatch}>testing</Chip>;
-              });
-
-              return (
-                <Grid container>
-                  <Grid item>
-                    <p>
-                      <strong>Product Color: </strong>
-                      {colors}
-                    </p>
-                    <p>
-                      <strong>Palette: </strong>
-                      {hexChip}
-                    </p>
-                    <hr />
-                  </Grid>
-                </Grid>
-              );
-            })
-          ) : (
-            <p>Click to See Selection</p>
-          )}
-        </div>
-      </Grid>
-    );
-  }
-}
-
-export default function EyeshadowCall() {
-  const [value, setValue] = React.useState("female");
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
   };
 
   return (
@@ -113,7 +56,7 @@ export default function EyeshadowCall() {
         onChange={handleChange}
       >
         <FormControlLabel
-          onClick={() => getProducts()}
+          onClick={() => getProducts("almay")}
           value="Almay"
           control={<Radio />}
           label="Almay"
