@@ -28,6 +28,5 @@ captureColor = (req, res) => {
 };
 
 module.exports = {
-  captureColor
- 
+  captureColor,
 };

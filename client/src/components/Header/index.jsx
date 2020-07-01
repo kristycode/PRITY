@@ -17,8 +17,8 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography className={classes.typographyStyles}>
-          <h1 onClick={() => (window.location.href = "/")}>PRITY</h1>
+        <Typography variant="h3" className={classes.typographyStyles}>
+          <span onClick={() => (window.location.href = "/")}>PRITY</span>
         </Typography>
         <Button
           variant="contained"

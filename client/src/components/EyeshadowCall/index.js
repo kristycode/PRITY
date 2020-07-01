@@ -25,6 +25,10 @@ export default function EyeshadowCall() {
     margin: 10,
   };
 
+  const handleChip = () => {
+    console.log("chip clicked!");
+  };
+
   const getProducts = (brand) => {
     const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeshadow`;
     console.log("getproducts called");
@@ -102,17 +106,16 @@ export default function EyeshadowCall() {
             };
             return (
               <Chip
+                value={singleSwatch}
                 style={singleSwatch}
-                onClick={() => console.log(singleSwatch)}
+                onClick={() => handleChip()}
               />
             );
           });
 
           return (
             <Grid item xs={3}>
-              <p style={chipBackground} key={product.id}>
-                {hexChip}
-              </p>
+              <p style={chipBackground}>{hexChip}</p>
               <p>
                 <strong>{product.name}</strong>
               </p>

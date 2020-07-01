@@ -24,7 +24,7 @@ export default function SimplePaper() {
   // };
 
   return (
-    <Grid conatainer spacing={2}>
+    <Grid container spacing={2}>
       <Grid item>
         <h1>Enhance Your Beauty with PRITY...</h1>
       </Grid>
