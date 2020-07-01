@@ -1,6 +1,6 @@
 import React from "react";
 import { Tabs, Tab } from "@material-ui/core";
-import CreateLookApi from "../createLook";
+// import CreateLookApi from "../createLook";
 import EyeshadowCall from "../EyeshadowCall";
 
 const LookTabs = () => {

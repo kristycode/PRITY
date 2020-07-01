@@ -1,5 +1,5 @@
-import React from 'react';
-import { Grid, Button } from '@material-ui/core';
+import React from "react";
+import { Grid, Button } from "@material-ui/core";
 
 class APIComponent extends React.Component {
   constructor(props) {
@@ -44,22 +44,32 @@ class APIComponent extends React.Component {
     } else {
       const litag = [];
 
-      for (const [index, value] of items.entries()){
-        if (index<this.state.count){
+      for (const [index, value] of items.entries()) {
+        if (index < this.state.count) {
           litag.push(
-          <Grid item xs={3} key={index}>
-            <h3>{value.name}</h3>
-            <h5> by {value.brand}</h5>
-            <img src={value.image_link} height="60px" width="60px"/>
-            <p>{value.colour_name}</p>
-          </Grid>)
+            <Grid item xs={3} key={index}>
+              <h3>{value.name}</h3>
+              <h5> by {value.brand}</h5>
+              <img
+                src={value.image_link}
+                height="60px"
+                width="60px"
+                alt="product"
+              />
+              <p>{value.colour_name}</p>
+            </Grid>
+          );
         }
       }
 
       return (
         <Grid container xs={9}>
           {litag}
-          <Button onClick={()=>this.setState({count:this.state.count+20})}>Load More</Button>
+          <Button
+            onClick={() => this.setState({ count: this.state.count + 20 })}
+          >
+            Load More
+          </Button>
         </Grid>
       );
     }

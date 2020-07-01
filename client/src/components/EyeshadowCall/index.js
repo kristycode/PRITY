@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
-import { Grid, Button, Chip } from "@material-ui/core";
+import { Grid, Chip } from "@material-ui/core";
 
 export default function EyeshadowCall() {
   const [value, setValue] = React.useState("female");
@@ -32,6 +32,11 @@ export default function EyeshadowCall() {
       .get(makeupURL)
       .then((response) => {
         return response.data.map((product) => ({
+          id: `${product.id}`,
+          name: `${product.name}`,
+          colors: `${product.product_colors.map(
+            (colour) => colour.colour_name
+          )}`,
           hexValue: `${product.product_colors.map((hex) => hex.hex_value)}`,
         }));
       })
@@ -69,10 +74,10 @@ export default function EyeshadowCall() {
             label="Rejuva Minerals"
           />
           <FormControlLabel
-            onClick={() => getProducts("covergirl")}
-            value="Covergirl"
+            onClick={() => getProducts("smashbox")}
+            value="Smashbox"
             control={<Radio />}
-            label="Covergirl"
+            label="Smashbox"
           />
           <FormControlLabel
             onClick={() => getProducts("nyx")}
@@ -95,13 +100,21 @@ export default function EyeshadowCall() {
             const singleSwatch = {
               backgroundColor: singleColor,
             };
-            return <Chip style={singleSwatch} />;
+            return (
+              <Chip
+                style={singleSwatch}
+                onClick={() => console.log(singleSwatch)}
+              />
+            );
           });
 
           return (
             <Grid item xs={3}>
-              <p style={chipBackground} key={product.hexValue}>
+              <p style={chipBackground} key={product.id}>
                 {hexChip}
+              </p>
+              <p>
+                <strong>{product.name}</strong>
               </p>
             </Grid>
           );
