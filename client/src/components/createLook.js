@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Grid, Button, Chip } from "@material-ui/core";
-// import { makeStyles } from "@material-ui/core/styles";
 
 class createLookApi extends Component {
   state = {
