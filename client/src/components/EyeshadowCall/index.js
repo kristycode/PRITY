@@ -5,7 +5,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
-import { Grid, Chip } from "@material-ui/core";
+import { Grid, Chip, Typography } from "@material-ui/core";
 
 export default function EyeshadowCall() {
   const [value, setValue] = React.useState("female");
@@ -115,15 +115,13 @@ export default function EyeshadowCall() {
 
           return (
             <Grid item xs={3}>
-              <p style={chipBackground}>{hexChip}</p>
-              <p>
-                <strong>{product.name}</strong>
-              </p>
+              <div style={chipBackground}>{hexChip}</div>
+              <Typography variant="subtitle1">{product.name}</Typography>
             </Grid>
           );
         })
       ) : (
-        <p></p>
+        <span></span>
       )}
     </Grid>
   );
