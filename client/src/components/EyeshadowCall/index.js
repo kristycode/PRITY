@@ -18,6 +18,13 @@ export default function EyeshadowCall() {
     setValue(event.target.value);
   };
 
+  const chipBackground = {
+    backgroundColor: "black",
+    padding: 10,
+    borderRadius: 10,
+    margin: 10,
+  };
+
   const getProducts = (brand) => {
     const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeshadow`;
     console.log("getproducts called");
@@ -25,9 +32,6 @@ export default function EyeshadowCall() {
       .get(makeupURL)
       .then((response) => {
         return response.data.map((product) => ({
-          colors: `${product.product_colors.map(
-            (colour) => colour.colour_name
-          )}`,
           hexValue: `${product.product_colors.map((hex) => hex.hex_value)}`,
         }));
       })
@@ -49,7 +53,7 @@ export default function EyeshadowCall() {
   };
 
   return (
-    <div>
+    <Grid container direction="row" justify="flex-start" alignItems="center">
       <FormControl component="fieldset">
         <FormLabel component="legend">Select Brand</FormLabel>
         <RadioGroup
@@ -59,10 +63,10 @@ export default function EyeshadowCall() {
           onChange={handleChange}
         >
           <FormControlLabel
-            onClick={() => getProducts("almay")}
-            value="Almay"
+            onClick={() => getProducts("rejuva%20minerals")}
+            value="Rejuva Minerals"
             control={<Radio />}
-            label="Almay"
+            label="Rejuva Minerals"
           />
           <FormControlLabel
             onClick={() => getProducts("covergirl")}
@@ -76,37 +80,35 @@ export default function EyeshadowCall() {
             control={<Radio />}
             label="Nyx"
           />
+          <FormControlLabel
+            onClick={() => getProducts("marienatie")}
+            value="Marienatie"
+            control={<Radio />}
+            label="Marienatie"
+          />
         </RadioGroup>
       </FormControl>
       {!apiState.isLoading ? (
         apiState.products.map((product) => {
-          const { name, colors, hexValue } = product;
+          const { hexValue } = product;
           const hexChip = hexValue.split(",").map((singleColor) => {
             const singleSwatch = {
               backgroundColor: singleColor,
             };
-            return <Chip style={singleSwatch}>testing</Chip>;
+            return <Chip style={singleSwatch} />;
           });
 
           return (
-            <Grid container>
-              <Grid item>
-                <p>
-                  <strong>Product Color: </strong>
-                  {colors}
-                </p>
-                <p>
-                  <strong>Palette: </strong>
-                  {hexChip}
-                </p>
-                <hr />
-              </Grid>
+            <Grid item xs={3}>
+              <p style={chipBackground} key={product.hexValue}>
+                {hexChip}
+              </p>
             </Grid>
           );
         })
       ) : (
-        <p>Click to See Selection</p>
+        <p></p>
       )}
-    </div>
+    </Grid>
   );
 }
