@@ -10,6 +10,8 @@ export const getUserById = id => api.get(`/user/${id}`);
 export const insertLook = payload => api.post(`/look`, payload);
 export const getAllLooks = () => api.get(`/looks`);
 export const getLookById = id => api.get(`/look/${id}`);
+export const getAllColors = () => api.get(`colors`);
+export const insertColor = payload => api.post(`/color`, payload);
 
 const apis = {
     insertUser,
@@ -17,7 +19,9 @@ const apis = {
     getUserById,
     insertLook,
     getAllLooks,
-    getLookById
+    getLookById,
+    insertColor,
+    getAllColors
 }
 
 export default apis;
