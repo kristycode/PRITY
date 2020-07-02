@@ -6,8 +6,9 @@ import SearchProd from "./searchProd";
 import SelectProd from "./selectProducts";
 import Body from "./Body/index";
 import APIComponent from "./APIComp";
-import CreateLookApi from "./createLook";
+// import CreateLookApi from "./createLook";
 import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
+import LookTabs from "./NewCreateLook";
 
 const Main = () => (
   <Switch>
@@ -15,7 +16,8 @@ const Main = () => (
     {/* <Route path="/searchLook" component={SearchLook} /> */}
     <Route path="/searchProd" component={SearchProd} />
     <Route path="/selectProd" component={SelectProd} />
-    <Route exact path="/createlook" component={CreateLookApi} />
+    {/* <Route exact path="/createlook" component={CreateLookApi} /> */}
+    <Route path="/looktabs" component={LookTabs} />
     <Route path="/APIComp" component={APIComponent} />
     <Route path="/avatarTestingPage">
       <AvatarTestingPage eyes="blue" blush="orange" />

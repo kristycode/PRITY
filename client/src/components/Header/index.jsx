@@ -36,11 +36,12 @@ const Header = () => {
         >
           Select Products
         </Button>
+        {/* temporarily using below button to render vertical tabs */}
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={(event) => (window.location.href = "/createLook")}
+          onClick={(event) => (window.location.href = "/looktabs")}
         >
           Create Look!
         </Button>
