@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../utils/api";
+import API from "../../utils/API";
 
 export default function EyeshadowCall() {
   const [value, setValue] = React.useState("female");
@@ -15,7 +15,7 @@ export default function EyeshadowCall() {
     isLoading: true,
   });
   const [chipObj, setChipObj] = React.useState([]);
-console.log(chipObj)
+  console.log(chipObj);
   const handleChange = (event) => {
     setValue(event.target.value);
   };
@@ -32,14 +32,18 @@ console.log(chipObj)
     console.log(product.productType);
     console.log(color);
 
-   setChipObj(value =>{
-      return  [...value, {
-     hexColor: color.backgroundColor,
-     productType: product.productType,
-     name: product.name,
-     brand: product.brandName, 
-     color_name: color.colorName
-   }]}); 
+    setChipObj((value) => {
+      return [
+        ...value,
+        {
+          hexColor: color.backgroundColor,
+          productType: product.productType,
+          name: product.name,
+          brand: product.brandName,
+          color_name: color.colorName,
+        },
+      ];
+    });
 
     // API.insertColor({
     //   hexColor: this.value,
@@ -62,7 +66,7 @@ console.log(chipObj)
           )}`,
           hexValue: `${product.product_colors.map((hex) => hex.hex_value)}`,
           productType: `${product.product_type}`,
-          brandName: `${product.brand}`
+          brandName: `${product.brand}`,
         }));
       })
       // Let's make sure to change the loading state to display the data
@@ -120,16 +124,16 @@ console.log(chipObj)
       </FormControl>
       {!apiState.isLoading ? (
         apiState.products.map((product) => {
-          const arr = []
-         // const hexValue = []
+          const arr = [];
+          // const hexValue = []
           const { hexValue, colors } = product;
-          const colorName = colors.split(',').map(e => arr.push(e))
-         // console.log(arr)
+          const colorName = colors.split(",").map((e) => arr.push(e));
+          // console.log(arr)
           const hexChip = hexValue.split(",").map((singleColor, index) => {
-           const findColorName = arr.find((e, i) => i === index)
+            const findColorName = arr.find((e, i) => i === index);
             const singleSwatch = {
               backgroundColor: singleColor,
-              colorName: findColorName
+              colorName: findColorName,
             };
             return (
               <Chip
