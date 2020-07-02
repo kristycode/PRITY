@@ -5,6 +5,7 @@ const Color = new Schema(
   {
     hexColor: { type: String, required: true },
     productType: { type: String, required: true },
+    productName: { type: String, required: true },
   },
   { timestamps: true }
 );

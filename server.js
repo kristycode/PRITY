@@ -4,6 +4,7 @@ const express = require("express");
 const routes = require("./routes/user-route");
 const routes2 = require("./routes/look-route");
 const routes3 = require("./routes/avatar-route");
+const routes4 = require("./routes/beautyBag-routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
@@ -18,6 +19,7 @@ if (process.env.NODE_ENV === "production") {
 app.use('/api', routes);
 app.use('/api', routes2);
 app.use('/api', routes3);
+app.use('/api', routes4);
 
 const db = require('./client/src/db');
 
