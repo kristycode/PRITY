@@ -1,5 +1,6 @@
 import React from "react";
-import styled, { css } from "styled-components";
+//--- removing { css } from line 3 because React says it is not being used
+import styled from "styled-components";
 import Base from "./SVG/SvgAvatarMakeupBase";
 
 function AvatarTestingPage(props) {

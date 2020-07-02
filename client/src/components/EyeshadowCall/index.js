@@ -1,11 +1,11 @@
-import React, { Component } from "react";
+import React from "react";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
-import { Grid, Button, Chip } from "@material-ui/core";
+import { Grid, Chip, Typography } from "@material-ui/core";
 
 export default function EyeshadowCall() {
   const [value, setValue] = React.useState("female");
@@ -18,6 +18,17 @@ export default function EyeshadowCall() {
     setValue(event.target.value);
   };
 
+  const chipBackground = {
+    backgroundColor: "black",
+    padding: 10,
+    borderRadius: 10,
+    margin: 10,
+  };
+
+  const handleChip = () => {
+    console.log("chip clicked!");
+  };
+
   const getProducts = (brand) => {
     const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeshadow`;
     console.log("getproducts called");
@@ -25,6 +36,8 @@ export default function EyeshadowCall() {
       .get(makeupURL)
       .then((response) => {
         return response.data.map((product) => ({
+          id: `${product.id}`,
+          name: `${product.name}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
           )}`,
@@ -49,7 +62,7 @@ export default function EyeshadowCall() {
   };
 
   return (
-    <div>
+    <Grid container direction="row" justify="flex-start" alignItems="center">
       <FormControl component="fieldset">
         <FormLabel component="legend">Select Brand</FormLabel>
         <RadioGroup
@@ -59,16 +72,16 @@ export default function EyeshadowCall() {
           onChange={handleChange}
         >
           <FormControlLabel
-            onClick={() => getProducts("almay")}
-            value="Almay"
+            onClick={() => getProducts("rejuva%20minerals")}
+            value="Rejuva Minerals"
             control={<Radio />}
-            label="Almay"
+            label="Rejuva Minerals"
           />
           <FormControlLabel
-            onClick={() => getProducts("covergirl")}
-            value="Covergirl"
+            onClick={() => getProducts("smashbox")}
+            value="Smashbox"
             control={<Radio />}
-            label="Covergirl"
+            label="Smashbox"
           />
           <FormControlLabel
             onClick={() => getProducts("nyx")}
@@ -76,37 +89,40 @@ export default function EyeshadowCall() {
             control={<Radio />}
             label="Nyx"
           />
+          <FormControlLabel
+            onClick={() => getProducts("marienatie")}
+            value="Marienatie"
+            control={<Radio />}
+            label="Marienatie"
+          />
         </RadioGroup>
       </FormControl>
       {!apiState.isLoading ? (
         apiState.products.map((product) => {
-          const { name, colors, hexValue } = product;
+          const { hexValue } = product;
           const hexChip = hexValue.split(",").map((singleColor) => {
             const singleSwatch = {
               backgroundColor: singleColor,
             };
-            return <Chip style={singleSwatch}>testing</Chip>;
+            return (
+              <Chip
+                value={singleSwatch}
+                style={singleSwatch}
+                onClick={() => handleChip()}
+              />
+            );
           });
 
           return (
-            <Grid container>
-              <Grid item>
-                <p>
-                  <strong>Product Color: </strong>
-                  {colors}
-                </p>
-                <p>
-                  <strong>Palette: </strong>
-                  {hexChip}
-                </p>
-                <hr />
-              </Grid>
+            <Grid item xs={3}>
+              <div style={chipBackground}>{hexChip}</div>
+              <Typography variant="subtitle1">{product.name}</Typography>
             </Grid>
           );
         })
       ) : (
-        <p>Click to See Selection</p>
+        <span></span>
       )}
-    </div>
+    </Grid>
   );
 }

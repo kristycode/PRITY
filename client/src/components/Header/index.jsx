@@ -17,14 +17,14 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography className={classes.typographyStyles}>
-          <h1 onClick={() => (window.location.href = "/")}>PRITY</h1>
+        <Typography variant="h3" className={classes.typographyStyles}>
+          <span onClick={() => (window.location.href = "/")}>PRITY</span>
         </Typography>
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={(event) => (window.location.href = "/searchProd")}
+          onClick={() => (window.location.href = "/searchProd")}
         >
           Search Products
         </Button>
@@ -32,7 +32,7 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={(event) => (window.location.href = "/selectProd")}
+          onClick={() => (window.location.href = "/selectProd")}
         >
           Select Products
         </Button>
@@ -41,7 +41,7 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={(event) => (window.location.href = "/looktabs")}
+          onClick={() => (window.location.href = "/looktabs")}
         >
           Create Look!
         </Button>
@@ -49,7 +49,7 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={(event) => (window.location.href = "/avatarTestingPage")}
+          onClick={() => (window.location.href = "/avatarTestingPage")}
         >
           Avatar Testing Page!
         </Button>
