@@ -120,6 +120,25 @@ export default function EyeshadowCall() {
             control={<Radio />}
             label="Marienatie"
           />
+          {/* new radio buttons          */}
+          <FormControlLabel
+            onClick={() => getProducts("clinique")}
+            value="Clinique"
+            control={<Radio />}
+            label="Clinique"
+          />
+          <FormControlLabel
+            onClick={() => getProducts("lotus%20cosmetics%20usa")}
+            value="Lotus Cosmetics"
+            control={<Radio />}
+            label="Lotus Cosmetics"
+          />
+          <FormControlLabel
+            onClick={() => getProducts("dior")}
+            value="Dior"
+            control={<Radio />}
+            label="Dior"
+          />
         </RadioGroup>
       </FormControl>
       {!apiState.isLoading ? (
@@ -165,7 +184,9 @@ export default function EyeshadowCall() {
               {newChip.length !== 0 && (
                 <div style={chipBackground}>{hexChip}</div>
               )}
-              {newChip.length !== 0 && <Typography>{product.name}</Typography>}
+              {newChip.length !== 0 && (
+                <Typography variant="subtitle1">{product.name}</Typography>
+              )}
             </Grid>
           );
         })
