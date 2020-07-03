@@ -8,6 +8,7 @@ import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../utils/API";
 import { makeStyles } from "@material-ui/core/styles";
+import "./style.css";
 
 // style to apply Auto-Grid to rendered palettes
 const useStyles = makeStyles((theme) => ({
@@ -202,7 +203,9 @@ export default function EyeshadowCall() {
             return (
               <Grid item xs={3}>
                 {newChip.length !== 0 && (
-                  <div style={chipBackground}>{hexChip}</div>
+                  <div className="hideMe" style={chipBackground}>
+                    {hexChip}
+                  </div>
                 )}
                 {newChip.length !== 0 && (
                   <Typography variant="subtitle1">{product.name}</Typography>
