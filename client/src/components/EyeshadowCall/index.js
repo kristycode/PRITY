@@ -7,9 +7,30 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../utils/API";
-// import { makeStyles } from "@material-ui/core/styles";
+import { ThemeProvider } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
 import "./style.css";
 
+// const theme = createMuiTheme({
+//   overrides: {
+//     MuiGrid: {
+//       root: {
+//         backgroundColor: "lightblue",
+//         // position: "relative",
+//         // spacing: 2,
+//       },
+//       item: {
+//         backgroundColor: "#orange",
+//         // height: 100,
+//         // left: 50,
+//         // position: "relative",
+//       },
+//       container: {
+//         // alignItems: "flex-end",
+//       },
+//     },
+//   },
+// });
 // this function is being called in NewCreateLook > index.js
 export default function EyeshadowCall() {
   // const classes = useStyles();
@@ -92,15 +113,17 @@ export default function EyeshadowCall() {
   };
 
   return (
-    <Grid container>
-      <Grid item xs={4}>
+    <Grid container direction="row">
+      <Grid item xs={12}>
+        <Typography variant="h6">Eyeshadow Brands</Typography>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Select Brand</FormLabel>
+          <FormLabel component="legend">Select to Displaye Palettes</FormLabel>
           <RadioGroup
             aria-label="brand"
             name="eyeshadow brands"
             value={value}
             onChange={handleChange}
+            row
           >
             <FormControlLabel
               onClick={() => getProducts("rejuva%20minerals")}
@@ -188,7 +211,7 @@ export default function EyeshadowCall() {
           });
 
           return (
-            <Grid item xs={3}>
+            <Grid item xs={4} className="chipGridItem">
               {newChip.length !== 0 && (
                 <div style={chipBackground}>{hexChip}</div>
               )}

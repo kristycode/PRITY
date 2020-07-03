@@ -13,7 +13,7 @@ import Header from "./components/Header";
 function App() {
   return (
     <Router>
-      <Grid container>
+      <Grid container direction="column">
         <Grid item>
           <Header />
         </Grid>

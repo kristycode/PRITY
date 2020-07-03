@@ -1,6 +1,5 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-
 // import SearchLook from './searchLook';
 import SearchProd from "./searchProd";
 import SelectProd from "./selectProducts";
