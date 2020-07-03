@@ -7,24 +7,12 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../utils/API";
-import { makeStyles } from "@material-ui/core/styles";
+// import { makeStyles } from "@material-ui/core/styles";
 import "./style.css";
-
-// style to apply Auto-Grid to rendered palettes
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-    // },
-    // paper: {
-    //   padding: theme.spacing(2),
-    //   textAlign: "center",
-    //   color: theme.palette.text.secondary,
-  },
-}));
 
 // this function is being called in NewCreateLook > index.js
 export default function EyeshadowCall() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const [value, setValue] = React.useState("female");
   const [apiState, setApiState] = React.useState({
@@ -104,7 +92,7 @@ export default function EyeshadowCall() {
   };
 
   return (
-    <Grid container alignContent="center">
+    <Grid container>
       <Grid item xs={4}>
         <FormControl component="fieldset">
           <FormLabel component="legend">Select Brand</FormLabel>
@@ -172,12 +160,12 @@ export default function EyeshadowCall() {
           const newChip = hexValue
             .split(",")
             .filter((trueColor) => trueColor !== "");
-
+          console.log(`this is newChip ${newChip}`);
           // this const will create a condition to only return products names if hexcolor is true
           const trueColorName = colors
             .split(",")
             .filter((colorName) => colorName !== "");
-          // console.log(`trueColorName: ${trueColorName}`);
+          console.log(`trueColorName: ${trueColorName}`);
 
           // hexChip creates separate chips that render the colors from product
           const hexChip = hexValue.split(",").map((singleColor, index) => {
@@ -202,9 +190,7 @@ export default function EyeshadowCall() {
           return (
             <Grid item xs={3}>
               {newChip.length !== 0 && (
-                <div className="hideMe" style={chipBackground}>
-                  {hexChip}
-                </div>
+                <div style={chipBackground}>{hexChip}</div>
               )}
               {newChip.length !== 0 && (
                 <Typography variant="subtitle1">{product.name}</Typography>
