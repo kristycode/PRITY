@@ -7,8 +7,24 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../utils/API";
+import { makeStyles } from "@material-ui/core/styles";
 
+// style to apply Auto-Grid to rendered palettes
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+    // },
+    // paper: {
+    //   padding: theme.spacing(2),
+    //   textAlign: "center",
+    //   color: theme.palette.text.secondary,
+  },
+}));
+
+// this function is being called in NewCreateLook > index.js
 export default function EyeshadowCall() {
+  const classes = useStyles();
+
   const [value, setValue] = React.useState("female");
   const [apiState, setApiState] = React.useState({
     products: [],
@@ -87,112 +103,117 @@ export default function EyeshadowCall() {
   };
 
   return (
-    <Grid container direction="row" justify="flex-start" alignItems="center">
-      <FormControl component="fieldset">
-        <FormLabel component="legend">Select Brand</FormLabel>
-        <RadioGroup
-          aria-label="brand"
-          name="eyeshadow brands"
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel
-            onClick={() => getProducts("rejuva%20minerals")}
-            value="Rejuva Minerals"
-            control={<Radio />}
-            label="Rejuva Minerals"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("smashbox")}
-            value="Smashbox"
-            control={<Radio />}
-            label="Smashbox"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("nyx")}
-            value="Nyx"
-            control={<Radio />}
-            label="Nyx"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("marienatie")}
-            value="Marienatie"
-            control={<Radio />}
-            label="Marienatie"
-          />
-          {/* new radio buttons          */}
-          <FormControlLabel
-            onClick={() => getProducts("clinique")}
-            value="Clinique"
-            control={<Radio />}
-            label="Clinique"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("lotus%20cosmetics%20usa")}
-            value="Lotus Cosmetics"
-            control={<Radio />}
-            label="Lotus Cosmetics"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("dior")}
-            value="Dior"
-            control={<Radio />}
-            label="Dior"
-          />
-        </RadioGroup>
-      </FormControl>
-      {!apiState.isLoading ? (
-        apiState.products.map((product) => {
-          const arr = [];
-          // 'colors' on line 129 is referring to the actual color names ex: Peachy Pal
-          const { hexValue, colors } = product;
-          const colorName = colors.split(",").map((e) => arr.push(e));
+    <div className={classes.root}>
+      <Grid container>
+        <Grid item xs={4}>
+          <FormControl component="fieldset">
+            <FormLabel component="legend">Select Brand</FormLabel>
+            <RadioGroup
+              aria-label="brand"
+              name="eyeshadow brands"
+              value={value}
+              onChange={handleChange}
+            >
+              <FormControlLabel
+                onClick={() => getProducts("rejuva%20minerals")}
+                value="Rejuva Minerals"
+                control={<Radio />}
+                label="Rejuva Minerals"
+              />
+              <FormControlLabel
+                onClick={() => getProducts("smashbox")}
+                value="Smashbox"
+                control={<Radio />}
+                label="Smashbox"
+              />
+              <FormControlLabel
+                onClick={() => getProducts("nyx")}
+                value="Nyx"
+                control={<Radio />}
+                label="Nyx"
+              />
+              <FormControlLabel
+                onClick={() => getProducts("marienatie")}
+                value="Marienatie"
+                control={<Radio />}
+                label="Marienatie"
+              />
+              {/* new radio buttons          */}
+              <FormControlLabel
+                onClick={() => getProducts("clinique")}
+                value="Clinique"
+                control={<Radio />}
+                label="Clinique"
+              />
+              <FormControlLabel
+                onClick={() => getProducts("lotus%20cosmetics%20usa")}
+                value="Lotus Cosmetics"
+                control={<Radio />}
+                label="Lotus Cosmetics"
+              />
+              <FormControlLabel
+                onClick={() => getProducts("dior")}
+                value="Dior"
+                control={<Radio />}
+                label="Dior"
+              />
+            </RadioGroup>
+          </FormControl>
+        </Grid>
 
-          // this creates a condition for chips to render ONLY if they have a hex value
-          const newChip = hexValue
-            .split(",")
-            .filter((trueColor) => trueColor !== "");
+        {!apiState.isLoading ? (
+          apiState.products.map((product) => {
+            const arr = [];
+            // 'colors' on line 129 is referring to the actual color names ex: Peachy Pal
+            const { hexValue, colors } = product;
+            const colorName = colors.split(",").map((e) => arr.push(e));
 
-          // this const will create a condition to only return products names if hexcolor is true
-          const trueColorName = colors
-            .split(",")
-            .filter((colorName) => colorName !== "");
-          console.log(`trueColorName: ${trueColorName}`);
+            // this creates a condition for chips to render ONLY if they have a hex value
+            const newChip = hexValue
+              .split(",")
+              .filter((trueColor) => trueColor !== "");
 
-          // hexChip creates separate chips that render the colors from product
-          const hexChip = hexValue.split(",").map((singleColor, index) => {
-            const findColorName = arr.find((e, i) => i === index);
-            if (singleColor !== "") {
-              const singleSwatch = {
-                backgroundColor: singleColor,
-                colorName: findColorName,
-              };
+            // this const will create a condition to only return products names if hexcolor is true
+            const trueColorName = colors
+              .split(",")
+              .filter((colorName) => colorName !== "");
+            console.log(`trueColorName: ${trueColorName}`);
 
-              return (
-                <Chip
-                  // key={product.hexColor}
-                  value={singleSwatch}
-                  style={singleSwatch}
-                  onClick={() => handleChip(product, singleSwatch)}
-                />
-              );
-            }
-          });
+            // hexChip creates separate chips that render the colors from product
+            const hexChip = hexValue.split(",").map((singleColor, index) => {
+              const findColorName = arr.find((e, i) => i === index);
+              if (singleColor !== "") {
+                const singleSwatch = {
+                  backgroundColor: singleColor,
+                  colorName: findColorName,
+                };
 
-          return (
-            <Grid item xs={3}>
-              {newChip.length !== 0 && (
-                <div style={chipBackground}>{hexChip}</div>
-              )}
-              {newChip.length !== 0 && (
-                <Typography variant="subtitle1">{product.name}</Typography>
-              )}
-            </Grid>
-          );
-        })
-      ) : (
-        <span></span>
-      )}
-    </Grid>
+                return (
+                  <Chip
+                    // key={product.hexColor}
+                    value={singleSwatch}
+                    style={singleSwatch}
+                    onClick={() => handleChip(product, singleSwatch)}
+                  />
+                );
+              }
+            });
+
+            return (
+              <Grid item xs={3}>
+                {newChip.length !== 0 && (
+                  <div style={chipBackground}>{hexChip}</div>
+                )}
+                {newChip.length !== 0 && (
+                  <Typography variant="subtitle1">{product.name}</Typography>
+                )}
+              </Grid>
+            );
+          })
+        ) : (
+          <span></span>
+        )}
+      </Grid>
+    </div>
   );
 }
