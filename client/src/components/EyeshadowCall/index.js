@@ -128,11 +128,18 @@ export default function EyeshadowCall() {
           // 'colors' on line 129 is referring to the actual color names ex: Peachy Pal
           const { hexValue, colors } = product;
           const colorName = colors.split(",").map((e) => arr.push(e));
+
           // this creates a condition for chips to render ONLY if they have a hex value
           const newChip = hexValue
             .split(",")
             .filter((trueColor) => trueColor !== "");
-          // console.log(`newChip: ${newChip}`);
+
+          // this const will create a condition to only return products names if hexcolor is true
+          const trueColorName = colors
+            .split(",")
+            .filter((colorName) => colorName !== "");
+          console.log(`trueColorName: ${trueColorName}`);
+
           // hexChip creates separate chips that render the colors from product
           const hexChip = hexValue.split(",").map((singleColor, index) => {
             const findColorName = arr.find((e, i) => i === index);
@@ -158,7 +165,7 @@ export default function EyeshadowCall() {
               {newChip.length !== 0 && (
                 <div style={chipBackground}>{hexChip}</div>
               )}
-              <Typography>{product.name}</Typography>
+              {newChip.length !== 0 && <Typography>{product.name}</Typography>}
             </Grid>
           );
         })
