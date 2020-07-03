@@ -125,29 +125,37 @@ export default function EyeshadowCall() {
       {!apiState.isLoading ? (
         apiState.products.map((product) => {
           const arr = [];
-          // const hexValue = []
+          // 'colors' on line 129 is referring to the actual color names ex: Peachy Pal
           const { hexValue, colors } = product;
           const colorName = colors.split(",").map((e) => arr.push(e));
-          // console.log(arr)
+          // this creates a separate chip for each hex value from product
+          const newChip = hexValue
+            .split(",")
+            .filter((trueColor) => trueColor !== "");
+
+          console.log(`newChip: ${newChip}`);
           const hexChip = hexValue.split(",").map((singleColor, index) => {
             const findColorName = arr.find((e, i) => i === index);
-            const singleSwatch = {
-              backgroundColor: singleColor,
-              colorName: findColorName,
-            };
-            return (
-              <Chip
-                value={singleSwatch}
-                style={singleSwatch}
-                onClick={() => handleChip(product, singleSwatch)}
-              />
-            );
+            if (singleColor !== "") {
+              const singleSwatch = {
+                backgroundColor: singleColor,
+                colorName: findColorName,
+              };
+
+              return (
+                <Chip
+                  // key={product.hexColor}
+                  value={singleSwatch}
+                  style={singleSwatch}
+                  onClick={() => handleChip(product, singleSwatch)}
+                />
+              );
+            }
           });
 
           return (
             <Grid item xs={3}>
               <div style={chipBackground}>{hexChip}</div>
-              <Typography variant="subtitle1">{product.name}</Typography>
             </Grid>
           );
         })
