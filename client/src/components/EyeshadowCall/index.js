@@ -7,8 +7,34 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../utils/API";
+import { ThemeProvider } from "@material-ui/core";
+import { createMuiTheme } from "@material-ui/core/styles";
+import "./style.css";
 
+// const theme = createMuiTheme({
+//   overrides: {
+//     MuiGrid: {
+//       root: {
+//         backgroundColor: "lightblue",
+//         // position: "relative",
+//         // spacing: 2,
+//       },
+//       item: {
+//         backgroundColor: "#orange",
+//         // height: 100,
+//         // left: 50,
+//         // position: "relative",
+//       },
+//       container: {
+//         // alignItems: "flex-end",
+//       },
+//     },
+//   },
+// });
+// this function is being called in NewCreateLook > index.js
 export default function EyeshadowCall() {
+  // const classes = useStyles();
+
   const [value, setValue] = React.useState("female");
   const [apiState, setApiState] = React.useState({
     products: [],
@@ -25,6 +51,10 @@ export default function EyeshadowCall() {
     padding: 10,
     borderRadius: 10,
     margin: 10,
+  };
+
+  const eyeshadowContainerStyle = {
+    marginTop: 20,
   };
 
   const handleChip = (product, color) => {
@@ -76,7 +106,7 @@ export default function EyeshadowCall() {
           products,
           isLoading: false,
         });
-        console.log();
+        // console.log();
       })
       // We can still use the `.catch()` method since axios is promise-based
       .catch((error) =>
@@ -87,67 +117,112 @@ export default function EyeshadowCall() {
   };
 
   return (
-    <Grid container direction="row" justify="flex-start" alignItems="center">
-      <FormControl component="fieldset">
-        <FormLabel component="legend">Select Brand</FormLabel>
-        <RadioGroup
-          aria-label="brand"
-          name="eyeshadow brands"
-          value={value}
-          onChange={handleChange}
-        >
-          <FormControlLabel
-            onClick={() => getProducts("rejuva%20minerals")}
-            value="Rejuva Minerals"
-            control={<Radio />}
-            label="Rejuva Minerals"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("smashbox")}
-            value="Smashbox"
-            control={<Radio />}
-            label="Smashbox"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("nyx")}
-            value="Nyx"
-            control={<Radio />}
-            label="Nyx"
-          />
-          <FormControlLabel
-            onClick={() => getProducts("marienatie")}
-            value="Marienatie"
-            control={<Radio />}
-            label="Marienatie"
-          />
-        </RadioGroup>
-      </FormControl>
+    <Grid container direction="row" style={eyeshadowContainerStyle}>
+      <Grid item xs={12}>
+        <Typography variant="h6">Eyeshadow Brands</Typography>
+        <FormControl component="fieldset">
+          <FormLabel component="legend">Select to Display Palettes</FormLabel>
+          <RadioGroup
+            aria-label="brand"
+            name="eyeshadow brands"
+            value={value}
+            onChange={handleChange}
+            row
+          >
+            <FormControlLabel
+              onClick={() => getProducts("rejuva%20minerals")}
+              value="Rejuva Minerals"
+              control={<Radio />}
+              label="Rejuva Minerals"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("smashbox")}
+              value="Smashbox"
+              control={<Radio />}
+              label="Smashbox"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("nyx")}
+              value="Nyx"
+              control={<Radio />}
+              label="Nyx"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("marienatie")}
+              value="Marienatie"
+              control={<Radio />}
+              label="Marienatie"
+            />
+            {/* new radio buttons          */}
+            <FormControlLabel
+              onClick={() => getProducts("clinique")}
+              value="Clinique"
+              control={<Radio />}
+              label="Clinique"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("lotus%20cosmetics%20usa")}
+              value="Lotus Cosmetics"
+              control={<Radio />}
+              label="Lotus Cosmetics"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("dior")}
+              value="Dior"
+              control={<Radio />}
+              label="Dior"
+            />
+          </RadioGroup>
+        </FormControl>
+      </Grid>
+
       {!apiState.isLoading ? (
         apiState.products.map((product) => {
           const arr = [];
-          // const hexValue = []
+          // 'colors' is referring to the actual color names ex: Peachy Pal
           const { hexValue, colors } = product;
           const colorName = colors.split(",").map((e) => arr.push(e));
-          // console.log(arr)
+
+          // this creates a condition for chips to render ONLY if they have a hex value
+          const newChip = hexValue
+            .split(",")
+            .filter((trueColor) => trueColor !== "");
+          // console.log(`this is newChip ${newChip}`);
+          // this const will create a condition to only return products names if hexcolor is true
+          const trueColorName = colors
+            .split(",")
+            .filter((colorName) => colorName !== "");
+          // console.log(`trueColorName: ${trueColorName}`);
+
+          // hexChip creates separate chips that render the colors from product
           const hexChip = hexValue.split(",").map((singleColor, index) => {
             const findColorName = arr.find((e, i) => i === index);
-            const singleSwatch = {
-              backgroundColor: singleColor,
-              colorName: findColorName,
-            };
-            return (
-              <Chip
-                value={singleSwatch}
-                style={singleSwatch}
-                onClick={() => handleChip(product, singleSwatch)}
-              />
-            );
+            if (singleColor !== "") {
+              const singleSwatch = {
+                backgroundColor: singleColor,
+                colorName: findColorName,
+                alignItems: "flex-start",
+              };
+
+              return (
+                <Chip
+                  // key={product.hexColor}
+                  value={singleSwatch}
+                  style={singleSwatch}
+                  onClick={() => handleChip(product, singleSwatch)}
+                />
+              );
+            }
           });
 
           return (
-            <Grid item xs={3}>
-              <div style={chipBackground}>{hexChip}</div>
-              <Typography variant="subtitle1">{product.name}</Typography>
+            <Grid item xs={3} className="chipGridItem">
+              {newChip.length !== 0 && (
+                <div style={chipBackground}>{hexChip}</div>
+              )}
+              {newChip.length !== 0 && (
+                <Typography variant="subtitle1">{product.name}</Typography>
+              )}
             </Grid>
           );
         })

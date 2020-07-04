@@ -5,6 +5,7 @@ import { makeStyles } from "@material-ui/styles";
 const useStyles = makeStyles(() => ({
   typographyStyles: {
     flex: 1,
+    fontFamily: ["Oswald", "sans-serif"],
   },
   buttonStyles: {
     padding: 10,
