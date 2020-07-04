@@ -53,6 +53,10 @@ export default function EyeshadowCall() {
     margin: 10,
   };
 
+  const eyeshadowContainerStyle = {
+    marginTop: 20,
+  };
+
   const handleChip = (product, color) => {
     console.log("chip clicked!");
     console.log(product.productType);
@@ -102,7 +106,7 @@ export default function EyeshadowCall() {
           products,
           isLoading: false,
         });
-        console.log();
+        // console.log();
       })
       // We can still use the `.catch()` method since axios is promise-based
       .catch((error) =>
@@ -113,11 +117,11 @@ export default function EyeshadowCall() {
   };
 
   return (
-    <Grid container direction="row">
+    <Grid container direction="row" style={eyeshadowContainerStyle}>
       <Grid item xs={12}>
         <Typography variant="h6">Eyeshadow Brands</Typography>
         <FormControl component="fieldset">
-          <FormLabel component="legend">Select to Displaye Palettes</FormLabel>
+          <FormLabel component="legend">Select to Display Palettes</FormLabel>
           <RadioGroup
             aria-label="brand"
             name="eyeshadow brands"
@@ -183,12 +187,12 @@ export default function EyeshadowCall() {
           const newChip = hexValue
             .split(",")
             .filter((trueColor) => trueColor !== "");
-          console.log(`this is newChip ${newChip}`);
+          // console.log(`this is newChip ${newChip}`);
           // this const will create a condition to only return products names if hexcolor is true
           const trueColorName = colors
             .split(",")
             .filter((colorName) => colorName !== "");
-          console.log(`trueColorName: ${trueColorName}`);
+          // console.log(`trueColorName: ${trueColorName}`);
 
           // hexChip creates separate chips that render the colors from product
           const hexChip = hexValue.split(",").map((singleColor, index) => {
@@ -197,6 +201,7 @@ export default function EyeshadowCall() {
               const singleSwatch = {
                 backgroundColor: singleColor,
                 colorName: findColorName,
+                alignItems: "flex-start",
               };
 
               return (
@@ -211,7 +216,7 @@ export default function EyeshadowCall() {
           });
 
           return (
-            <Grid item xs={4} className="chipGridItem">
+            <Grid item xs={3} className="chipGridItem">
               {newChip.length !== 0 && (
                 <div style={chipBackground}>{hexChip}</div>
               )}

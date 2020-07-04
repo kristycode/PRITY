@@ -1,8 +1,4 @@
 // These is dummy data for trending looks cards - this is only for development
-
-// import eyePop from "../Body/staticImages/eyePop.jpg";
-// import look2 from "./staticImages/look2.jpg";
-// import odunsi from "./staticImages/odunsi.jpg";
 import Silhouette from "./staticImages/face-silhouette.png";
 
 export default [
