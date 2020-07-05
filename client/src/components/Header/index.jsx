@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
-import BeautyBag from "../BeautyBag";
+// import BeautyBag from "../BeautyBag";
 import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
@@ -30,9 +30,11 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h3" className={classes.typographyStyles}>
-          <span onClick={() => (window.location.href = "/")}>PRITY</span>
-        </Typography>
+        <Link to="/">
+          <Typography variant="h3" className={classes.typographyStyles}>
+            PRITY
+          </Typography>
+        </Link>
         <Button
           variant="contained"
           color="secondary"
@@ -45,27 +47,26 @@ const Header = () => {
           color="secondary"
           className={classes.buttonStyles}
         >
-          <Link to="/selectProd">Search Products</Link>{" "}
+          <Link to="/selectProd">Select Products</Link>{" "}
         </Button>
         {/* temporarily using below button to render vertical tabs */}
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/looktabs")}
         >
-          Create Look!
+          <Link to="/looktabs">Create Look</Link>
         </Button>
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/avatarTestingPage")}
         >
-          Avatar Testing Page!
+          <Link to="/avatarTestingPage">Avatar Testing</Link>
         </Button>
         <span>
-          <IconButton onClick={() => (window.location.href = "/beautyBag")}>
+          <IconButton>
+            <Link to="/beautyBag" />
             <LocalMallIcon className={classes.bagIconStyle} />
           </IconButton>
           <Typography>items:</Typography>

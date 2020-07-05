@@ -15,7 +15,7 @@ import ChipContext from "./components/Context/ChipContext";
 function App() {
   const [chipObj, setChipObj] = useState([]);
   return (
-    <ChipContext.Provider>
+    <ChipContext.Provider value={{ chipObj, setChipObj }}>
       <Router>
         <Grid container direction="column">
           <Grid item>
