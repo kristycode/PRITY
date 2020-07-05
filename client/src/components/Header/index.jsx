@@ -1,6 +1,7 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import BeautyBag from "../BeautyBag";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
@@ -54,6 +55,7 @@ const Header = () => {
         >
           Avatar Testing Page!
         </Button>
+        <BeautyBag />
       </Toolbar>
     </AppBar>
   );

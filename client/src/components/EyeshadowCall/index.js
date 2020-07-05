@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Radio from "@material-ui/core/Radio";
 import RadioGroup from "@material-ui/core/RadioGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
@@ -7,45 +7,25 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../utils/API";
-import { ThemeProvider } from "@material-ui/core";
-import { createMuiTheme } from "@material-ui/core/styles";
 import "./style.css";
+import { BeautyBagContext } from "../../utils/beautyBagContext";
 
-// const theme = createMuiTheme({
-//   overrides: {
-//     MuiGrid: {
-//       root: {
-//         backgroundColor: "lightblue",
-//         // position: "relative",
-//         // spacing: 2,
-//       },
-//       item: {
-//         backgroundColor: "#orange",
-//         // height: 100,
-//         // left: 50,
-//         // position: "relative",
-//       },
-//       container: {
-//         // alignItems: "flex-end",
-//       },
-//     },
-//   },
-// });
 // this function is being called in NewCreateLook > index.js
 export default function EyeshadowCall() {
-  // const classes = useStyles();
-
   const [value, setValue] = React.useState("female");
+  // below state is responsible for setting state for api call
   const [apiState, setApiState] = React.useState({
     products: [],
     isLoading: true,
   });
+  // below state is for updating chip selection state
   const [chipObj, setChipObj] = React.useState([]);
   console.log(chipObj);
+  // handles radio button clicks
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
+  // renders black background for chips to create 'palettes'
   const chipBackground = {
     backgroundColor: "black",
     padding: 10,
@@ -56,7 +36,20 @@ export default function EyeshadowCall() {
   const eyeshadowContainerStyle = {
     marginTop: 20,
   };
+  // my attempt using context with beautybag
+  const testHandleChip = (props) => {
+    const [beautyBag, setBeautyBag] = useContext(BeautyBagContext);
+    const addToBag = () => {
+      const bagItems = {
+        productType: props.type,
+        productName: props.productName,
+        hexColor: props.hexColor,
+      };
+      setBeautyBag();
+    };
+  };
 
+  // when a chip color is clicked
   const handleChip = (product, color) => {
     console.log("chip clicked!");
     console.log(product.productType);
@@ -84,7 +77,7 @@ export default function EyeshadowCall() {
 
   const getProducts = (brand) => {
     const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeshadow`;
-    console.log("getproducts called");
+    // console.log("getproducts called");
     axios
       .get(makeupURL)
       .then((response) => {
@@ -115,7 +108,6 @@ export default function EyeshadowCall() {
         })
       );
   };
-
   return (
     <Grid container direction="row" style={eyeshadowContainerStyle}>
       <Grid item xs={12}>
@@ -175,14 +167,12 @@ export default function EyeshadowCall() {
           </RadioGroup>
         </FormControl>
       </Grid>
-
       {!apiState.isLoading ? (
         apiState.products.map((product) => {
           const arr = [];
           // 'colors' is referring to the actual color names ex: Peachy Pal
           const { hexValue, colors } = product;
           const colorName = colors.split(",").map((e) => arr.push(e));
-
           // this creates a condition for chips to render ONLY if they have a hex value
           const newChip = hexValue
             .split(",")
@@ -203,7 +193,7 @@ export default function EyeshadowCall() {
                 colorName: findColorName,
                 alignItems: "flex-start",
               };
-
+              // returns individual chips
               return (
                 <Chip
                   // key={product.hexColor}
