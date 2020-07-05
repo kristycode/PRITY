@@ -1,6 +1,13 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import LocalMallIcon from "@material-ui/icons/LocalMall";
 import BeautyBag from "../BeautyBag";
 
 const useStyles = makeStyles(() => ({
@@ -11,6 +18,9 @@ const useStyles = makeStyles(() => ({
   buttonStyles: {
     padding: 10,
     margin: 5,
+  },
+  bagIconStyle: {
+    color: "white",
   },
 }));
 
@@ -55,7 +65,12 @@ const Header = () => {
         >
           Avatar Testing Page!
         </Button>
-        <BeautyBag />
+        <span>
+          <IconButton onClick={() => (window.location.href = "/beautyBag")}>
+            <LocalMallIcon className={classes.bagIconStyle} />
+          </IconButton>
+          <Typography>items:</Typography>
+        </span>
       </Toolbar>
     </AppBar>
   );

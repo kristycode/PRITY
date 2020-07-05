@@ -37,17 +37,17 @@ export default function EyeshadowCall() {
     marginTop: 20,
   };
   // my attempt using context with beautybag
-  const testHandleChip = (props) => {
-    const [beautyBag, setBeautyBag] = useContext(BeautyBagContext);
-    const addToBag = () => {
-      const bagItems = {
-        productType: props.type,
-        productName: props.productName,
-        hexColor: props.hexColor,
-      };
-      setBeautyBag();
-    };
-  };
+  // const testHandleChip = (props) => {
+  //   const [beautyBag, setBeautyBag] = useContext(BeautyBagContext);
+  //   const addToBag = () => {
+  //     const bagItems = {
+  //       productType: props.type,
+  //       productName: props.productName,
+  //       hexColor: props.hexColor,
+  //     };
+  //     setBeautyBag();
+  //   };
+  // };
 
   // when a chip color is clicked
   const handleChip = (product, color) => {
