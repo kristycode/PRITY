@@ -3,7 +3,7 @@ import { Tabs, Tab } from "@material-ui/core";
 // import CreateLookApi from "../createLook";
 import EyeshadowCall from "../EyeshadowCall";
 import EyelinerCall from "../EyeLinerCall";
-import BronzerCall from "../EyeLinerCall";
+import BronzerCall from "../BronzerCall";
 
 const LookTabs = () => {
   const [selectedTab, setSelectedTab] = React.useState(0);
