@@ -9,6 +9,7 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 import BeautyBag from "../BeautyBag";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
@@ -36,17 +37,15 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/searchProd")}
         >
-          Search Products
+          <Link to="/searchProd">Search Products</Link>{" "}
         </Button>
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/selectProd")}
         >
-          Select Products
+          <Link to="/selectProd">Search Products</Link>{" "}
         </Button>
         {/* temporarily using below button to render vertical tabs */}
         <Button

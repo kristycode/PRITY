@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // import ReactDOM form "react-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 // import "./App.css";
@@ -10,10 +10,12 @@ import Header from "./components/Header";
 import { BeautyBagProvider } from "./utils/beautyBagContext";
 // import Body from "./components/Body/index.jsx";
 // import CreateLook from "./components/createLook";
+import ChipContext from "./components/Context/ChipContext";
 
 function App() {
+  const [chipObj, setChipObj] = useState([]);
   return (
-    <BeautyBagProvider>
+    <ChipContext.Provider>
       <Router>
         <Grid container direction="column">
           <Grid item>
@@ -27,7 +29,7 @@ function App() {
           </Grid>
         </Grid>
       </Router>
-    </BeautyBagProvider>
+    </ChipContext.Provider>
   );
 }
 
