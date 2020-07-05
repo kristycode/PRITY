@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Grid,
   ExpansionPanel,
@@ -18,6 +18,7 @@ import FormGroup from "@material-ui/core/FormGroup";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import APIComponent from "./APIComp";
+import ChipContext from "../components/Context/ChipContext";
 
 const PrettoSlider = withStyles({
   root: {
@@ -64,6 +65,8 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchProd = () => {
+  const { chipObj } = useContext(ChipContext);
+  console.log(chipObj);
   const classes = useStyles();
 
   const [brand, setBrand] = React.useState("");

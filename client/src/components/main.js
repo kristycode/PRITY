@@ -7,6 +7,7 @@ import Body from "./Body/index";
 import APIComponent from "./APIComp";
 import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
 import LookTabs from "./NewCreateLook";
+import BeautyBag from "./BeautyBag";
 
 const Main = () => (
   <Switch>
@@ -18,6 +19,7 @@ const Main = () => (
     <Route path="/avatarTestingPage">
       <AvatarTestingPage eyes="blue" blush="orange" />
     </Route>
+    <Route path="/beautyBag" component={BeautyBag} />
   </Switch>
 );
 

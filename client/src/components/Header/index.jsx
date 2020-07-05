@@ -1,6 +1,15 @@
 import React from "react";
-import { AppBar, Toolbar, Typography, Button } from "@material-ui/core";
+import {
+  AppBar,
+  Toolbar,
+  Typography,
+  Button,
+  IconButton,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
+import LocalMallIcon from "@material-ui/icons/LocalMall";
+// import BeautyBag from "../BeautyBag";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
@@ -11,6 +20,9 @@ const useStyles = makeStyles(() => ({
     padding: 10,
     margin: 5,
   },
+  bagIconStyle: {
+    color: "white",
+  },
 }));
 
 const Header = () => {
@@ -18,42 +30,47 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Typography variant="h3" className={classes.typographyStyles}>
-          <span onClick={() => (window.location.href = "/")}>PRITY</span>
-        </Typography>
+        <Link to="/">
+          <Typography variant="h3" className={classes.typographyStyles}>
+            PRITY
+          </Typography>
+        </Link>
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/searchProd")}
         >
-          Search Products
+          <Link to="/searchProd">Search Products</Link>{" "}
         </Button>
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/selectProd")}
         >
-          Select Products
+          <Link to="/selectProd">Select Products</Link>{" "}
         </Button>
         {/* temporarily using below button to render vertical tabs */}
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/looktabs")}
         >
-          Create Look!
+          <Link to="/looktabs">Create Look</Link>
         </Button>
         <Button
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/avatarTestingPage")}
         >
-          Avatar Testing Page!
+          <Link to="/avatarTestingPage">Avatar Testing</Link>
         </Button>
+        <span>
+          <IconButton>
+            <Link to="/beautyBag" />
+            <LocalMallIcon className={classes.bagIconStyle} />
+          </IconButton>
+          <Typography>items:</Typography>
+        </span>
       </Toolbar>
     </AppBar>
   );
