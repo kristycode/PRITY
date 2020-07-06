@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
-// import "./App.css";
+import Container from "@material-ui/core/Container";
 import Main from "./components/main";
 import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
@@ -10,19 +10,21 @@ function App() {
   const [chipObj, setChipObj] = useState([]);
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj }}>
-      <Router>
-        <Grid container direction="column">
-          <Grid item>
-            <Header />
-          </Grid>
-          <Grid item container justify="center">
-            <Grid item sm={2} />
-            <Grid item xs={12} sm={8}>
-              <Main />
+      <Container>
+        <Router>
+          <Grid container direction="column">
+            <Grid item xs={12}>
+              <Header />
+            </Grid>
+            <Grid item container justify="center">
+              <Grid item sm={2} />
+              <Grid item xs={12} sm={8}>
+                <Main />
+              </Grid>
             </Grid>
           </Grid>
-        </Grid>
-      </Router>
+        </Router>
+      </Container>
     </ChipContext.Provider>
   );
 }
