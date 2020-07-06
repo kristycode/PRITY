@@ -5,8 +5,8 @@ import Base from "./SVG/SvgAvatarMakeupBase";
 
 function AvatarTestingPage(props) {
   const StyledBase = styled(Base)`
-    width: 500px;
-    height: 612px;
+    width: 310.45px;
+    height: 395.77px;
   `;
 
   const BlackBlush = styled(StyledBase)`
@@ -32,9 +32,6 @@ function AvatarTestingPage(props) {
   return (
     <div>
       <StyledBase />
-      <BlackBlush />
-      <Eyeshadow />
-      <GreenBronzer />
       
     </div>
   );

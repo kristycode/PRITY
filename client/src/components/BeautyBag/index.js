@@ -9,17 +9,19 @@ const BeautyBag = () => {
     return (
 
         <div className="col">
-        <h1>My Makeup Bag!</h1>
-        <p>these are my products in my makeup bag</p>
-        {chipObj.map(chip => 
-        <div>
-        <div>{chip.productType}</div>
-        <div>{chip.brand}</div>
-        <div>{chip.name}</div>
-        <div>{chip.color_name}</div>
-        <div>{chip.hexColor}</div>
-        </div>)}
-      </div>
+                
+            <h1>my selected products:</h1>
+            
+            {chipObj.map(product => 
+            <div>
+            <div>{product.productType}</div>
+            <div>{product.brand}</div>
+            <div>{product.name}</div>
+            <div>{product.color_name}</div>
+            <div>{product.hexColor}</div>
+            </div>)}
+
+        </div>
 
     )
 };
