@@ -5,6 +5,7 @@ import {
   Typography,
   Button,
   IconButton,
+  Grid
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
@@ -30,48 +31,53 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Link to="/">
-          <Typography variant="h3" className={classes.typographyStyles}>
-            PRITY
-          </Typography>
-        </Link>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/searchProd">Search Products</Link>{" "}
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/selectProd">Select Products</Link>{" "}
-        </Button>
-        {/* temporarily using below button to render vertical tabs */}
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/looktabs">Create Look</Link>
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/avatarTestingPage">Avatar Testing</Link>
-        </Button>
-        <span>
-          <IconButton>
-            <Link to="/beautyBag">
-            <LocalMallIcon className={classes.bagIconStyle} />
-          
-          <Typography>Beautyt z:</Typography>
-          </Link></IconButton>
-        </span>
+        <Grid justify="space-between" container spacing={30}>
+          <Grid item>
+            <Link to="/">
+              <Typography variant="h3" className={classes.typographyStyles}>
+                PRITY
+              </Typography>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5">
+              <Link
+                to="/searchProd"
+                color="secondary"
+                className={classes.linkStyle}
+              >
+                Search Products
+              </Link>
+              {/* <Link to="/selectProd" color="secondary">
+              Select Products
+            </Link> */}
+              <Link
+                to="/looktabs"
+                color="secondary"
+                className={classes.linkStyle}
+              >
+                Create Look
+              </Link>
+              <Link
+                to="/avatarTestingPage"
+                color="secondary"
+                className={classes.linkStyle}
+              >
+                Avatar Testing
+              </Link>
+              <IconButton>
+                <Link
+                  to="/vanity"
+                  color="secondary"
+                  className={classes.linkStyle}
+                >
+                  <LocalMallIcon className={classes.bagIconStyle} />
+                  My Vanity
+                </Link>
+              </IconButton>
+            </Typography>
+          </Grid>
+        </Grid>
       </Toolbar>
     </AppBar>
   );
