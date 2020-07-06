@@ -6,13 +6,13 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../utils/API";
-import "./style.css";
+import API from "../../../utils/API";
+import "../EyeshadowCall/style.css";
 // import { BeautyBagContext } from "../../utils/beautyBagContext";
-import ChipContext from "../Context/ChipContext";
+import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in NewCreateLook > index.js
-export default function EyeshadowCall() {
+export default function EyelinerCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -37,7 +37,7 @@ export default function EyeshadowCall() {
     borderStyle: "outset",
   };
 
-  const eyeshadowContainerStyle = {
+  const eyelinerContainerStyle = {
     marginTop: 20,
   };
   // my attempt using context with beautybag
@@ -80,7 +80,7 @@ export default function EyeshadowCall() {
   };
 
   const getProducts = (brand) => {
-    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeshadow`;
+    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeliner`;
     // console.log("getproducts called");
     axios
       .get(makeupURL)
@@ -113,23 +113,35 @@ export default function EyeshadowCall() {
       );
   };
   return (
-    <Grid container direction="row" style={eyeshadowContainerStyle}>
+    <Grid container direction="row" style={eyelinerContainerStyle}>
       <Grid item xs={12}>
-        <Typography variant="h6">Eyeshadow Brands</Typography>
+        <Typography variant="h6">Eyeliner Brands</Typography>
         <FormControl component="fieldset">
           <FormLabel component="legend">Select to Display Palettes</FormLabel>
           <RadioGroup
             aria-label="brand"
-            name="eyeshadow brands"
+            name="eyeliner brands"
             value={value}
             onChange={handleChange}
             row
           >
             <FormControlLabel
-              onClick={() => getProducts("rejuva%20minerals")}
-              value="Rejuva Minerals"
+              onClick={() => getProducts("nyx")}
+              value="Nyx"
               control={<Radio />}
-              label="Rejuva Minerals"
+              label="Nyx"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("clinique")}
+              value="Clinique"
+              control={<Radio />}
+              label="Clinique"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("benefit")}
+              value="Benefit"
+              control={<Radio />}
+              label="Benefit"
             />
             <FormControlLabel
               onClick={() => getProducts("smashbox")}
@@ -138,35 +150,16 @@ export default function EyeshadowCall() {
               label="Smashbox"
             />
             <FormControlLabel
-              onClick={() => getProducts("nyx")}
-              value="Nyx"
+              onClick={() => getProducts("marcelle")}
+              value="Marcelle"
               control={<Radio />}
-              label="Nyx"
+              label="Marcelle"
             />
             <FormControlLabel
-              onClick={() => getProducts("marienatie")}
-              value="Marienatie"
+              onClick={() => getProducts("maybelline")}
+              value="Maybelline"
               control={<Radio />}
-              label="Marienatie"
-            />
-            {/* new radio buttons          */}
-            <FormControlLabel
-              onClick={() => getProducts("clinique")}
-              value="Clinique"
-              control={<Radio />}
-              label="Clinique"
-            />
-            <FormControlLabel
-              onClick={() => getProducts("lotus%20cosmetics%20usa")}
-              value="Lotus Cosmetics"
-              control={<Radio />}
-              label="Lotus Cosmetics"
-            />
-            <FormControlLabel
-              onClick={() => getProducts("dior")}
-              value="Dior"
-              control={<Radio />}
-              label="Dior"
+              label="Maybelline"
             />
           </RadioGroup>
         </FormControl>

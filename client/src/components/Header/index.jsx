@@ -66,10 +66,11 @@ const Header = () => {
         </Button>
         <span>
           <IconButton>
-            <Link to="/beautyBag" />
+            <Link to="/vanity">
             <LocalMallIcon className={classes.bagIconStyle} />
-          </IconButton>
-          <Typography>items:</Typography>
+          
+          <Typography>Vanity</Typography>
+          </Link></IconButton>
         </span>
       </Toolbar>
     </AppBar>

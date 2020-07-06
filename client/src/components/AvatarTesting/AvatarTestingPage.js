@@ -2,6 +2,7 @@ import React from "react";
 //--- removing { css } from line 3 because React says it is not being used
 import styled from "styled-components";
 import Base from "./SVG/SvgAvatarMakeupBase";
+import BeautyBag from "../BeautyBag/index"
 
 function AvatarTestingPage(props) {
   const StyledBase = styled(Base)`
@@ -35,6 +36,7 @@ function AvatarTestingPage(props) {
       <BlackBlush />
       <Eyeshadow />
       <GreenBronzer />
+      
     </div>
   );
 }

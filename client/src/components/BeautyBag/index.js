@@ -1,11 +1,28 @@
-import React, { useContext } from "react";
+import React, { Component, useContext, useState, Fragment } from "react";
 import { BeautyBagContext } from "../../utils/beautyBagContext";
 // import LocalMallIcon from "@material-ui/icons/LocalMall";
 import { Typography } from "@material-ui/core";
+import ChipContext from "../Context/ChipContext";
 
 const BeautyBag = () => {
-  const [beautyBag, setBeautyBag] = useContext(BeautyBagContext);
-  return <Typography>this is the beauty bag component{beautyBag}</Typography>;
+    const { chipObj, setChipObj } = useContext(ChipContext);
+
+    return (
+
+        <div className="col">
+        <h1>My Makeup Bag!</h1>
+        <p>these are my products in my makeup bag</p>
+        {chipObj.map(chip => 
+        <div>
+        <div>{chip.productType}</div>
+        <div>{chip.brand}</div>
+        <div>{chip.name}</div>
+        <div>{chip.color_name}</div>
+        <div>{chip.hexColor}</div>
+        </div>)}
+      </div>
+
+    )
 };
 
-export default BeautyBag;
+export default BeautyBag
