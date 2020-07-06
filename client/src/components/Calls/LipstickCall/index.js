@@ -6,10 +6,9 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../utils/API";
+import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
-// import { BeautyBagContext } from "../../utils/beautyBagContext";
-import ChipContext from "../Context/ChipContext";
+import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in NewCreateLook > index.js
 export default function LipstickCall() {
