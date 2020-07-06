@@ -8,12 +8,16 @@ import APIComponent from "./APIComp";
 import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
 import LookTabs from "./NewCreateLook";
 import Vanity from "./Vanity";
+import LogIN from "./LogIN";
+import RegisterU from "./RegisterU";
 
 const Main = () => (
   <Switch>
     <Route exact path="/" component={Body} />
     <Route path="/searchProd" component={SearchProd} />
     <Route path="/selectProd" component={SelectProd} />
+    <Route exact path="/LogIN" component={LogIN} />
+    <Route exact path="/RegisterU" component={RegisterU} />
     <Route path="/looktabs" component={LookTabs} />
     <Route path="/APIComp" component={APIComponent} />
     <Route path="/avatarTestingPage">

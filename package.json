@@ -30,17 +30,25 @@
     "@svgr/webpack": "^5.4.0",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
     "chroma-js": "^2.1.0",
     "classnames": "^2.2.6",
     "concurrently": "^5.2.0",
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.9.19",
+    "is-empty": "^1.2.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.21",
+    "mongoose-bcrypt": "^1.8.0",
     "nodemon": "^2.0.4",
+    "passport": "^0.4.1",
+    "passport-jwt": "^4.0.0",
     "react-inlinesvg": "^2.0.0",
     "react-mdl": "^2.1.0",
     "react-spring": "^8.0.27",
-    "styled-components": "^5.1.1"
+    "styled-components": "^5.1.1",
+    "validator": "^13.1.1"
   },
   "devDependencies": {
     "eslint-plugin-react-hooks": "^4.0.5"
