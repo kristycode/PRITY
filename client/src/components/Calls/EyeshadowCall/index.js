@@ -9,24 +9,25 @@ import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
+import SnackbarContext from "../../Context/SnackbarContext";
 
 // this function is being called in NewCreateLook > index.js
 export default function EyeshadowCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
+  const { open, setOpen } = useContext(SnackbarContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
   const [apiState, setApiState] = React.useState({
     products: [],
     isLoading: true,
   });
-  // below state is for updating chip selection state
-  // const [chipObj, setChipObj] = React.useState([]);
+
   console.log(chipObj);
   // handles radio button clicks
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  // renders black background for chips to create 'palettes'
+  // renders background for chips to create 'palettes'
   const chipBackground = {
     backgroundColor: "#f7c4c4",
     padding: 10,
@@ -39,24 +40,16 @@ export default function EyeshadowCall() {
   const eyeshadowContainerStyle = {
     marginTop: 20,
   };
-  // my attempt using context with beautybag
-  // const testHandleChip = (props) => {
-  //   const [beautyBag, setBeautyBag] = useContext(BeautyBagContext);
-  //   const addToBag = () => {
-  //     const bagItems = {
-  //       productType: props.type,
-  //       productName: props.productName,
-  //       hexColor: props.hexColor,
-  //     };
-  //     setBeautyBag();
-  //   };
-  // };
 
   // when a chip color is clicked
   const handleChip = (product, color) => {
     console.log("chip clicked!");
     console.log(product.productType);
     console.log(color);
+
+    setOpen((message) => {
+      return message;
+    });
 
     setChipObj((value) => {
       return [
@@ -202,6 +195,7 @@ export default function EyeshadowCall() {
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
+                  message="item added to bag!"
                   onClick={() => handleChip(product, singleSwatch)}
                 />
               );
