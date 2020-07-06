@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../../utils/API";
+// import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
@@ -84,8 +84,9 @@ export default function EyeshadowCall() {
     axios
       .get(makeupURL)
       .then((response) => {
-        return response.data.map((product) => ({
+        return response.data.map((product, index) => ({
           id: `${product.id}`,
+          key: index,
           name: `${product.name}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
@@ -195,10 +196,11 @@ export default function EyeshadowCall() {
                 colorName: findColorName,
                 alignItems: "flex-start",
               };
+
               // returns individual chips
               return (
                 <Chip
-                  // key={product.hexColor}
+                  key={product.id + "/" + product.key}
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
