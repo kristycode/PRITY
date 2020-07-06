@@ -85,8 +85,6 @@ export default function EyeshadowCall() {
       .get(makeupURL)
       .then((response) => {
         return response.data.map((product, index) => ({
-          id: `${product.id}`,
-          key: index,
           name: `${product.name}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
@@ -94,6 +92,7 @@ export default function EyeshadowCall() {
           hexValue: `${product.product_colors.map((hex) => hex.hex_value)}`,
           productType: `${product.product_type}`,
           brandName: `${product.brand}`,
+          id: `${product.id}`,
         }));
       })
       // Let's make sure to change the loading state to display the data
@@ -121,7 +120,7 @@ export default function EyeshadowCall() {
           <RadioGroup
             aria-label="brand"
             name="eyeshadow brands"
-            value={value}
+            value={value || ""}
             onChange={handleChange}
             row
           >
@@ -175,17 +174,15 @@ export default function EyeshadowCall() {
           const arr = [];
           // 'colors' is referring to the actual color names ex: Peachy Pal
           const { hexValue, colors } = product;
-          const colorName = colors.split(",").map((e) => arr.push(e));
+          // const colorName = colors.split(",").map((e) => arr.push(e));
           // this creates a condition for chips to render ONLY if they have a hex value
           const newChip = hexValue
             .split(",")
             .filter((trueColor) => trueColor !== "");
-          // console.log(`this is newChip ${newChip}`);
           // this const will create a condition to only return products names if hexcolor is true
-          const trueColorName = colors
-            .split(",")
-            .filter((colorName) => colorName !== "");
-          // console.log(`trueColorName: ${trueColorName}`);
+          // const trueColorName = colors
+          //   .split(",")
+          //   .filter((colorName) => colorName !== "");
 
           // hexChip creates separate chips that render the colors from product
           const hexChip = hexValue.split(",").map((singleColor, index) => {
@@ -200,7 +197,9 @@ export default function EyeshadowCall() {
               // returns individual chips
               return (
                 <Chip
-                  key={product.id + "/" + product.key}
+                  key={
+                    product.id + "/" + product.productType + "/" + singleColor
+                  }
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}

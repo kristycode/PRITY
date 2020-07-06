@@ -3,9 +3,8 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   IconButton,
-  Grid
+  Grid,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
@@ -31,7 +30,7 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Grid justify="space-between" container spacing={30}>
+        <Grid justify="space-between" container spacing={10}>
           <Grid item>
             <Link to="/">
               <Typography variant="h3" className={classes.typographyStyles}>
@@ -40,7 +39,7 @@ const Header = () => {
             </Link>
           </Grid>
           <Grid item>
-            <Typography variant="h5">
+            <Typography variant="subtitle1">
               <Link
                 to="/searchProd"
                 color="secondary"

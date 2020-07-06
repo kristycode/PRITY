@@ -35,6 +35,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function deleteTask() {
+  console.log("test");
+}
+
+//
+const HandleDelete = () => {
+  if (window.confirm("Are you sure you want to delete this task?")) {
+    console.log("phase 1");
+  }
+};
+
 const BeautyBag = () => {
   const classes = useStyles();
 
@@ -42,6 +53,9 @@ const BeautyBag = () => {
   console.log("chipObj");
   console.log(chipObj);
 
+  // test code
+
+  //-------------------------------------------------------//
   const handleClick = () => {
     console.info("You clicked the Chip.");
   };
@@ -50,20 +64,18 @@ const BeautyBag = () => {
   //   console.log("Chip to delete");
   //   console.log(chipToDelete);
 
-  //   const filteredProducts = this.state.chipObj.filter(
-  //     (product) => product !== key
-  //   );
-  //   setChipObj({ filteredProducts });
+  //   const products = chipObj.filter((product) => product.key !== chipToDelete);
+  //   setChipObj({ products });
   // };
 
-  // const cardBackground = {
-  //   backgroundColor: "#f7c4c4",
-  //   padding: 10,
-  //   borderRadius: 10,
-  //   margin: 10,
-  //   borderColor: "#C47CA8",
-  //   borderStyle: "outset",
-  // };
+  const cardBackground = {
+    backgroundColor: "#f7c4c4",
+    padding: 10,
+    borderRadius: 10,
+    margin: 10,
+    borderColor: "#C47CA8",
+    borderStyle: "outset",
+  };
 
   return (
     <Container>
@@ -76,6 +88,10 @@ const BeautyBag = () => {
         const chipColor = {
           backgroundColor: product.hexColor,
         };
+
+        //place teh icon in a variable to be reused
+        // const BeautyOptions= ()
+
         return (
           <List className={classes.root}>
             <ListItem key={itemKey}>
@@ -87,24 +103,11 @@ const BeautyBag = () => {
                 secondary={product.productType}
               />
               <IconButton>
-                <DeleteIcon onClick={() => console.log("delete clicked")} />
+                <DeleteIcon onClick={() => deleteTask()} />
               </IconButton>
             </ListItem>
             <Divider variant="inset" component="li" />
           </List>
-
-          // <Card style={cardBackground}>
-          //   <div>{product.name}</div>
-          //   <div key={product.hexColor}>
-          //     <Chip
-          //       style={chipColor}
-          //       variant="outlined"
-          //       value={product.hexColor}
-          //       label="basic"
-          //       onDelete={handleDelete(product)}
-          //     />
-          //   </div>
-          // </Card>
         );
       })}
     </Container>
