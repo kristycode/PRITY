@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../utils/API";
+import API from "../../utils/api";
 
 export default function EyeshadowCall() {
   const [value, setValue] = React.useState("female");
@@ -43,13 +43,15 @@ export default function EyeshadowCall() {
           color_name: color.colorName,
         },
       ];
+      
     });
-
-    // API.insertColor({
-    //   hexColor: this.value,
-    //   productType: chipObj.productType,
-    // })
-    //   .catch(err => console.log(err));
+    API.insertColor({
+      hexColor: color.backgroundColor,
+      productType: product.productType,
+      name: product.name,
+      brand: product.brandName,
+      color_name: color.colorName
+    }).catch(err => console.log(err));
   };
 
   const getProducts = (brand) => {

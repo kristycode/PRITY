@@ -28,6 +28,14 @@ const Header = () => {
         >
           Search Products
         </Button>
+        {/* <Button
+          variant="contained"
+          color="secondary"
+          className={classes.buttonStyles}
+          onClick={() => (window.location.href = "/LogIN")}
+        >
+          Log in
+        </Button> */}
         <Button
           variant="contained"
           color="secondary"
@@ -41,7 +49,7 @@ const Header = () => {
           variant="contained"
           color="secondary"
           className={classes.buttonStyles}
-          onClick={() => (window.location.href = "/looktabs")}
+          onClick={() => (window.location.href = "/LogIn")}
         >
           Create Look!
         </Button>
