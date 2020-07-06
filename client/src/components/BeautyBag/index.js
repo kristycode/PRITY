@@ -1,5 +1,4 @@
 import React, { Component, useContext, useState, Fragment } from "react";
-import { BeautyBagContext } from "../../utils/beautyBagContext";
 // import LocalMallIcon from "@material-ui/icons/LocalMall";
 import { Typography } from "@material-ui/core";
 import ChipContext from "../Context/ChipContext";
