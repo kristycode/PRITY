@@ -3,7 +3,9 @@ import { Tabs, Tab } from "@material-ui/core";
 // import CreateLookApi from "../createLook";
 import EyeshadowCall from "../EyeshadowCall";
 import EyelinerCall from "../EyeLinerCall";
-import BronzerCall from "../EyeLinerCall";
+import BronzerCall from "../BronzerCall";
+import BlushCall from "../BlushCall";
+import LipstickCall from "../LipstickCall";
 
 const LookTabs = () => {
   const [selectedTab, setSelectedTab] = React.useState(0);
@@ -24,8 +26,8 @@ const LookTabs = () => {
       {selectedTab === 0 && <EyeshadowCall />}
       {selectedTab === 1 && <EyelinerCall />}
       {selectedTab === 2 && <BronzerCall />}
-      {/* {selectedTab === 3 && <BlushCall />}
-      {selectedTab === 4 && <LipstickCall />} */}
+      {selectedTab === 3 && <BlushCall />}
+      {selectedTab === 4 && <LipstickCall />}
     </>
   );
 };
