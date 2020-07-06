@@ -6,13 +6,12 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../utils/API";
+import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
-// import { BeautyBagContext } from "../../utils/beautyBagContext";
-import ChipContext from "../Context/ChipContext";
+import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in NewCreateLook > index.js
-export default function EyelinerCall() {
+export default function LipstickCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -37,7 +36,7 @@ export default function EyelinerCall() {
     borderStyle: "outset",
   };
 
-  const eyelinerContainerStyle = {
+  const lipstickContainerStyle = {
     marginTop: 20,
   };
   // my attempt using context with beautybag
@@ -80,7 +79,7 @@ export default function EyelinerCall() {
   };
 
   const getProducts = (brand) => {
-    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeliner`;
+    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=lipstick`;
     // console.log("getproducts called");
     axios
       .get(makeupURL)
@@ -113,14 +112,14 @@ export default function EyelinerCall() {
       );
   };
   return (
-    <Grid container direction="row" style={eyelinerContainerStyle}>
+    <Grid container direction="row" style={lipstickContainerStyle}>
       <Grid item xs={12}>
-        <Typography variant="h6">Eyeliner Brands</Typography>
+        <Typography variant="h6">Lipstick Brands</Typography>
         <FormControl component="fieldset">
           <FormLabel component="legend">Select to Display Palettes</FormLabel>
           <RadioGroup
             aria-label="brand"
-            name="eyeliner brands"
+            name="lipstick brands"
             value={value}
             onChange={handleChange}
             row
@@ -138,10 +137,16 @@ export default function EyelinerCall() {
               label="Clinique"
             />
             <FormControlLabel
-              onClick={() => getProducts("benefit")}
-              value="Benefit"
+              onClick={() => getProducts("dior")}
+              value="Dior"
               control={<Radio />}
-              label="Benefit"
+              label="Dior"
+            />
+            <FormControlLabel
+              onClick={() => getProducts("pure%20anada")}
+              value="Pure Anada"
+              control={<Radio />}
+              label="Pure Anada"
             />
             <FormControlLabel
               onClick={() => getProducts("smashbox")}

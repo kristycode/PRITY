@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, Component } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Main from "./components/main";
 import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
 import ChipContext from "./components/Context/ChipContext";
+// import {BeautyProvider} from "./components/BeautyBag/BeautyProvider";
 
 function App() {
   const [chipObj, setChipObj] = useState([]);

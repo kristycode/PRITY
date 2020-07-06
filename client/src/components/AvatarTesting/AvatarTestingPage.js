@@ -35,6 +35,7 @@ function AvatarTestingPage(props) {
       <BlackBlush />
       <Eyeshadow />
       <GreenBronzer />
+      
     </div>
   );
 }

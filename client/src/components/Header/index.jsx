@@ -68,11 +68,12 @@ const Header = () => {
               </Link>
               <IconButton>
                 <Link
-                  href="/beautyBag"
+                  href="/vanity"
                   color="secondary"
                   className={classes.linkStyle}
                 >
                   <LocalMallIcon className={classes.bagIconStyle} />
+                  My Vanity
                 </Link>
               </IconButton>
             </Typography>

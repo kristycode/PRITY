@@ -6,13 +6,12 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../utils/API";
+import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
-// import { BeautyBagContext } from "../../utils/beautyBagContext";
-import ChipContext from "../Context/ChipContext";
+import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in NewCreateLook > index.js
-export default function LipstickCall() {
+export default function BlushCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -37,7 +36,7 @@ export default function LipstickCall() {
     borderStyle: "outset",
   };
 
-  const lipstickContainerStyle = {
+  const blushContainerStyle = {
     marginTop: 20,
   };
   // my attempt using context with beautybag
@@ -80,7 +79,7 @@ export default function LipstickCall() {
   };
 
   const getProducts = (brand) => {
-    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=lipstick`;
+    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=blush`;
     // console.log("getproducts called");
     axios
       .get(makeupURL)
@@ -113,14 +112,14 @@ export default function LipstickCall() {
       );
   };
   return (
-    <Grid container direction="row" style={lipstickContainerStyle}>
+    <Grid container direction="row" style={blushContainerStyle}>
       <Grid item xs={12}>
-        <Typography variant="h6">Lipstick Brands</Typography>
+        <Typography variant="h6">Blush Brands</Typography>
         <FormControl component="fieldset">
           <FormLabel component="legend">Select to Display Palettes</FormLabel>
           <RadioGroup
             aria-label="brand"
-            name="lipstick brands"
+            name="blush brands"
             value={value}
             onChange={handleChange}
             row
