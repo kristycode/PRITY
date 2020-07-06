@@ -9,7 +9,7 @@ import {
 import { makeStyles } from "@material-ui/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 // import BeautyBag from "../BeautyBag";
-import { Link } from "@material-ui/core";
+import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
@@ -34,7 +34,7 @@ const Header = () => {
       <Toolbar>
         <Grid justify="space-between" container spacing={30}>
           <Grid item>
-            <Link href="/">
+            <Link to="/">
               <Typography variant="h3" className={classes.typographyStyles}>
                 PRITY
               </Typography>
@@ -43,24 +43,24 @@ const Header = () => {
           <Grid item>
             <Typography variant="h5">
               <Link
-                href="/searchProd"
+                to="/searchProd"
                 color="secondary"
                 className={classes.linkStyle}
               >
                 Search Products
               </Link>
-              {/* <Link href="/selectProd" color="secondary">
+              {/* <Link to="/selectProd" color="secondary">
               Select Products
             </Link> */}
               <Link
-                href="/looktabs"
+                to="/looktabs"
                 color="secondary"
                 className={classes.linkStyle}
               >
                 Create Look
               </Link>
               <Link
-                href="/avatarTestingPage"
+                to="/avatarTestingPage"
                 color="secondary"
                 className={classes.linkStyle}
               >
@@ -68,7 +68,7 @@ const Header = () => {
               </Link>
               <IconButton>
                 <Link
-                  href="/vanity"
+                  to="/vanity"
                   color="secondary"
                   className={classes.linkStyle}
                 >
