@@ -3,25 +3,27 @@ import {
   AppBar,
   Toolbar,
   Typography,
-  Button,
   IconButton,
+  Grid,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
 // import BeautyBag from "../BeautyBag";
-import { Link } from "react-router-dom";
+import { Link } from "@material-ui/core";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
-    flex: 1,
     fontFamily: ["Oswald", "sans-serif"],
-  },
-  buttonStyles: {
+    color: "white",
+    flex: 1,
     padding: 10,
-    margin: 5,
   },
   bagIconStyle: {
     color: "white",
+  },
+  linkStyle: {
+    margin: 10,
+    fontFamily: ["Oswald", "sans-serif"],
   },
 }));
 
@@ -30,47 +32,52 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Link to="/">
-          <Typography variant="h3" className={classes.typographyStyles}>
-            PRITY
-          </Typography>
-        </Link>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/searchProd">Search Products</Link>{" "}
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/selectProd">Select Products</Link>{" "}
-        </Button>
-        {/* temporarily using below button to render vertical tabs */}
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/looktabs">Create Look</Link>
-        </Button>
-        <Button
-          variant="contained"
-          color="secondary"
-          className={classes.buttonStyles}
-        >
-          <Link to="/avatarTestingPage">Avatar Testing</Link>
-        </Button>
-        <span>
-          <IconButton>
-            <Link to="/beautyBag" />
-            <LocalMallIcon className={classes.bagIconStyle} />
-          </IconButton>
-          <Typography>items:</Typography>
-        </span>
+        <Grid justify="space-between" container spacing={30}>
+          <Grid item>
+            <Link href="/">
+              <Typography variant="h3" className={classes.typographyStyles}>
+                PRITY
+              </Typography>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Typography variant="h5">
+              <Link
+                href="/searchProd"
+                color="secondary"
+                className={classes.linkStyle}
+              >
+                Search Products
+              </Link>
+              {/* <Link href="/selectProd" color="secondary">
+              Select Products
+            </Link> */}
+              <Link
+                href="/looktabs"
+                color="secondary"
+                className={classes.linkStyle}
+              >
+                Create Look
+              </Link>
+              <Link
+                href="/avatarTestingPage"
+                color="secondary"
+                className={classes.linkStyle}
+              >
+                Avatar Testing
+              </Link>
+              <IconButton>
+                <Link
+                  href="/beautyBag"
+                  color="secondary"
+                  className={classes.linkStyle}
+                >
+                  <LocalMallIcon className={classes.bagIconStyle} />
+                </Link>
+              </IconButton>
+            </Typography>
+          </Grid>
+        </Grid>
       </Toolbar>
     </AppBar>
   );
