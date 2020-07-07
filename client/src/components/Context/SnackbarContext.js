@@ -5,9 +5,15 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
-const SnackbarContext = createContext();
+const defaultState = {
+  show: false,
+  displayText: "Item added to beauty bag!",
+  timeOut: 2000,
+};
 
-export function SnackbarProvider({ children }) {
+const SnackbarContext = createContext(defaultState);
+
+function SnackbarProvider({ children }) {
   const [open, setOpen] = useState([]);
 
   const handleClick = () => {

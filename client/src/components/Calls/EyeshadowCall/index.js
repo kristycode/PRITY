@@ -9,12 +9,10 @@ import { Grid, Chip, Typography } from "@material-ui/core";
 // import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
-import SnackbarContext from "../../Context/SnackbarContext";
 
 // this function is being called in NewCreateLook > index.js
 export default function EyeshadowCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
-  const { open, setOpen } = useContext(SnackbarContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
   const [apiState, setApiState] = React.useState({

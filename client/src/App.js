@@ -5,9 +5,6 @@ import Main from "./components/main";
 import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
 import ChipContext from "./components/Context/ChipContext";
-import SnackbarContext, {
-  SnackbarProvider,
-} from "./components/Context/SnackbarContext";
 
 function App() {
   const [chipObj, setChipObj] = useState({
@@ -18,25 +15,25 @@ function App() {
     lipstick: null,
     beautyBag: [],
   });
+  const [open, setOpen] = useState([]);
+
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj }}>
-      <SnackbarContext.Provider>
-        <Container>
-          <Router>
-            <Grid container direction="column">
-              <Grid item xs={12}>
-                <Header />
-              </Grid>
-              <Grid item container justify="center">
-                <Grid item sm={2} />
-                <Grid item xs={12} sm={8}>
-                  <Main />
-                </Grid>
+      <Container>
+        <Router>
+          <Grid container direction="column">
+            <Grid item xs={12}>
+              <Header />
+            </Grid>
+            <Grid item container justify="center">
+              <Grid item sm={2} />
+              <Grid item xs={12} sm={8}>
+                <Main />
               </Grid>
             </Grid>
-          </Router>
-        </Container>
-      </SnackbarContext.Provider>
+          </Grid>
+        </Router>
+      </Container>
     </ChipContext.Provider>
   );
 }

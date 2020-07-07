@@ -16,6 +16,12 @@ const LookTabs = () => {
 
   return (
     <>
+      <Snackbar open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success">
+          This is a success message!
+        </Alert>
+      </Snackbar>
+
       <Tabs position="static" value={selectedTab} onChange={handleChange}>
         <Tab label="Eyeshadow" />
         <Tab label="Eyeliner" />
