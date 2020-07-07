@@ -35,38 +35,43 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-
-
 //
-const HandleDelete = () => {
-  if (window.confirm("Are you sure you want to delete this task?")) {
-    console.log("phase 1");
-  }
-};
+// const HandleDelete = () => {
+//   if (window.confirm("Are you sure you want to delete this task?")) {
+//     console.log("phase 1");
+//   }
+// };
 
 const BeautyBag = () => {
   const classes = useStyles();
 
   const { chipObj, setChipObj } = useContext(ChipContext);
+
+  function deleteItem(name, type) {
+    // console.log("test");
+    let newChipObj = [{...chipObj.beautyBag}];
+    console.log("newChipObj:" && newChipObj);
+    const idx = newChipObj.findIndex(
+      (p) => p.name === name && p.productType === type
+    );
+    console.log("idx:" && idx);
+    if (idx > -1) {
+      newChipObj.splice(idx, 1);
+      setChipObj(newChipObj);
+      // console.log(chipObj);
+      // console.log(newChipObj);
+    }
+  }
+
   console.log("chipObj");
   console.log(chipObj);
 
-  const deleteTask = (e) => {
-    if (chipObj.product.map((e) =>{
-        const arr =[];
-        const makeup = {
-            itemKey: product.hexColor + product.productType,
-        }
-        const keyName = makeup.split(",").map((e) => arr.push(e));
-        const deletedKey = makeup
-        .split(",")
-        .filter((keyName) => makeup.itemKey !== keyName);
+  function applyMakeup(hexcolor, type) {
+    // passing in type of makeup product and defining it as the hexcolor
+    setChipObj({...chipObj, [type]: hexcolor})
 
-        return (
-            console.log(keyName)
-            );
-    
-        }));};
+    }
+
 
   // test code
 
@@ -96,7 +101,7 @@ const BeautyBag = () => {
     <Container>
       <Typography variant="h4">My Products:</Typography>
 
-      {chipObj.map((product) => {
+      {chipObj.beautyBag.map((product) => {
         const itemKey = product.hexColor + product.productType;
         console.log("itemKey");
         console.log(itemKey);
@@ -111,14 +116,18 @@ const BeautyBag = () => {
           <List className={classes.root}>
             <ListItem key={itemKey}>
               <ListItemAvatar>
-                <Chip style={chipColor} />
+                <Chip 
+                style={chipColor} 
+                onClick={() => applyMakeup(product.hexColor, product.productType)} />
               </ListItemAvatar>
               <ListItemText
                 primary={product.name}
                 secondary={product.productType}
               />
               <IconButton>
-                <DeleteIcon onClick={() => deleteTask()} />
+                <DeleteIcon
+                  onClick={() => deleteItem(product.name, product.productType)}
+                />
               </IconButton>
             </ListItem>
             <Divider variant="inset" component="li" />

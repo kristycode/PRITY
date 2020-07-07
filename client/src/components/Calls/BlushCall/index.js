@@ -58,9 +58,8 @@ export default function BlushCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj((value) => {
-      return [
-        ...value,
+    setChipObj({...chipObj, beautyBag: [
+        ...chipObj.beautyBag,
         {
           hexColor: color.backgroundColor,
           productType: product.productType,
@@ -68,7 +67,7 @@ export default function BlushCall() {
           brand: product.brandName,
           color_name: color.colorName,
         },
-      ];
+      ]
     });
 
     // API.insertColor({
