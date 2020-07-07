@@ -146,12 +146,12 @@ export default function EyeshadowCall() {
               control={<Radio />}
               label="Lotus Cosmetics"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               onClick={() => getProducts("dior")}
               value="Dior"
               control={<Radio />}
               label="Dior"
-            />
+            /> */}
           </RadioGroup>
         </FormControl>
       </Grid>
