@@ -78,7 +78,7 @@ const Header = () => {
               </IconButton>
               <IconButton>
                 <Link
-                  to="/LogIn"
+                  to="/Login"
                   color="secondary"
                   className={classes.linkStyle}
                 >
