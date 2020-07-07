@@ -10,7 +10,7 @@ import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
+// this function is being called in CreateLookTabs > index.js
 export default function BlushCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
@@ -58,7 +58,9 @@ export default function BlushCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj({...chipObj, beautyBag: [
+    setChipObj({
+      ...chipObj,
+      beautyBag: [
         ...chipObj.beautyBag,
         {
           hexColor: color.backgroundColor,
@@ -67,7 +69,7 @@ export default function BlushCall() {
           brand: product.brandName,
           color_name: color.colorName,
         },
-      ]
+      ],
     });
 
     // API.insertColor({

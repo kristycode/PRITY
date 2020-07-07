@@ -10,7 +10,7 @@ import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
+// this function is being called in CreateLookTabs > index.js
 export default function LipstickCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
@@ -58,17 +58,18 @@ export default function LipstickCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj({...chipObj, beautyBag: [
-      ...chipObj.beautyBag,
-      {
-        hexColor: color.backgroundColor,
-        productType: product.productType,
-        name: product.name,
-        brand: product.brandName,
-        color_name: color.colorName,
-      },
-    ]
-    
+    setChipObj({
+      ...chipObj,
+      beautyBag: [
+        ...chipObj.beautyBag,
+        {
+          hexColor: color.backgroundColor,
+          productType: product.productType,
+          name: product.name,
+          brand: product.brandName,
+          color_name: color.colorName,
+        },
+      ],
     });
 
     // API.insertColor({

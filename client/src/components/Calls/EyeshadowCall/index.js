@@ -10,7 +10,7 @@ import { Grid, Chip, Typography } from "@material-ui/core";
 import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
+// this function is being called in CreateLookTabs > index.js
 export default function EyeshadowCall() {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();

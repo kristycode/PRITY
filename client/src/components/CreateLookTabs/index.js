@@ -1,12 +1,12 @@
 import React from "react";
 import { Tabs, Tab } from "@material-ui/core";
 // import CreateLookApi from "../createLook";
-import EyeshadowCall from "../../components/Calls/EyeshadowCall";
-import EyelinerCall from "../../components/Calls/EyeLinerCall";
-import BronzerCall from "../../components/Calls/BronzerCall";
-import BlushCall from "../../components/Calls/BlushCall";
-import LipstickCall from "../../components/Calls/LipstickCall";
-import SnackbarPopup from "../../components/Snackbar";
+import EyeshadowCall from "../Calls/EyeshadowCall";
+import EyelinerCall from "../Calls/EyeLinerCall";
+import BronzerCall from "../Calls/BronzerCall";
+import BlushCall from "../Calls/BlushCall";
+import LipstickCall from "../Calls/LipstickCall";
+import SnackbarPopup from "../Snackbar";
 
 const LookTabs = () => {
   const [selectedTab, setSelectedTab] = React.useState(0);

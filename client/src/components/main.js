@@ -6,7 +6,7 @@ import SelectProd from "./selectProducts";
 import Body from "./Body/index";
 import APIComponent from "./APIComp";
 import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
-import LookTabs from "./NewCreateLook";
+import LookTabs from "./CreateLookTabs";
 import Vanity from "./Vanity";
 
 const Main = () => (
@@ -16,8 +16,7 @@ const Main = () => (
     <Route path="/selectProd" component={SelectProd} />
     <Route path="/looktabs" component={LookTabs} />
     <Route path="/APIComp" component={APIComponent} />
-    <Route path="/avatarTestingPage" component={AvatarTestingPage}>
-    </Route>
+    <Route path="/avatarTestingPage" component={AvatarTestingPage}></Route>
     <Route path="/vanity" component={Vanity} />
   </Switch>
 );
