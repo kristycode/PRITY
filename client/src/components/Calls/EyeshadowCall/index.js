@@ -7,11 +7,10 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 // import API from "../../../utils/API";
-import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
-export default function EyeshadowCall() {
+// this function is being called in CreateLookTabs > index.js
+export default function EyeshadowCall(props) {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -19,14 +18,12 @@ export default function EyeshadowCall() {
     products: [],
     isLoading: true,
   });
-  // below state is for updating chip selection state
-  // const [chipObj, setChipObj] = React.useState([]);
-  console.log(chipObj);
+
   // handles radio button clicks
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  // renders black background for chips to create 'palettes'
+  // renders background for chips to create 'palettes'
   const chipBackground = {
     backgroundColor: "#f7c4c4",
     padding: 10,
@@ -39,18 +36,6 @@ export default function EyeshadowCall() {
   const eyeshadowContainerStyle = {
     marginTop: 20,
   };
-  // my attempt using context with beautybag
-  // const testHandleChip = (props) => {
-  //   const [beautyBag, setBeautyBag] = useContext(BeautyBagContext);
-  //   const addToBag = () => {
-  //     const bagItems = {
-  //       productType: props.type,
-  //       productName: props.productName,
-  //       hexColor: props.hexColor,
-  //     };
-  //     setBeautyBag();
-  //   };
-  // };
 
   // when a chip color is clicked
   const handleChip = (product, color) => {
@@ -58,18 +43,19 @@ export default function EyeshadowCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj({...chipObj, beautyBag: [
-      ...chipObj.beautyBag,
-      {
-        hexColor: color.backgroundColor,
-        productType: product.productType,
-        name: product.name,
-        brand: product.brandName,
-        color_name: color.colorName,
-      },
-    ]
+    setChipObj({
+      ...chipObj,
+      beautyBag: [
+        ...chipObj.beautyBag,
+        {
+          hexColor: color.backgroundColor,
+          productType: product.productType,
+          name: product.name,
+          brand: product.brandName,
+          color_name: color.colorName,
+        },
+      ],
     });
-
     // API.insertColor({
     //   hexColor: this.value,
     //   productType: chipObj.productType,
@@ -159,12 +145,12 @@ export default function EyeshadowCall() {
               control={<Radio />}
               label="Lotus Cosmetics"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               onClick={() => getProducts("dior")}
               value="Dior"
               control={<Radio />}
               label="Dior"
-            />
+            /> */}
           </RadioGroup>
         </FormControl>
       </Grid>
@@ -202,7 +188,11 @@ export default function EyeshadowCall() {
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
-                  onClick={() => handleChip(product, singleSwatch)}
+                  message="item added to bag!"
+                  onClick={() => {
+                    handleChip(product, singleSwatch);
+                    props.setOpenToTrue();
+                  }}
                 />
               );
             }

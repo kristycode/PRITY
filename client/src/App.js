@@ -18,7 +18,6 @@ function App() {
     skinColor: null,
     eyeColor: null,
   });
-
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj }}>
       <Container>
