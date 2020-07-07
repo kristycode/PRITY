@@ -14,9 +14,10 @@ function App() {
     bronzer: null,
     lipstick: null,
     beautyBag: [],
+    hairColor: null,
+    skinColor: null,
+    eyeColor: null,
   });
-  const [open, setOpen] = useState([]);
-
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj }}>
       <Container>

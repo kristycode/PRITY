@@ -20,7 +20,6 @@ export default function EyeshadowCall() {
     isLoading: true,
   });
 
-  console.log(chipObj);
   // handles radio button clicks
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -191,7 +190,9 @@ export default function EyeshadowCall() {
                   value={singleSwatch}
                   style={singleSwatch}
                   message="item added to bag!"
-                  onClick={() => handleChip(product, singleSwatch)}
+                  onClick={() => {
+                    handleChip(product, singleSwatch);
+                  }}
                 />
               );
             }

@@ -5,7 +5,7 @@ const SvgAvatarMakeupBase = props => (
       <defs>
         <style>
           {
-            ".avatar_makeup_base_svg__cls-1{fill:#daae82}.avatar_makeup_base_svg__cls-2{fill:#f9eadf}.avatar_makeup_base_svg__cls-3{fill:#d7d7d7}.avatar_makeup_base_svg__cls-4{fill:#e4b88c;stroke:;stroke-miterlimit:10}.avatar_makeup_base_svg__cls-4_2{fill:#e4b88c;stroke:#c69a6e;stroke-miterlimit:10}.avatar_makeup_base_svg__cls-5{fill:#2a423c}.avatar_makeup_base_svg__cls-6{fill:#140000}.avatar_makeup_base_svg__cls-7{fill:#140000}.avatar_makeup_base_svg__cls-8{fill:#713400}.avatar_makeup_base_svg__cls-9{fill:#3a1607}.avatar_makeup_base_svg__cls-10{fill:#705b35}.avatar_makeup_base_svg__cls-11{fill:#54A391}"
+            ".avatar_makeup_base_svg__cls-1{fill:#daae82}.avatar_makeup_base_svg__cls-2{fill:#f9eadf}.avatar_makeup_base_svg__cls-3{fill:#d7d7d7}.avatar_makeup_base_svg__cls-4{fill:#d89671;stroke:#fcdccd;stroke-miterlimit:10}.avatar_makeup_base_svg__cls-5{fill:#2a423c}.avatar_makeup_base_svg__cls-6{fill:#042239}.avatar_makeup_base_svg__cls-7{fill:#380101}.avatar_makeup_base_svg__cls-8{fill:#7d2e0f}.avatar_makeup_base_svg__cls-9{fill:#3a1607}.avatar_makeup_base_svg__cls-10{fill:#705b35}.avatar_makeup_base_svg__cls-11{fill:#c4cd92}"
           }
         </style>
       </defs>
@@ -72,7 +72,7 @@ const SvgAvatarMakeupBase = props => (
         />
         <path
           id="avatar_makeup_base_svg__eyeshadow"
-          className="avatar_makeup_base_svg__cls-4_2"
+          className="avatar_makeup_base_svg__cls-4"
           d="M971.6 713.27c-5.61 1.59-9.75-11-28.48-29.67-15.25-15.19-37.57-37.42-66.41-39.35-38.2-2.57-70.83 31.6-76.23 37.25-11.93 12.5-15.25 21.5-18.71 20.35-7.82-2.63-10.78-55.4 20.12-87.08 32-32.79 81.3-23.24 97.41-20.12 15.58 3 45.41 8.78 64.4 34.62 24.13 32.84 18.21 81.09 7.9 84z"
           transform="translate(-61.79 -38.64)"
         />
@@ -85,7 +85,7 @@ const SvgAvatarMakeupBase = props => (
         />
         <path
           id="avatar_makeup_base_svg__eyeliner"
-          className="avatar_makeup_base_svg__cls-4_2"
+          className="avatar_makeup_base_svg__cls-4"
           d="M918.43 641.36c47.14 20.74 61.53 77.4 60.17 78.23s-17.31-50.76-63.07-70.83c-48.59-21.3-101.13 5.89-101.5 4.37s54.54-33.71 104.4-11.77z"
           transform="translate(-61.79 -38.64)"
         />

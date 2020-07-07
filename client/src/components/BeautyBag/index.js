@@ -119,7 +119,7 @@ const BeautyBag = () => {
             <ListItem key={itemKey}>
               <ListItemAvatar>
                 <Chip 
-                style={chipColor} 
+                // style={chipColor} 
                 onClick={() => applyMakeup(product.hexColor, product.productType)} />
               </ListItemAvatar>
               <ListItemText
