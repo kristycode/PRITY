@@ -10,7 +10,7 @@ import API from "../../../utils/API";
 import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in CreateLookTabs > index.js
-export default function BlushCall() {
+export default function BlushCall(props) {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -204,7 +204,10 @@ export default function BlushCall() {
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
-                  onClick={() => handleChip(product, singleSwatch)}
+                  onClick={() => {
+                    handleChip(product, singleSwatch);
+                    props.setOpenToTrue();
+                  }}
                 />
               );
             }

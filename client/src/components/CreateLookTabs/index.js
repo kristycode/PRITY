@@ -5,7 +5,6 @@ import EyelinerCall from "../Calls/EyeLinerCall";
 import BronzerCall from "../Calls/BronzerCall";
 import BlushCall from "../Calls/BlushCall";
 import LipstickCall from "../Calls/LipstickCall";
-import Button from "@material-ui/core/Button";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
@@ -33,7 +32,6 @@ const LookTabs = () => {
 
   return (
     <>
-      <Button onClick={handleSnackbar}>Open simple snackbar</Button>
       <Snackbar
         anchorOrigin={{
           vertical: "bottom",
@@ -66,10 +64,14 @@ const LookTabs = () => {
       {selectedTab === 0 && (
         <EyeshadowCall setOpenToTrue={() => setOpen(true)} />
       )}
-      {selectedTab === 1 && <EyelinerCall />}
-      {selectedTab === 2 && <BronzerCall />}
-      {selectedTab === 3 && <BlushCall />}
-      {selectedTab === 4 && <LipstickCall />}
+      {selectedTab === 1 && (
+        <EyelinerCall setOpenToTrue={() => setOpen(true)} />
+      )}
+      {selectedTab === 2 && <BronzerCall setOpenToTrue={() => setOpen(true)} />}
+      {selectedTab === 3 && <BlushCall setOpenToTrue={() => setOpen(true)} />}
+      {selectedTab === 4 && (
+        <LipstickCall setOpenToTrue={() => setOpen(true)} />
+      )}
     </>
   );
 };
