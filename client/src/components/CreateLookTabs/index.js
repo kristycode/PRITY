@@ -45,7 +45,7 @@ const LookTabs = () => {
             horizontal: "left",
           }}
           open={open}
-          autoHideDuration={600000}
+          autoHideDuration={1000}
           onClose={handleClose}
           message="Item Added to Bag!"
           action={
