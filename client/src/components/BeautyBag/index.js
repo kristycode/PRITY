@@ -49,15 +49,17 @@ const BeautyBag = () => {
 
   function deleteItem(name, type) {
     // console.log("test");
-    let newChipObj = [{...chipObj.beautyBag}];
-    console.log("newChipObj:" && newChipObj);
-    const idx = newChipObj.findIndex(
+    let newBeautyBag = [...chipObj.beautyBag]
+    // console.log("newChipObj")
+    // console.log(newChipObj);
+    const idx = newBeautyBag.findIndex(
       (p) => p.name === name && p.productType === type
     );
-    console.log("idx:" && idx);
+    // console.log("idx:");
+    // console.log(idx);
     if (idx > -1) {
-      newChipObj.splice(idx, 1);
-      setChipObj(newChipObj);
+      newBeautyBag.splice(idx, 1);
+      setChipObj({...chipObj, beautyBag: newBeautyBag});
       // console.log(chipObj);
       // console.log(newChipObj);
     }
