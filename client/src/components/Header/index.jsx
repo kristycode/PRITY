@@ -13,8 +13,6 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
-    fontFamily: ["Oswald", "sans-serif"],
-    color: "white",
     flex: 1,
     padding: 10,
   },
@@ -23,7 +21,6 @@ const useStyles = makeStyles(() => ({
   },
   linkStyle: {
     margin: 10,
-    fontFamily: ["Oswald", "sans-serif"],
   },
 }));
 
