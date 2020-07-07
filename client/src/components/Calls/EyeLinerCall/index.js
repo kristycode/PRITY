@@ -7,7 +7,6 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 // import API from "../../../utils/API";
-import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in CreateLookTabs > index.js
@@ -19,6 +18,9 @@ export default function EyelinerCall() {
     products: [],
     isLoading: true,
   });
+  // snackbar state below
+  const [open, setOpen] = React.useState(false);
+
   // below state is for updating chip selection state
   // const [chipObj, setChipObj] = React.useState([]);
   console.log(chipObj);
@@ -72,6 +74,8 @@ export default function EyelinerCall() {
       ],
     });
 
+    setOpen(true);
+    console.log("setOpen true?");
     // API.insertColor({
     //   hexColor: this.value,
     //   productType: chipObj.productType,

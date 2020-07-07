@@ -7,7 +7,6 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 // import API from "../../../utils/API";
-import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in CreateLookTabs > index.js
