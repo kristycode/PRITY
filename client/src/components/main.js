@@ -16,8 +16,7 @@ const Main = () => (
     <Route path="/selectProd" component={SelectProd} />
     <Route path="/looktabs" component={LookTabs} />
     <Route path="/APIComp" component={APIComponent} />
-    <Route path="/avatarTestingPage">
-      <AvatarTestingPage eyes="blue" blush="orange" />
+    <Route path="/avatarTestingPage" component={AvatarTestingPage}>
     </Route>
     <Route path="/vanity" component={Vanity} />
   </Switch>

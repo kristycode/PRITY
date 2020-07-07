@@ -24,12 +24,12 @@ export default function Vanity() {
   return (
     <div className={classes.root}>
       <Grid container spacing={3}>
-        <Grid item xs={6}>
+        <Grid item xs={8}>
           <span className={classes.paper}>
             <BeautyBag />
           </span>
         </Grid>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
           <span className={classes.paper}>
             <AvatarTestingPage />
           </span>

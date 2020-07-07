@@ -8,7 +8,14 @@ import ChipContext from "./components/Context/ChipContext";
 // import {BeautyProvider} from "./components/BeautyBag/BeautyProvider";
 
 function App() {
-  const [chipObj, setChipObj] = useState([]);
+  const [chipObj, setChipObj] = useState({  
+    eyeshadow: null,
+    eyeliner: null,
+    blush: null,
+    bronzer: null,
+    lipstick: null,
+    beautyBag: [],
+   });
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj }}>
       <Container>
