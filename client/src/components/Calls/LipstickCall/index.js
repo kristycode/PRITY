@@ -58,17 +58,17 @@ export default function LipstickCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj((value) => {
-      return [
-        ...value,
-        {
-          hexColor: color.backgroundColor,
-          productType: product.productType,
-          name: product.name,
-          brand: product.brandName,
-          color_name: color.colorName,
-        },
-      ];
+    setChipObj({...chipObj, beautyBag: [
+      ...chipObj.beautyBag,
+      {
+        hexColor: color.backgroundColor,
+        productType: product.productType,
+        name: product.name,
+        brand: product.brandName,
+        color_name: color.colorName,
+      },
+    ]
+    
     });
 
     // API.insertColor({
@@ -120,7 +120,7 @@ export default function LipstickCall() {
           <RadioGroup
             aria-label="brand"
             name="lipstick brands"
-            value={value}
+            value={value || ""}
             onChange={handleChange}
             row
           >
@@ -198,7 +198,9 @@ export default function LipstickCall() {
               // returns individual chips
               return (
                 <Chip
-                  // key={product.hexColor}
+                  key={
+                    product.id + "/" + product.productType + "/" + singleColor
+                  }
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}

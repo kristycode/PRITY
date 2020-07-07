@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../../utils/API";
+// import API from "../../../utils/API";
 import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
@@ -57,18 +57,17 @@ export default function EyelinerCall() {
     console.log("chip clicked!");
     console.log(product.productType);
     console.log(color);
-
-    setChipObj((value) => {
-      return [
-        ...value,
-        {
-          hexColor: color.backgroundColor,
-          productType: product.productType,
-          name: product.name,
-          brand: product.brandName,
-          color_name: color.colorName,
-        },
-      ];
+    
+    setChipObj({...chipObj, beautyBag: [
+      ...chipObj.beautyBag,
+      {
+        hexColor: color.backgroundColor,
+        productType: product.productType,
+        name: product.name,
+        brand: product.brandName,
+        color_name: color.colorName,
+      },
+    ]
     });
 
     // API.insertColor({
@@ -120,7 +119,7 @@ export default function EyelinerCall() {
           <RadioGroup
             aria-label="brand"
             name="eyeliner brands"
-            value={value}
+            value={value || ""}
             onChange={handleChange}
             row
           >
@@ -192,7 +191,9 @@ export default function EyelinerCall() {
               // returns individual chips
               return (
                 <Chip
-                  // key={product.hexColor}
+                  key={
+                    product.id + "/" + product.productType + "/" + singleColor
+                  }
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}

@@ -1,4 +1,4 @@
-import React, { useState, Component } from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router } from "react-router-dom";
 import Container from "@material-ui/core/Container";
 import Main from "./components/main";
@@ -10,8 +10,14 @@ import SnackbarContext, {
 } from "./components/Context/SnackbarContext";
 
 function App() {
-  const [chipObj, setChipObj] = useState([]);
-  const [open, setOpen] = useState();
+  const [chipObj, setChipObj] = useState({
+    eyeshadow: null,
+    eyeliner: null,
+    blush: null,
+    bronzer: null,
+    lipstick: null,
+    beautyBag: [],
+  });
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj, open, setOpen }}>
       <SnackbarContext.Provider>

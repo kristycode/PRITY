@@ -13,17 +13,15 @@ import { Link } from "react-router-dom";
 
 const useStyles = makeStyles(() => ({
   typographyStyles: {
-    fontFamily: ["Oswald", "sans-serif"],
-    color: "white",
     flex: 1,
+    fontFamily: ["Oswald", "sans-serif"],
+  },
+  buttonStyles: {
     padding: 10,
+    margin: 5,
   },
   bagIconStyle: {
     color: "white",
-  },
-  linkStyle: {
-    margin: 10,
-    fontFamily: ["Oswald", "sans-serif"],
   },
 }));
 
@@ -32,7 +30,7 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Grid justify="space-between" container spacing={30}>
+        <Grid justify="space-between" container spacing={10}>
           <Grid item>
             <Link to="/">
               <Typography variant="h3" className={classes.typographyStyles}>
@@ -41,7 +39,7 @@ const Header = () => {
             </Link>
           </Grid>
           <Grid item>
-            <Typography variant="h5">
+            <Typography variant="subtitle1">
               <Link
                 to="/searchProd"
                 color="secondary"
