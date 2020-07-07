@@ -35,21 +35,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function deleteTask() {
-  console.log("test");
-}
-
 //
-const HandleDelete = () => {
-  if (window.confirm("Are you sure you want to delete this task?")) {
-    console.log("phase 1");
-  }
-};
+// const HandleDelete = () => {
+//   if (window.confirm("Are you sure you want to delete this task?")) {
+//     console.log("phase 1");
+//   }
+// };
 
 const BeautyBag = () => {
   const classes = useStyles();
 
   const { chipObj, setChipObj } = useContext(ChipContext);
+
+  function deleteItem(name, type) {
+    // console.log("test");
+    let newChipObj = [...chipObj];
+    // console.log(newChipObj);
+    const idx = newChipObj.findIndex(
+      (p) => p.name === name && p.productType === type
+    );
+    // console.log(idx);
+    if (idx > -1) {
+      newChipObj.splice(idx, 1);
+      setChipObj(newChipObj);
+      // console.log(chipObj);
+      // console.log(newChipObj);
+    }
+  }
+
   console.log("chipObj");
   console.log(chipObj);
 
@@ -103,7 +116,9 @@ const BeautyBag = () => {
                 secondary={product.productType}
               />
               <IconButton>
-                <DeleteIcon onClick={() => deleteTask()} />
+                <DeleteIcon
+                  onClick={() => deleteItem(product.name, product.productType)}
+                />
               </IconButton>
             </ListItem>
             <Divider variant="inset" component="li" />
