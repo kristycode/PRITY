@@ -19,7 +19,7 @@ function App() {
     beautyBag: [],
   });
   return (
-    <ChipContext.Provider value={{ chipObj, setChipObj, open, setOpen }}>
+    <ChipContext.Provider value={{ chipObj, setChipObj }}>
       <SnackbarContext.Provider>
         <Container>
           <Router>

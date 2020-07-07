@@ -60,7 +60,6 @@ export default function EyeshadowCall() {
         },
       ],
     });
-
     // API.insertColor({
     //   hexColor: this.value,
     //   productType: chipObj.productType,

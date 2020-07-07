@@ -33,7 +33,7 @@ const Header = () => {
         <Grid container>
           <Grid item xs={4}>
             <Link to="/">
-              <Typography variant="h3" className={}>
+              <Typography variant="h3" className={linkStyles.root}>
                 PRITY
               </Typography>
             </Link>

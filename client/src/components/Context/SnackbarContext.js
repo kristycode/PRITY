@@ -7,8 +7,8 @@ import CloseIcon from "@material-ui/icons/Close";
 
 const SnackbarContext = createContext();
 
-const SnackbarProvider = () => {
-  const [open, setOpen] = useState(false);
+export function SnackbarProvider({ children }) {
+  const [open, setOpen] = useState([]);
 
   const handleClick = () => {
     setOpen(true);
@@ -52,6 +52,6 @@ const SnackbarProvider = () => {
       />
     </div>
   );
-};
+}
 
 export default { SnackbarContext, SnackbarProvider };
