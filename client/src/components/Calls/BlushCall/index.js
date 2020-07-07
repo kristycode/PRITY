@@ -120,7 +120,7 @@ export default function BlushCall() {
           <RadioGroup
             aria-label="brand"
             name="blush brands"
-            value={value}
+            value={value || ""}
             onChange={handleChange}
             row
           >
@@ -198,7 +198,9 @@ export default function BlushCall() {
               // returns individual chips
               return (
                 <Chip
-                  // key={product.hexColor}
+                  key={
+                    product.id + "/" + product.productType + "/" + singleColor
+                  }
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
