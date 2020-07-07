@@ -10,7 +10,7 @@ import { Grid, Chip, Typography } from "@material-ui/core";
 import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in CreateLookTabs > index.js
-export default function EyeshadowCall() {
+export default function EyeshadowCall(props) {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -191,6 +191,7 @@ export default function EyeshadowCall() {
                   message="item added to bag!"
                   onClick={() => {
                     handleChip(product, singleSwatch);
+                    props.setOpenToTrue();
                   }}
                 />
               );

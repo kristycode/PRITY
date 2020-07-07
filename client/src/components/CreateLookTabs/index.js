@@ -40,14 +40,11 @@ const LookTabs = () => {
           horizontal: "left",
         }}
         open={open}
-        autoHideDuration={6000}
+        autoHideDuration={1500}
         onClose={handleClose}
-        message="Note archived"
+        message="Item Added to Bag!"
         action={
           <React.Fragment>
-            <Button color="secondary" size="small" onClick={handleClose}>
-              UNDO
-            </Button>
             <IconButton
               size="small"
               aria-label="close"
@@ -60,13 +57,15 @@ const LookTabs = () => {
         }
       />
       <Tabs position="static" value={selectedTab} onChange={handleChange}>
-        <Tab label="Eyeshadow" onOpen={setOpen} />
+        <Tab label="Eyeshadow" />
         <Tab label="Eyeliner" />
         <Tab label="Bronzer" />
         <Tab label="Blush" />
         <Tab label="Lipstick" />
       </Tabs>
-      {selectedTab === 0 && <EyeshadowCall onOpen={setOpen} />}
+      {selectedTab === 0 && (
+        <EyeshadowCall setOpenToTrue={() => setOpen(true)} />
+      )}
       {selectedTab === 1 && <EyelinerCall />}
       {selectedTab === 2 && <BronzerCall />}
       {selectedTab === 3 && <BlushCall />}
