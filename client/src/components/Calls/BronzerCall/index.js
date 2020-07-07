@@ -7,11 +7,10 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../../utils/API";
-import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
-export default function BronzerCall() {
+// this function is being called in CreateLookTabs > index.js
+export default function BronzerCall(props) {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -58,17 +57,18 @@ export default function BronzerCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj({...chipObj, beautyBag: [
-      ...chipObj.beautyBag,
-      {
-        hexColor: color.backgroundColor,
-        productType: product.productType,
-        name: product.name,
-        brand: product.brandName,
-        color_name: color.colorName,
-      },
-    ]
-    
+    setChipObj({
+      ...chipObj,
+      beautyBag: [
+        ...chipObj.beautyBag,
+        {
+          hexColor: color.backgroundColor,
+          productType: product.productType,
+          name: product.name,
+          brand: product.brandName,
+          color_name: color.colorName,
+        },
+      ],
     });
 
     // API.insertColor({
@@ -204,7 +204,10 @@ export default function BronzerCall() {
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
-                  onClick={() => handleChip(product, singleSwatch)}
+                  onClick={() => {
+                    handleChip(product, singleSwatch);
+                    props.setOpenToTrue();
+                  }}
                 />
               );
             }
