@@ -14,7 +14,6 @@ import { Link } from "react-router-dom";
 const useStyles = makeStyles(() => ({
   typographyStyles: {
     flex: 1,
-    fontFamily: ["Oswald", "sans-serif"],
   },
   buttonStyles: {
     padding: 10,

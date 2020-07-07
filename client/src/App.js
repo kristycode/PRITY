@@ -5,10 +5,9 @@ import Main from "./components/main";
 import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
 import ChipContext from "./components/Context/ChipContext";
-// import {BeautyProvider} from "./components/BeautyBag/BeautyProvider";
 
 function App() {
-  const [chipObj, setChipObj] = useState({  
+  const [chipObj, setChipObj] = useState({
     eyeshadow: null,
     eyeliner: null,
     blush: null,
@@ -18,7 +17,8 @@ function App() {
     hairColor: null,
     skinColor: null,
     eyeColor: null,
-   });
+  });
+
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj }}>
       <Container>
