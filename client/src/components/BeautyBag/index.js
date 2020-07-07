@@ -35,9 +35,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function deleteTask() {
-  console.log("test");
-}
+
 
 //
 const HandleDelete = () => {
@@ -52,6 +50,23 @@ const BeautyBag = () => {
   const { chipObj, setChipObj } = useContext(ChipContext);
   console.log("chipObj");
   console.log(chipObj);
+
+  const deleteTask = (e) => {
+    if (chipObj.product.map((e) =>{
+        const arr =[];
+        const makeup = {
+            itemKey: product.hexColor + product.productType,
+        }
+        const keyName = makeup.split(",").map((e) => arr.push(e));
+        const deletedKey = makeup
+        .split(",")
+        .filter((keyName) => makeup.itemKey !== keyName);
+
+        return (
+            console.log(keyName)
+            );
+    
+        }));};
 
   // test code
 
