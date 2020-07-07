@@ -28,14 +28,11 @@ function SnackbarPopup() {
           horizontal: "left",
         }}
         open={open}
-        autoHideDuration={2000}
+        autoHideDuration={1000}
         onClose={handleClose}
         message="Item Added to Bag!"
         action={
           <React.Fragment>
-            {/* <Button color="secondary" size="small" onClick={handleClose}>
-              UNDO
-            </Button> */}
             <IconButton
               size="small"
               aria-label="close"
