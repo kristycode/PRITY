@@ -49,7 +49,7 @@ const BeautyBag = () => {
 
   function deleteItem(name, type) {
     // console.log("test");
-    let newBeautyBag = [...chipObj.beautyBag]
+    let newBeautyBag = [...chipObj.beautyBag];
     // console.log("newChipObj")
     // console.log(newChipObj);
     const idx = newBeautyBag.findIndex(
@@ -59,7 +59,7 @@ const BeautyBag = () => {
     // console.log(idx);
     if (idx > -1) {
       newBeautyBag.splice(idx, 1);
-      setChipObj({...chipObj, beautyBag: newBeautyBag});
+      setChipObj({ ...chipObj, beautyBag: newBeautyBag });
       // console.log(chipObj);
       // console.log(newChipObj);
     }
@@ -70,10 +70,8 @@ const BeautyBag = () => {
 
   function applyMakeup(hexcolor, type) {
     // passing in type of makeup product and defining it as the hexcolor
-    setChipObj({...chipObj, [type]: hexcolor})
-
-    }
-
+    setChipObj({ ...chipObj, [type]: hexcolor });
+  }
 
   // test code
 
@@ -104,6 +102,8 @@ const BeautyBag = () => {
       <Typography variant="h4">My Products:</Typography>
 
       {chipObj.beautyBag.map((product) => {
+        console.log("product");
+        console.log(product);
         const itemKey = product.hexColor + product.productType;
         console.log("itemKey");
         console.log(itemKey);
@@ -118,9 +118,12 @@ const BeautyBag = () => {
           <List className={classes.root}>
             <ListItem key={itemKey}>
               <ListItemAvatar>
-                <Chip 
-                // style={chipColor} 
-                onClick={() => applyMakeup(product.hexColor, product.productType)} />
+                <Chip
+                  style={chipColor}
+                  onClick={() =>
+                    applyMakeup(product.hexColor, product.productType)
+                  }
+                />
               </ListItemAvatar>
               <ListItemText
                 primary={product.name}
