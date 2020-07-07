@@ -6,7 +6,13 @@ const ChipContext = createContext({
     blush: null,
     bronzer: null,
     lipstick: null,
+    
     beautyBag: [],
+
+    hairColor: null,
+    skinColor: null,
+    eyeColor: null,
+
 });
 
 export default ChipContext;

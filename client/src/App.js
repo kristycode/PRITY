@@ -15,6 +15,9 @@ function App() {
     bronzer: null,
     lipstick: null,
     beautyBag: [],
+    hairColor: null,
+    skinColor: null,
+    eyeColor: null,
    });
   return (
     <ChipContext.Provider value={{ chipObj, setChipObj }}>
