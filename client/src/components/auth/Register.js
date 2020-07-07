@@ -2,21 +2,30 @@ import React, { Component } from "react";
 import { withRouter  } from "react-router-dom";
 import { Typography } from "@material-ui/core";
 import { Grid, Button, TextField } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 import classnames from "classnames";
 
-const useStyles = makeStyles((theme) => ({
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//       '& .MuiTextField-root': {
+//         margin: theme.spacing(1),
+//         width: '25ch',
+//       },
+//     },
+// }));
+
+const styles = theme => ({
     root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-}));
+        "& .MuiTextField-root": {
+            margin: theme.spacing(1),
+            width: "25ch"
+        }
+    }
+}, withStyles(styles)(Register));
 
 class Register extends Component {
     constructor() {
@@ -63,7 +72,7 @@ class Register extends Component {
     };
 render() {
     const { errors } = this.state;
-    const classes = useStyles();
+    // const classes = useStyles();
 
     return (
         <Grid container 
@@ -72,7 +81,7 @@ render() {
         alignItems="center">
             <Grid item>
                 <h2>Register</h2>
-                <form noValidate className={classes.root} autoComplete="off">
+                <form noValidate className={styles.root} autoComplete="off">
                     <Typography>Username:</Typography>
                     <TextField required id="username" type="username"
                         onChange={this.onChange}
@@ -116,7 +125,7 @@ render() {
                     variant="contained"
                     color="secondary"
                     type="submit"
-                    className={classes.buttonStyles}
+                    className={styles.buttonStyles}
                     onClick={() => {
                         console.log(document.getElementById('username').value)
                         API.registerUser({

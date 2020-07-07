@@ -7,15 +7,25 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { withStyles } from '@material-ui/core/styles';
 
-const useStyles = makeStyles((theme) => ({
+// const useStyles = makeStyles((theme) => ({
+//     root: {
+//       '& .MuiTextField-root': {
+//         margin: theme.spacing(1),
+//         width: '25ch',
+//       },
+//     },
+// }));
+
+const styles = theme => ({
     root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-}));
+        "& .MuiTextField-root": {
+            margin: theme.spacing(1),
+            width: "25ch"
+        }
+    }
+}, withStyles(styles)(Login));
 
 class Login extends Component {
     constructor() {
@@ -59,67 +69,67 @@ class Login extends Component {
         this.props.loginUser(userData); 
     };
 
-render() {
-    const { errors } = this.state;
-    const classes = useStyles();
+    render() {
+        const { errors } = this.state;
+        // const classes = useStyles();
 
-    return (
-        <Grid container 
-        direction="column"
-        justify="center"
-        alignItems="center">
-            <Grid item>
-                <h2>Register</h2>
-                <form noValidate className={classes.root} autoComplete="off">
-                    <Typography>Email:</Typography>
-                    <TextField required id="email" type="email" 
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                        className={classnames("", {
-                            invalid: errors.email || errors.emailnotfound
-                        })}
-                        label="Email" variant="outlined" />
-                    <span className="red-text">
-                        {errors.email}
-                        {errors.emailnotfound}
-                    </span>
-                    <Typography>Password:</Typography>
-                    <TextField required id="password" type="password" onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        className={classnames("", {
-                            invalid: errors.password || errors.passwordincorrect
-                        })}
-                        label="Password" variant="outlined" />
-                    <span className="red-text">
-                        {errors.password}
-                        {errors.passwordincorrect}
-                    </span>
-                    <Button
-                    variant="contained"
-                    color="secondary"
-                    type="submit"
-                    className={classes.buttonStyles}
-                    onClick={() => {
-                        console.log(document.getElementById('username').value)
-                        API.registerUser({
-                            email: (document.getElementById('email').value),
-                            password: (document.getElementById('password1').value)
-                        });
+        return (
+            <Grid container 
+            direction="column"
+            justify="center"
+            alignItems="center">
+                <Grid item>
+                    <h2>Log In</h2>
+                    <form noValidate className={styles.root} autoComplete="off">
+                        <Typography>Email:</Typography>
+                        <TextField required id="email" type="email" 
+                            onChange={this.onChange}
+                            value={this.state.email}
+                            error={errors.email}
+                            className={classnames("", {
+                                invalid: errors.email || errors.emailnotfound
+                            })}
+                            label="Email" variant="outlined" />
+                        <Typography className="red-text">
+                            {errors.email}
+                            {errors.emailnotfound}
+                        </Typography>
+                        <Typography>Password:</Typography>
+                        <TextField required id="password" type="password" onChange={this.onChange}
+                            value={this.state.password}
+                            error={errors.password}
+                            className={classnames("", {
+                                invalid: errors.password || errors.passwordincorrect
+                            })}
+                            label="Password" variant="outlined" />
+                        <span className="red-text">
+                            {errors.password}
+                            {errors.passwordincorrect}
+                        </span>
+                        <Button
+                        variant="contained"
+                        color="secondary"
+                        type="submit"
+                        className={styles.buttonStyles}
+                        onClick={() => {
+                            console.log(document.getElementById('username').value)
+                            API.registerUser({
+                                email: (document.getElementById('email').value),
+                                password: (document.getElementById('password1').value)
+                            });
 
-                        window.location.href = "/looktabs";
-                    }}>
-                        Submit
-                    </Button>
-                </form>
-                
-                <h5>Don't have an account? <a href="/Register">Register here</a></h5>
+                            window.location.href = "/looktabs";
+                        }}>
+                            Submit
+                        </Button>
+                    </form>
+                    
+                    <h5>Don't have an account? <a href="/Register">Register here</a></h5>
 
+                </Grid>
             </Grid>
-        </Grid>
-    );
-  }
+        );
+    }
 }
 
 Login.propTypes = {
