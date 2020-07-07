@@ -8,19 +8,19 @@ import {
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/styles";
 import LocalMallIcon from "@material-ui/icons/LocalMall";
-// import BeautyBag from "../BeautyBag";
 import { Link } from "react-router-dom";
+import { withStyles } from "@material-ui/core/styles";
+
+const linkStyles = {
+  root: {
+    color: "orange",
+  },
+};
 
 const useStyles = makeStyles(() => ({
-  typographyStyles: {
-    flex: 1,
+  //typography styles is applied to PRITY "logo"
+  root: {
     fontFamily: ["Oswald", "sans-serif"],
-  },
-  buttonStyles: {
-    padding: 10,
-    margin: 5,
-  },
-  bagIconStyle: {
     color: "white",
   },
 }));
@@ -30,50 +30,39 @@ const Header = () => {
   return (
     <AppBar position="static">
       <Toolbar>
-        <Grid justify="space-between" container spacing={10}>
-          <Grid item>
+        <Grid container>
+          <Grid item xs={4}>
             <Link to="/">
-              <Typography variant="h3" className={classes.typographyStyles}>
+              <Typography variant="h3" className={}>
                 PRITY
               </Typography>
             </Link>
           </Grid>
-          <Grid item>
+          <Grid item xs={4}></Grid>
+          <Grid item xs={4}>
             <Typography variant="subtitle1">
-              <Link
-                to="/searchProd"
-                color="secondary"
-                className={classes.linkStyle}
-              >
+              <Link to="/searchProd" color="secondary" className={classes.root}>
                 Search Products
               </Link>
               {/* <Link to="/selectProd" color="secondary">
               Select Products
             </Link> */}
-              <Link
-                to="/looktabs"
-                color="secondary"
-                className={classes.linkStyle}
-              >
+              <Link to="/looktabs" color="secondary" className={classes.root}>
                 Create Look
               </Link>
               <Link
                 to="/avatarTestingPage"
                 color="secondary"
-                className={classes.linkStyle}
+                className={classes.root}
               >
                 Avatar Testing
               </Link>
-              <IconButton>
-                <Link
-                  to="/vanity"
-                  color="secondary"
-                  className={classes.linkStyle}
-                >
+              <Link to="/vanity" color="secondary" className={classes.root}>
+                My Vanity
+                <IconButton>
                   <LocalMallIcon className={classes.bagIconStyle} />
-                  My Vanity
-                </Link>
-              </IconButton>
+                </IconButton>
+              </Link>
             </Typography>
           </Grid>
         </Grid>
