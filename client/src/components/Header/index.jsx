@@ -42,13 +42,13 @@ const Header = () => {
           </Grid>
           <Grid item>
             <Typography variant="h5">
-              <Link
+              {/* <Link
                 to="/searchProd"
                 color="secondary"
                 className={classes.linkStyle}
               >
                 Search Products
-              </Link>
+              </Link> */}
               {/* <Link to="/selectProd" color="secondary">
               Select Products
             </Link> */}
@@ -74,6 +74,15 @@ const Header = () => {
                 >
                   <LocalMallIcon className={classes.bagIconStyle} />
                   My Vanity
+                </Link>
+              </IconButton>
+              <IconButton>
+                <Link
+                  to="/LogIn"
+                  color="secondary"
+                  className={classes.linkStyle}
+                >
+                  Log In
                 </Link>
               </IconButton>
             </Typography>
