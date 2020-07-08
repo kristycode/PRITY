@@ -56,6 +56,7 @@ class Register extends Component {
     onChange = e => {
         this.setState({ [e.target.id]: e.target.value });
     };
+
     onSubmit = e => {
         e.preventDefault();
 
@@ -70,83 +71,87 @@ class Register extends Component {
         
         console.log(newUser);
     };
-render() {
-    const { errors } = this.state;
-    // const classes = useStyles();
+    render() {
+        const { errors } = this.state;
+        // const classes = useStyles();
 
-    return (
-        <Grid container 
-        direction="column"
-        justify="center"
-        alignItems="center">
-            <Grid item>
-                <h2>Register</h2>
-                <form noValidate className={styles.root} autoComplete="off">
-                    <Typography>Username:</Typography>
-                    <TextField required id="username" type="username"
-                        onChange={this.onChange}
-                        value={this.state.username}
-                        error={errors.username}
-                        className={classnames("", {
-                            invalid: errors.username
-                        })}
-                        label="Username" variant="outlined" />
-                    <span className="red-text">{errors.username}</span>
-                    <Typography>Email:</Typography>
-                    <TextField required id="email" type="email" 
-                        onChange={this.onChange}
-                        value={this.state.email}
-                        error={errors.email}
-                        className={classnames("", {
-                            invalid: errors.email
-                        })}
-                        label="Email" variant="outlined" />
-                    <span className="red-text">{errors.email}</span>
-                    <Typography>Password:</Typography>
-                    <TextField required id="password" type="password" onChange={this.onChange}
-                        value={this.state.password}
-                        error={errors.password}
-                        className={classnames("", {
-                            invalid: errors.password
-                        })}
-                        label="Password" variant="outlined" />
-                    <span className="red-text">{errors.password}</span>
-                    <Typography>Confirm Password:</Typography>
-                    <TextField required onChange={this.onChange}
-                        value={this.state.password2}
-                        error={errors.password2}
-                        className={classnames("", {
-                            invalid: errors.password2
-                        })}
-                        id="password2"
-                        type="password2" label="Retype Password" variant="outlined" />
-                    <span className="red-text">{errors.password2}</span>
-                    <Button
-                    variant="contained"
-                    color="secondary"
-                    type="submit"
-                    className={styles.buttonStyles}
-                    onClick={() => {
-                        console.log(document.getElementById('username').value)
-                        API.registerUser({
-                            username: (document.getElementById('username').value),
-                            email: (document.getElementById('email').value),
-                            password: (document.getElementById('password1').value),
-                            password2: (document.getElementById('password2').value)
-                        });
+        return (
+            <Grid container 
+            direction="column"
+            justify="center"
+            alignItems="center">
+                <Grid item>
+                    <h2>Register</h2>
+                    <form noValidate className={styles.root} onSubmit={this.onSubmit} autoComplete="off">
+                        <Typography>Username:</Typography>
+                        <TextField required id="username" type="username"
+                            onChange={this.onChange}
+                            value={this.state.username}
+                            error={errors.username}
+                            className={classnames("", {
+                                invalid: errors.username
+                            })}
+                            label="Username" variant="outlined" />
+                        <Typography className="red-text">{errors.username}</Typography>
+                        <Typography>Email:</Typography>
+                        <TextField required id="email" type="email" 
+                            onChange={this.onChange}
+                            value={this.state.email}
+                            error={errors.email}
+                            className={classnames("", {
+                                invalid: errors.email
+                            })}
+                            label="Email" variant="outlined" />
+                        <Typography className="red-text">{errors.email}</Typography>
+                        <Typography>Password:</Typography>
+                        <TextField required id="password" type="password" onChange={this.onChange}
+                            value={this.state.password}
+                            error={errors.password}
+                            className={classnames("", {
+                                invalid: errors.password
+                            })}
+                            label="Password" variant="outlined" />
+                        <Typography className="red-text">{errors.password}</Typography>
+                        <Typography>Confirm Password:</Typography>
+                        <TextField required onChange={this.onChange}
+                            value={this.state.password2}
+                            error={errors.password2}
+                            className={classnames("", {
+                                invalid: errors.password2
+                            })}
+                            id="password2"
+                            type="password" label="Retype Password" variant="outlined" />
+                        <Typography className="red-text">{errors.password2}</Typography>
+                        <Button
+                        variant="contained"
+                        color="secondary"
+                        type="submit"
+                        className={styles.buttonStyles}
+                        // onSubmit={this.onSubmit}
+                        // onClick = {() => {
+                        //     s
+                        // }}
+                        // onClick={() => {
+                        //     console.log(document.getElementById('username').value)
+                        //     registerUser({
+                        //         username: (document.getElementById('username').value),
+                        //         email: (document.getElementById('email').value),
+                        //         password: (document.getElementById('password1').value),
+                        //         password2: (document.getElementById('password2').value)
+                        //     });
 
-                        window.location.href = "/looktabs";
-                    }}>
-                        Submit
-                    </Button>
-                </form>
-                
-                <h5>Already have an account? <a href="/Login">Log in here</a></h5>
+                        // }}
+                        >
+                            Submit
+                        </Button>
+                    </form>
+                    
+                    <h5>Already have an account? <a href="/Login">Log in here</a></h5>
 
+                </Grid>
             </Grid>
-        </Grid>
-    );
-  }
+        );
+    }
 }
 
 Register.propTypes = {

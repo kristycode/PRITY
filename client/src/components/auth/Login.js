@@ -46,7 +46,7 @@ class Login extends Component {
 
     componentWillReceiveProps(nextProps) {
         if (nextProps.auth.isAuthenticated) {
-            this.props.history.push("/looktabs"); // push user to dashboard when they login
+            this.props.history.push("/"); // push user to dashboard when they login
         }
         if (nextProps.errors) {
             this.setState({
@@ -111,15 +111,16 @@ class Login extends Component {
                         color="secondary"
                         type="submit"
                         className={styles.buttonStyles}
-                        onClick={() => {
-                            console.log(document.getElementById('username').value)
-                            API.registerUser({
-                                email: (document.getElementById('email').value),
-                                password: (document.getElementById('password1').value)
-                            });
+                        // onClick={() => {
+                        //     prev
+                        //     console.log(document.getElementById('username').value)
+                        //     loginUser({
+                        //         email: (document.getElementById('email').value),
+                        //         password: (document.getElementById('password1').value)
+                        //     });
 
-                            window.location.href = "/looktabs";
-                        }}>
+                        // }}
+                        >
                             Submit
                         </Button>
                     </form>
@@ -142,6 +143,7 @@ const mapStateToProps = state => ({
     auth: state.auth,
     errors: state.errors
 });
+
 export default connect(
     mapStateToProps,
     { loginUser }

@@ -5,8 +5,6 @@ import Main from "./components/main";
 import { Grid } from "@material-ui/core";
 import Header from "./components/Header";
 import ChipContext from "./components/Context/ChipContext";
-import { Provider } from "react-redux";
-import store from "./store";
 
 
 // import {BeautyProvider} from "./components/BeautyBag/BeautyProvider";
@@ -14,7 +12,6 @@ import store from "./store";
 function App() {
   const [chipObj, setChipObj] = useState([]);
   return (
-    <Provider store={store}>
       <ChipContext.Provider value={{ chipObj, setChipObj }}>
         <Container>
           <Router>
@@ -32,7 +29,6 @@ function App() {
           </Router>
         </Container>
       </ChipContext.Provider>
-    </Provider>
   );
 }
 
