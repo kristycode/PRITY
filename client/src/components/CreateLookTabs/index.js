@@ -47,7 +47,7 @@ const LookTabs = () => {
           open={open}
           autoHideDuration={1000}
           onClose={handleClose}
-          message="Item Added to Bag!"
+          message="Item Added to Vanity!"
           action={
             <React.Fragment>
               <IconButton

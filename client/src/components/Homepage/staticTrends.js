@@ -1,14 +1,10 @@
 // These is dummy data for trending looks cards - this is only for development
+import React, { Component } from "react";
 import Silhouette from "./staticImages/face-silhouette.png";
+import RandomAvatar from "./staticImages/RandomAvatar";
 
 export default [
-  {
-    title: "Looking FIERCE!",
-    subtitle: "drop dead gorgeous I tell you!",
-    description: "Felt cute...might post another selfie...",
-    avatarUrl: "https://randomuser.me/api/portraits/thumb/women/53.jpg",
-    imageUrl: Silhouette,
-  },
+  {},
   {
     title: "Hunny...",
     subtitle: "PLEASE AND THANK YOU.",

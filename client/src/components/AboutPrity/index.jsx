@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -9,31 +9,74 @@ const useStyles = makeStyles((theme) => ({
     flexWrap: "wrap",
     "& > *": {
       margin: theme.spacing(1),
-      width: theme.spacing(16),
-      height: theme.spacing(16),
+      width: theme.spacing(10),
+      // height: theme.spacing(16),
     },
+    textAlign: "center",
+    margin: 5,
+    padding: 0,
+    padding: 10,
+    borderRadius: 10,
+    margin: 10,
+    borderColor: "#C47CA8",
+    borderStyle: "outset",
   },
 }));
 
-export default function SimplePaper() {
+const beautyA = {
+  textAlign: "center",
+  margin: 5,
+  padding: 0,
+  padding: 10,
+  borderRadius: 10,
+  margin: 10,
+  borderColor: "red",
+  borderStyle: "outset",
+};
+const beautyB = {
+  textAlign: "center",
+  margin: 5,
+  padding: 0,
+  padding: 10,
+  borderRadius: 10,
+  margin: 10,
+  borderColor: "green",
+  borderStyle: "outset",
+};
+
+const beautyC = {
+  textAlign: "center",
+  margin: 5,
+  padding: 0,
+  padding: 10,
+  borderRadius: 10,
+  margin: 10,
+  borderColor: "blue",
+  borderStyle: "outset",
+};
+
+export default function AboutPaper() {
   const classes = useStyles();
 
-  // ***just experimenting with styling paper components
-  // const paperStyle = {
-  //   backgroundColor: "green",
-  // };
-
   return (
-    <Grid container spacing={2}>
-      <Grid item>
-        <h1>Enhance Your Beauty with PRITY...</h1>
-      </Grid>
+    <Grid container justify="space-between">
       <Grid item xs={12}>
-        <div className={classes.root}>
-          <Paper elevation={3}>Words</Paper>
-          <Paper elevation={3}>Go</Paper>
-          <Paper elevation={3}>Here</Paper>
-        </div>
+        <Typography variant="h4">Enhance Your Beauty...</Typography>
+      </Grid>
+      <Grid item xs={4}>
+        <Paper style={beautyA} elevation={3}>
+          Browse Color Palettes
+        </Paper>
+      </Grid>
+      <Grid xs={4}>
+        <Paper style={beautyB} elevation={3}>
+          Visit Your Vanity
+        </Paper>
+      </Grid>
+      <Grid xs={4}>
+        <Paper style={beautyC} elevation={3}>
+          Try Them On!
+        </Paper>
       </Grid>
     </Grid>
   );

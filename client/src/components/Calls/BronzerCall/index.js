@@ -6,7 +6,7 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../../utils/API";
+// import API from "../../../utils/API";
 import ChipContext from "../../Context/ChipContext";
 
 // this function is being called in CreateLookTabs > index.js
@@ -174,16 +174,16 @@ export default function BronzerCall(props) {
           const arr = [];
           // 'colors' is referring to the actual color names ex: Peachy Pal
           const { hexValue, colors } = product;
-          const colorName = colors.split(",").map((e) => arr.push(e));
+          // const colorName = colors.split(",").map((e) => arr.push(e));
           // this creates a condition for chips to render ONLY if they have a hex value
           const newChip = hexValue
             .split(",")
             .filter((trueColor) => trueColor !== "");
           // console.log(`this is newChip ${newChip}`);
           // this const will create a condition to only return products names if hexcolor is true
-          const trueColorName = colors
-            .split(",")
-            .filter((colorName) => colorName !== "");
+          // const trueColorName = colors
+          //   .split(",")
+          //   .filter((colorName) => colorName !== "");
           // console.log(`trueColorName: ${trueColorName}`);
 
           // hexChip creates separate chips that render the colors from product

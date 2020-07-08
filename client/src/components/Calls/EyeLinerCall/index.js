@@ -203,7 +203,10 @@ export default function EyelinerCall(props) {
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
-                  onClick={() => handleChip(product, singleSwatch)}
+                  onClick={() => {
+                    handleChip(product, singleSwatch);
+                    props.setOpenToTrue();
+                  }}
                 />
               );
             }

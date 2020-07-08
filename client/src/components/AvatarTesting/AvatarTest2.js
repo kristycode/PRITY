@@ -37,37 +37,34 @@ const useStyles = makeStyles((theme) => ({
 // that is a controlled amt lighter or darker than the argument hexvalue
 
 function LightenDarkenColor(col, amt) {
-  
   var usePound = false;
 
   if (col[0] == "#") {
-      col = col.slice(1);
-      usePound = true;
+    col = col.slice(1);
+    usePound = true;
   }
 
-  var num = parseInt(col,16);
+  var num = parseInt(col, 16);
 
   var r = (num >> 16) + amt;
 
   if (r > 255) r = 255;
-  else if  (r < 0) r = 0;
+  else if (r < 0) r = 0;
 
-  var b = ((num >> 8) & 0x00FF) + amt;
+  var b = ((num >> 8) & 0x00ff) + amt;
 
   if (b > 255) b = 255;
-  else if  (b < 0) b = 0;
+  else if (b < 0) b = 0;
 
-  var g = (num & 0x0000FF) + amt;
+  var g = (num & 0x0000ff) + amt;
 
   if (g > 255) g = 255;
   else if (g < 0) g = 0;
 
-  return (usePound?"#":"") + (g | (b << 8) | (r << 16)).toString(16);
-
-};
+  return (usePound ? "#" : "") + (g | (b << 8) | (r << 16)).toString(16);
+}
 
 // this is a chroma function that should create a scale //
-
 
 function AvatarTest2() {
   // console.log("wrapper");
@@ -85,11 +82,10 @@ function AvatarTest2() {
 
   //      this.setState({
   //        farmList : result
-  //      }); 
+  //      });
   //   });
   // }
 
-  
   const classes = useStyles();
 
   const { chipObj, setChipObj } = useContext(ChipContext);
@@ -98,51 +94,37 @@ function AvatarTest2() {
 
   const DarkenFaceOutline = () => {
     const darkFaceOutline = `${chipObj.skinColor}`;
-    if (darkFaceOutline !== "null") 
-    {
-      return (
-        chroma(darkFaceOutline).darken(2.5).saturate(2)
-      );
-    };
+    if (darkFaceOutline !== "null") {
+      return chroma(darkFaceOutline).darken(2.5).saturate(2);
+    }
   };
 
   const LightenEyeReflection = () => {
     const lightEyeReflection = `${chipObj.eyeColor}`;
-    if (lightEyeReflection !== "null") 
-    {
-      return (
-        chroma(lightEyeReflection).brighten(2).saturate(1)
-      );
-    };
+    if (lightEyeReflection !== "null") {
+      return chroma(lightEyeReflection).brighten(2).saturate(1);
+    }
   };
 
   const DarkenFaceShapeOutline = () => {
     const darkFaceShapeOutline = `${chipObj.skinColor}`;
-    if (darkFaceShapeOutline !== "null") 
-    {
-      return (
-        chroma(darkFaceShapeOutline).darken(3.5).saturate(2)
-      );
-    };
+    if (darkFaceShapeOutline !== "null") {
+      return chroma(darkFaceShapeOutline).darken(3.5).saturate(2);
+    }
   };
 
   const DarkenLashes = () => {
     const darkLashes = `${chipObj.hairColor}`;
-    if (darkLashes !== "null") 
-    {
-      return (
-        chroma(darkLashes).darken(3).saturate(.5)
-      );
-    };
+    if (darkLashes !== "null") {
+      return chroma(darkLashes).darken(3).saturate(0.5);
+    }
   };
 
   const LightenMakeupArea = LightenDarkenColor(`${chipObj.skinColor}`, 10);
   const DarkenMakeupOutline = LightenDarkenColor(`${chipObj.skinColor}`, -20);
 
-
   console.log(LightenMakeupArea);
   console.log(DarkenMakeupOutline);
-
 
   const StyledBase = styled(Base)`
     width: 310.45px;
@@ -158,7 +140,7 @@ function AvatarTest2() {
     hair: chipObj.hairColor,
     skin: chipObj.skinColor,
     blush: chipObj.blush,
-    bronzer:chipObj.bronzer,
+    bronzer: chipObj.bronzer,
     eyeliner: chipObj.eyeliner,
     lipstick: chipObj.lipstick,
     eyebrowR: chipObj.hairColor,
@@ -171,8 +153,8 @@ function AvatarTest2() {
     cls_5: chipObj.eyeColor,
     cls_11: LightenEyeReflection,
     cls_4F: LightenMakeupArea,
-    cls_4S: DarkenFaceOutline
-  }
+    cls_4S: DarkenFaceOutline,
+  };
 
   // console.log(this);
   // console.log(this.state);
@@ -233,13 +215,12 @@ function AvatarTest2() {
     .avatar_makeup_base_svg__cls-11 {
       fill: ${LightenEyeReflection};
     }
-
   `;
 
   return (
     <div>
       <TestingAvatar />
-      <Button
+      {/* <Button
       onClick={() => {
        insertAvatar(SavedLook);
        console.log ("Avatar Saved to the DB!");
@@ -247,9 +228,8 @@ function AvatarTest2() {
       }}
       >
         This is it!
-      </Button>
+      </Button> */}
       {/* <CustomizeAvatarMenu /> */}
-      
     </div>
   );
 }

@@ -158,7 +158,7 @@ export default function EyeshadowCall(props) {
         apiState.products.map((product) => {
           const arr = [];
           // 'colors' is referring to the actual color names ex: Peachy Pal
-          const { hexValue, colors } = product;
+          const { hexValue } = product;
           // const colorName = colors.split(",").map((e) => arr.push(e));
           // this creates a condition for chips to render ONLY if they have a hex value
           const newChip = hexValue
