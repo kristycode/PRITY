@@ -10,6 +10,7 @@ import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
 import IconButton from "@material-ui/core/IconButton";
 import ShareIcon from "@material-ui/icons/Share";
+import RandomAvatar from "../Body/staticImages/RandomAvatar"
 
 const LooksCard = (props) => {
   const { avatarUrl, title, subtitle, description, imageUrl } = props;
@@ -29,6 +30,7 @@ const LooksCard = (props) => {
       />
       <CardMedia style={{ height: 150 }} image={imageUrl} />
       <CardContent>
+      <RandomAvatar />
         <Typography variant="body2" component="p">
           {description}
         </Typography>
