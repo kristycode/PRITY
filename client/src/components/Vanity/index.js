@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
-import { Typography } from "@material-ui/core";
-import { ChipContext } from "../../components/Context/ChipContext";
 import BeautyBag from "../BeautyBag";
 import { makeStyles } from "@material-ui/core/styles";
-// import Paper from '@material-ui/core/Paper';
-import Grid from "@material-ui/core/Grid";
+import { Grid, Container } from "@material-ui/core";
 import AvatarTestingPage from "../../components/AvatarTesting/AvatarTestingPage";
+import NestedList from "../Avatar/CustomizeAvatarMenu";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,19 +20,16 @@ export default function Vanity() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={8}>
-          <span className={classes.paper}>
-            <BeautyBag />
-          </span>
-        </Grid>
-        <Grid item xs={4}>
-          <span className={classes.paper}>
-            <AvatarTestingPage />
-          </span>
-        </Grid>
+    <Grid container justify="space-">
+      <Grid item xs={4}>
+        <BeautyBag />
       </Grid>
-    </div>
+      <Grid item xs={4}>
+        <AvatarTestingPage />
+      </Grid>
+      <Grid xs={4}>
+        <NestedList />
+      </Grid>
+    </Grid>
   );
 }

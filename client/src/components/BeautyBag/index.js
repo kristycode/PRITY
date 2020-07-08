@@ -1,13 +1,7 @@
 import React, { useContext } from "react";
-// removed from line above due to inuse: Component,useState, Fragment
-// import LocalMallIcon from "@material-ui/icons/LocalMall";
-// import { Typography } from "@material-ui/core";
 import ChipContext from "../Context/ChipContext";
 import { makeStyles } from "@material-ui/core/styles";
-import { Container, Typography, IconButton } from "@material-ui/core/";
-// import FaceIcon from "@material-ui/icons/Face";
-// import DoneIcon from "@material-ui/icons/Done";
-// --- adding in list components for chipObj
+import { Typography, IconButton } from "@material-ui/core/";
 import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -35,33 +29,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-//
-// const HandleDelete = () => {
-//   if (window.confirm("Are you sure you want to delete this task?")) {
-//     console.log("phase 1");
-//   }
-// };
-
 const BeautyBag = () => {
   const classes = useStyles();
 
   const { chipObj, setChipObj } = useContext(ChipContext);
 
   function deleteItem(name, type) {
-    // console.log("test");
     let newBeautyBag = [...chipObj.beautyBag];
-    // console.log("newChipObj")
-    // console.log(newChipObj);
     const idx = newBeautyBag.findIndex(
       (p) => p.name === name && p.productType === type
     );
-    // console.log("idx:");
-    // console.log(idx);
     if (idx > -1) {
       newBeautyBag.splice(idx, 1);
       setChipObj({ ...chipObj, beautyBag: newBeautyBag });
-      // console.log(chipObj);
-      // console.log(newChipObj);
     }
   }
 
@@ -73,33 +53,12 @@ const BeautyBag = () => {
     setChipObj({ ...chipObj, [type]: hexcolor });
   }
 
-  // test code
-
-  //-------------------------------------------------------//
-  const handleClick = () => {
-    console.info("You clicked the Chip.");
-  };
-
-  // const handleDelete = (chipToDelete) => () => {
-  //   console.log("Chip to delete");
-  //   console.log(chipToDelete);
-
-  //   const products = chipObj.filter((product) => product.key !== chipToDelete);
-  //   setChipObj({ products });
-  // };
-
-  const cardBackground = {
-    backgroundColor: "#f7c4c4",
-    padding: 10,
-    borderRadius: 10,
-    margin: 10,
-    borderColor: "#C47CA8",
-    borderStyle: "outset",
-  };
-
   return (
-    <Container>
-      <Typography variant="h4">My Products:</Typography>
+    <div>
+      <Typography variant="h4">Selected Products:</Typography>
+      <Typography variant="subtitle1">
+        Click a Color to try on your avatar
+      </Typography>
 
       {chipObj.beautyBag.map((product) => {
         console.log("product");
@@ -110,9 +69,6 @@ const BeautyBag = () => {
         const chipColor = {
           backgroundColor: product.hexColor,
         };
-
-        //place teh icon in a variable to be reused
-        // const BeautyOptions= ()
 
         return (
           <List className={classes.root}>
@@ -139,7 +95,7 @@ const BeautyBag = () => {
           </List>
         );
       })}
-    </Container>
+    </div>
   );
 };
 
