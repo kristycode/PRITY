@@ -1,7 +1,7 @@
 import React from "react";
 import BeautyBag from "../BeautyBag";
 import { Grid } from "@material-ui/core";
-import AvatarTestingPage from "../../components/AvatarTesting/AvatarTestingPage";
+import AvatarTest2 from "../../components/AvatarTesting/AvatarTest2";
 import NestedList from "../Avatar/CustomizeAvatarMenu";
 
 export default function Vanity() {
@@ -11,7 +11,7 @@ export default function Vanity() {
         <BeautyBag />
       </Grid>
       <Grid item xs={0} sm={0} md={4}>
-        <AvatarTestingPage />
+        <AvatarTest2 />
       </Grid>
       <Grid xs={0} sm={0} md={4}>
         <NestedList />

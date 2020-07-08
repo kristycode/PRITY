@@ -94,5 +94,6 @@ router.post("/login", (req, res) => {
 //router.post('/user', UserCtrl.createUser);
 router.get('/user/:id', UserCtrl.getUserById);
 router.get('/users', UserCtrl.getUsers);
+router.post('/user/look/:id', UserCtrl.looksByUser);
 
 module.exports = router;
