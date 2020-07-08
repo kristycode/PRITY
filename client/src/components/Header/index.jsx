@@ -35,7 +35,7 @@ const Header = () => {
         <Grid justify="space-between" container spacing={30}>
           <Grid item>
             <Link to="/" className={classes.linkStyle}>
-              <Typography variant="h3">PRITY</Typography>
+              <Typography variant="h2">PRITY</Typography>
             </Link>
           </Grid>
           <Grid item>

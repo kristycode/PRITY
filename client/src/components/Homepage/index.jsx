@@ -2,8 +2,7 @@ import React from "react";
 import LooksCard from "../LooksCard";
 import { Grid, Typography } from "@material-ui/core";
 import randomUserList from "./staticTrends";
-import OutlinedCard from "../AboutPrity";
-// import AboutPrity from "../AboutPrity/";
+import AboutPaper from "../AboutPrity";
 import RandomAvatar from "./staticImages/RandomAvatar";
 
 const Body = () => {
@@ -18,14 +17,12 @@ const Body = () => {
   return (
     <Grid container>
       <Grid item xs={12}>
-        <Typography variant="h4">
-          <strong>Latest Looks</strong>
-        </Typography>
+        <Typography variant="h4">Latest Looks</Typography>
       </Grid>
       {randomUserList.map((userCardObj) => getUserCard(userCardObj))}
       <Grid container direction="column">
         <Grid item>
-          <OutlinedCard />
+          <AboutPaper />
         </Grid>
       </Grid>
     </Grid>

@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,13 +15,13 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SimplePaper() {
+export default function AboutPaper() {
   const classes = useStyles();
 
   return (
     <Grid container spacing={2}>
       <Grid item>
-        <h1>Enhance Your Beauty with PRITY...</h1>
+        <Typography variant="h4">Enhance Your Beauty with PRITY...</Typography>
       </Grid>
       <Grid item xs={12}>
         <div className={classes.root}>
