@@ -15,12 +15,15 @@ const useStyles = makeStyles(() => ({
   typographyStyles: {
     flex: 1,
     padding: 10,
+    textDecoration: "none",
   },
   bagIconStyle: {
     color: "white",
   },
   linkStyle: {
     margin: 10,
+    color: "white",
+    textDecoration: "none",
   },
 }));
 
@@ -31,37 +34,18 @@ const Header = () => {
       <Toolbar>
         <Grid justify="space-between" container spacing={30}>
           <Grid item>
-            <Link to="/">
-              <Typography variant="h3" className={classes.typographyStyles}>
-                PRITY
-              </Typography>
+            <Link to="/" className={classes.linkStyle}>
+              <Typography variant="h3">PRITY</Typography>
             </Link>
           </Grid>
           <Grid item>
             <Typography variant="h5">
-              {/* <Link
-                to="/searchProd"
-                color="secondary"
-                className={classes.linkStyle}
-              >
-                Search Products
-              </Link> */}
-              {/* <Link to="/selectProd" color="secondary">
-              Select Products
-            </Link> */}
               <Link
                 to="/looktabs"
                 color="secondary"
                 className={classes.linkStyle}
               >
                 Create Look
-              </Link>
-              <Link
-                to="/avatarTestingPage"
-                color="secondary"
-                className={classes.linkStyle}
-              >
-                Avatar Testing
               </Link>
               <IconButton>
                 <Link

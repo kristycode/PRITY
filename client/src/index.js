@@ -6,12 +6,17 @@ import * as serviceWorker from "./serviceWorker";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 const theme = createMuiTheme({
+  overrides: {
+    MuiLink: {
+      color: "orange",
+    },
+  },
   palette: {
     primary: {
-      main: "#f48fb1",
+      main: "#84C0F2",
     },
     secondary: {
-      main: "#8e24aa",
+      main: "#D2CB42",
     },
   },
   typography: {
@@ -22,6 +27,9 @@ const theme = createMuiTheme({
       "@global": {
         "@font-face": ["open sans"],
       },
+    },
+    MuiContainer: {
+      backgroundColor: "black",
     },
   },
 });
