@@ -4,7 +4,7 @@ import React, { useContext } from "react";
 import ChipContext from "../Context/ChipContext";
 import { makeStyles } from "@material-ui/core/styles";
 import { Container, IconButton, Paper, Card } from "@material-ui/core/";
-import { Chip } from "@material-ui/core";
+import { Chip, Box, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 
 const hairColors = [
@@ -254,15 +254,28 @@ export default function NestedList() {
   };
 
   const cardStyle = {
-    // width: 200,
+    margin: "auto",
+    width: 200,
+    justify: "center",
+    padding: 5,
   };
 
   return (
-    <>
-      <Paper style={cardStyle} variant="square" elevation={10}>
+    <Grid item>
+      <Box style={cardStyle} variant="square" elevation={10}>
         <Typography variant="h5">Hair Colors</Typography>
         <HairColorSelections />
-      </Paper>
-    </>
+      </Box>
+      <hr />
+      <Box style={cardStyle} variant="square" elevation={10}>
+        <Typography variant="h5">Skin Tones</Typography>
+        <SkinColorSelections />
+      </Box>
+      <hr />
+      <Box style={cardStyle} variant="square" elevation={10}>
+        <Typography variant="h5">Eye Colors</Typography>
+        <EyeColorSelections />
+      </Box>
+    </Grid>
   );
 }

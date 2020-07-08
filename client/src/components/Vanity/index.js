@@ -20,7 +20,7 @@ export default function Vanity() {
   const classes = useStyles();
 
   return (
-    <Grid container justify="space-">
+    <Grid container>
       <Grid item xs={4}>
         <BeautyBag />
       </Grid>
