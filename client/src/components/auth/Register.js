@@ -68,6 +68,7 @@ class Register extends Component {
         };
 
         this.props.registerUser(newUser, this.props.history); 
+        console.log(this.props.history);
         
         console.log(newUser);
     };
@@ -82,7 +83,7 @@ class Register extends Component {
             alignItems="center">
                 <Grid item>
                     <h2>Register</h2>
-                    <form noValidate className={styles.root} onSubmit={this.onSubmit} autoComplete="off">
+                    <form noValidate className={styles.root} onSubmit={e => this.onSubmit(e)} autoComplete="off">
                         <Typography>Username:</Typography>
                         <TextField required id="username" type="username"
                             onChange={this.onChange}

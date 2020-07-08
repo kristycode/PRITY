@@ -80,7 +80,7 @@ class Login extends Component {
             alignItems="center">
                 <Grid item>
                     <h2>Log In</h2>
-                    <form noValidate className={styles.root} autoComplete="off">
+                    <form noValidate className={styles.root} onSubmit={e => this.onSubmit(e)} autoComplete="off">
                         <Typography>Email:</Typography>
                         <TextField required id="email" type="email" 
                             onChange={this.onChange}
