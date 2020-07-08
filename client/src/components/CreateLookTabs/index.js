@@ -8,7 +8,6 @@ import LipstickCall from "../Calls/LipstickCall";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
-import FaceIcon from "@material-ui/icons/Face";
 import "./style.css";
 
 const LookTabs = () => {
@@ -47,7 +46,7 @@ const LookTabs = () => {
           open={open}
           autoHideDuration={1000}
           onClose={handleClose}
-          message="Item Added to Bag!"
+          message="Item Added to Vanity!"
           action={
             <React.Fragment>
               <IconButton

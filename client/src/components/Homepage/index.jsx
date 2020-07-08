@@ -1,10 +1,10 @@
 import React from "react";
 import LooksCard from "../LooksCard";
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 import randomUserList from "./staticTrends";
 import OutlinedCard from "../AboutPrity";
 // import AboutPrity from "../AboutPrity/";
-import RandomAvatar from "../Body/staticImages/RandomAvatar"
+import RandomAvatar from "./staticImages/RandomAvatar";
 
 const Body = () => {
   const getUserCard = (userCardObj) => {
@@ -16,9 +16,11 @@ const Body = () => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container>
       <Grid item xs={12}>
-        <h1>Latest Looks!</h1>
+        <Typography variant="h4">
+          <strong>Latest Looks</strong>
+        </Typography>
       </Grid>
       {randomUserList.map((userCardObj) => getUserCard(userCardObj))}
       <Grid container direction="column">

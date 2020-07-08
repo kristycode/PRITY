@@ -5,12 +5,12 @@ import CardHeader from "@material-ui/core/CardHeader";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Avatar from "@material-ui/core/Avatar";
-import IconButton from "@material-ui/core/IconButton";
-import ShareIcon from "@material-ui/icons/Share";
-import RandomAvatar from "../Body/staticImages/RandomAvatar"
+// import IconButton from "@material-ui/core/IconButton";
+// import ShareIcon from "@material-ui/icons/Share";
+import RandomAvatar from "../Homepage/staticImages/RandomAvatar";
 
 const LooksCard = (props) => {
   const { avatarUrl, title, subtitle, description, imageUrl } = props;
@@ -20,24 +20,19 @@ const LooksCard = (props) => {
       <CardHeader
         avatar={<Avatar src={avatarUrl}></Avatar>}
         // IconButton is a wrapper that makes icons 'clickable' w/o functionality
-        action={
-          <IconButton aria-label="settings">
-            <ShareIcon />
-          </IconButton>
-        }
         title={title}
         subheader={subtitle}
       />
       <CardMedia style={{ height: 150 }} image={imageUrl} />
       <CardContent>
-      <RandomAvatar />
+        <RandomAvatar />
         <Typography variant="body2" component="p">
           {description}
         </Typography>
       </CardContent>
-      <CardActions>
+      {/* <CardActions>
         <Button size="small">Get this Look!</Button>
-      </CardActions>
+      </CardActions> */}
     </Card>
   );
 };

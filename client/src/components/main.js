@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 // import SearchLook from './searchLook';
 import SearchProd from "./searchProd";
 import SelectProd from "./selectProducts";
-import Body from "./Body/index";
+import Homepage from "./Homepage/index";
 import APIComponent from "./APIComp";
 import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
 import LookTabs from "./CreateLookTabs";
@@ -29,7 +29,7 @@ if (localStorage.jwtToken) {
   const decoded = jwt_decode(token);
   // Set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
-// Check for expired token
+  // Check for expired token
   const currentTime = Date.now() / 1000; // to get in milliseconds
   if (decoded.exp < currentTime) {
     // Logout user
@@ -41,9 +41,9 @@ if (localStorage.jwtToken) {
 
 const Main = () => (
   <Provider store={store}>
-      <Switch>
+    <Switch>
       <PrivateRoute exact path="/looktabs" component={LookTabs} />
-      <Route exact path="/" component={Body} />
+      <Route exact path="/" component={Homepage} />
       <Route path="/searchProd" component={SearchProd} />
       <Route path="/selectProd" component={SelectProd} />
       <Route exact path="/Login" component={Login} />
