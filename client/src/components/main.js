@@ -6,7 +6,7 @@ import SelectProd from "./selectProducts";
 import Body from "./Body/index";
 import APIComponent from "./APIComp";
 import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
-import LookTabs from "./NewCreateLook";
+import LookTabs from "./CreateLookTabs";
 import Vanity from "./Vanity";
 // import LogIN from "./LogIN";
 // import RegisterU from "./RegisterU";
@@ -49,9 +49,7 @@ const Main = () => (
     <Route exact path="/Register" component={Register} />
     {/* <Route path="/looktabs" component={LookTabs} /> */}
     <Route path="/APIComp" component={APIComponent} />
-    <Route path="/avatarTestingPage">
-      <AvatarTestingPage eyes="blue" blush="orange" />
-    </Route>
+    <Route path="/avatarTestingPage" component={AvatarTestingPage}></Route>
     <Route path="/vanity" component={Vanity} />
   </Switch></Provider>
 );

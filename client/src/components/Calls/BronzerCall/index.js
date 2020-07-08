@@ -7,11 +7,10 @@ import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
 import API from "../../../utils/API";
-import "../EyeshadowCall/style.css";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
-export default function BronzerCall() {
+// this function is being called in CreateLookTabs > index.js
+export default function BronzerCall(props) {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -58,9 +57,10 @@ export default function BronzerCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj((value) => {
-      return [
-        ...value,
+    setChipObj({
+      ...chipObj,
+      beautyBag: [
+        ...chipObj.beautyBag,
         {
           hexColor: color.backgroundColor,
           productType: product.productType,
@@ -68,7 +68,7 @@ export default function BronzerCall() {
           brand: product.brandName,
           color_name: color.colorName,
         },
-      ];
+      ],
     });
 
     // API.insertColor({
@@ -120,7 +120,7 @@ export default function BronzerCall() {
           <RadioGroup
             aria-label="brand"
             name="bronzer brands"
-            value={value}
+            value={value || ""}
             onChange={handleChange}
             row
           >
@@ -198,11 +198,16 @@ export default function BronzerCall() {
               // returns individual chips
               return (
                 <Chip
-                  // key={product.hexColor}
+                  key={
+                    product.id + "/" + product.productType + "/" + singleColor
+                  }
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
-                  onClick={() => handleChip(product, singleSwatch)}
+                  onClick={() => {
+                    handleChip(product, singleSwatch);
+                    props.setOpenToTrue();
+                  }}
                 />
               );
             }

@@ -6,12 +6,11 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../../utils/API";
-import "../EyeshadowCall/style.css";
+// import API from "../../../utils/API";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
-export default function EyeshadowCall() {
+// this function is being called in CreateLookTabs > index.js
+export default function EyeshadowCall(props) {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -19,14 +18,12 @@ export default function EyeshadowCall() {
     products: [],
     isLoading: true,
   });
-  // below state is for updating chip selection state
-  // const [chipObj, setChipObj] = React.useState([]);
-  console.log(chipObj);
+
   // handles radio button clicks
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-  // renders black background for chips to create 'palettes'
+  // renders background for chips to create 'palettes'
   const chipBackground = {
     backgroundColor: "#f7c4c4",
     padding: 10,
@@ -39,18 +36,6 @@ export default function EyeshadowCall() {
   const eyeshadowContainerStyle = {
     marginTop: 20,
   };
-  // my attempt using context with beautybag
-  // const testHandleChip = (props) => {
-  //   const [beautyBag, setBeautyBag] = useContext(BeautyBagContext);
-  //   const addToBag = () => {
-  //     const bagItems = {
-  //       productType: props.type,
-  //       productName: props.productName,
-  //       hexColor: props.hexColor,
-  //     };
-  //     setBeautyBag();
-  //   };
-  // };
 
   // when a chip color is clicked
   const handleChip = (product, color) => {
@@ -58,9 +43,10 @@ export default function EyeshadowCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj((value) => {
-      return [
-        ...value,
+    setChipObj({
+      ...chipObj,
+      beautyBag: [
+        ...chipObj.beautyBag,
         {
           hexColor: color.backgroundColor,
           productType: product.productType,
@@ -68,9 +54,8 @@ export default function EyeshadowCall() {
           brand: product.brandName,
           color_name: color.colorName,
         },
-      ];
+      ],
     });
-
     // API.insertColor({
     //   hexColor: this.value,
     //   productType: chipObj.productType,
@@ -84,8 +69,7 @@ export default function EyeshadowCall() {
     axios
       .get(makeupURL)
       .then((response) => {
-        return response.data.map((product) => ({
-          id: `${product.id}`,
+        return response.data.map((product, index) => ({
           name: `${product.name}`,
           colors: `${product.product_colors.map(
             (colour) => colour.colour_name
@@ -93,6 +77,7 @@ export default function EyeshadowCall() {
           hexValue: `${product.product_colors.map((hex) => hex.hex_value)}`,
           productType: `${product.product_type}`,
           brandName: `${product.brand}`,
+          id: `${product.id}`,
         }));
       })
       // Let's make sure to change the loading state to display the data
@@ -120,7 +105,7 @@ export default function EyeshadowCall() {
           <RadioGroup
             aria-label="brand"
             name="eyeshadow brands"
-            value={value}
+            value={value || ""}
             onChange={handleChange}
             row
           >
@@ -160,12 +145,12 @@ export default function EyeshadowCall() {
               control={<Radio />}
               label="Lotus Cosmetics"
             />
-            <FormControlLabel
+            {/* <FormControlLabel
               onClick={() => getProducts("dior")}
               value="Dior"
               control={<Radio />}
               label="Dior"
-            />
+            /> */}
           </RadioGroup>
         </FormControl>
       </Grid>
@@ -174,17 +159,15 @@ export default function EyeshadowCall() {
           const arr = [];
           // 'colors' is referring to the actual color names ex: Peachy Pal
           const { hexValue, colors } = product;
-          const colorName = colors.split(",").map((e) => arr.push(e));
+          // const colorName = colors.split(",").map((e) => arr.push(e));
           // this creates a condition for chips to render ONLY if they have a hex value
           const newChip = hexValue
             .split(",")
             .filter((trueColor) => trueColor !== "");
-          // console.log(`this is newChip ${newChip}`);
           // this const will create a condition to only return products names if hexcolor is true
-          const trueColorName = colors
-            .split(",")
-            .filter((colorName) => colorName !== "");
-          // console.log(`trueColorName: ${trueColorName}`);
+          // const trueColorName = colors
+          //   .split(",")
+          //   .filter((colorName) => colorName !== "");
 
           // hexChip creates separate chips that render the colors from product
           const hexChip = hexValue.split(",").map((singleColor, index) => {
@@ -195,14 +178,21 @@ export default function EyeshadowCall() {
                 colorName: findColorName,
                 alignItems: "flex-start",
               };
+
               // returns individual chips
               return (
                 <Chip
-                  // key={product.hexColor}
+                  key={
+                    product.id + "/" + product.productType + "/" + singleColor
+                  }
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
-                  onClick={() => handleChip(product, singleSwatch)}
+                  message="item added to bag!"
+                  onClick={() => {
+                    handleChip(product, singleSwatch);
+                    props.setOpenToTrue();
+                  }}
                 />
               );
             }

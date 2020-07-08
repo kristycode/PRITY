@@ -6,12 +6,11 @@ import FormControl from "@material-ui/core/FormControl";
 import FormLabel from "@material-ui/core/FormLabel";
 import axios from "axios";
 import { Grid, Chip, Typography } from "@material-ui/core";
-import API from "../../../utils/API";
-import "../EyeshadowCall/style.css";
+// import API from "../../../utils/API";
 import ChipContext from "../../Context/ChipContext";
 
-// this function is being called in NewCreateLook > index.js
-export default function EyelinerCall() {
+// this function is being called in CreateLookTabs > index.js
+export default function EyelinerCall(props) {
   const { chipObj, setChipObj } = useContext(ChipContext);
   const [value, setValue] = React.useState();
   // below state is responsible for setting state for api call
@@ -19,6 +18,9 @@ export default function EyelinerCall() {
     products: [],
     isLoading: true,
   });
+  // snackbar state below
+  const [open, setOpen] = React.useState(false);
+
   // below state is for updating chip selection state
   // const [chipObj, setChipObj] = React.useState([]);
   console.log(chipObj);
@@ -58,9 +60,10 @@ export default function EyelinerCall() {
     console.log(product.productType);
     console.log(color);
 
-    setChipObj((value) => {
-      return [
-        ...value,
+    setChipObj({
+      ...chipObj,
+      beautyBag: [
+        ...chipObj.beautyBag,
         {
           hexColor: color.backgroundColor,
           productType: product.productType,
@@ -68,9 +71,11 @@ export default function EyelinerCall() {
           brand: product.brandName,
           color_name: color.colorName,
         },
-      ];
+      ],
     });
 
+    setOpen(true);
+    console.log("setOpen true?");
     // API.insertColor({
     //   hexColor: this.value,
     //   productType: chipObj.productType,
@@ -120,7 +125,7 @@ export default function EyelinerCall() {
           <RadioGroup
             aria-label="brand"
             name="eyeliner brands"
-            value={value}
+            value={value || ""}
             onChange={handleChange}
             row
           >
@@ -192,7 +197,9 @@ export default function EyelinerCall() {
               // returns individual chips
               return (
                 <Chip
-                  // key={product.hexColor}
+                  key={
+                    product.id + "/" + product.productType + "/" + singleColor
+                  }
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
