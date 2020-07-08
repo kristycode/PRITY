@@ -15,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
     textAlign: "center",
     margin: 5,
     padding: 0,
-    // backgroundColor: "#f7c4c4",
     padding: 10,
     borderRadius: 10,
     margin: 10,
@@ -25,15 +24,33 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const beautyA = {
+  textAlign: "center",
+  margin: 5,
+  padding: 0,
+  padding: 10,
+  borderRadius: 10,
+  margin: 10,
   borderColor: "red",
   borderStyle: "outset",
 };
 const beautyB = {
+  textAlign: "center",
+  margin: 5,
+  padding: 0,
+  padding: 10,
+  borderRadius: 10,
+  margin: 10,
   borderColor: "green",
   borderStyle: "outset",
 };
 
 const beautyC = {
+  textAlign: "center",
+  margin: 5,
+  padding: 0,
+  padding: 10,
+  borderRadius: 10,
+  margin: 10,
   borderColor: "blue",
   borderStyle: "outset",
 };
@@ -47,17 +64,17 @@ export default function AboutPaper() {
         <Typography variant="h4">Enhance Your Beauty...</Typography>
       </Grid>
       <Grid item xs={4}>
-        <Paper className={classes.root} elevation={3}>
+        <Paper style={beautyA} elevation={3}>
           Browse Color Palettes
         </Paper>
       </Grid>
       <Grid xs={4}>
-        <Paper className={classes.root} elevation={3}>
+        <Paper style={beautyB} elevation={3}>
           Visit Your Vanity
         </Paper>
       </Grid>
       <Grid xs={4}>
-        <Paper className={classes.root} elevation={3}>
+        <Paper style={beautyC} elevation={3}>
           Try Them On!
         </Paper>
       </Grid>
