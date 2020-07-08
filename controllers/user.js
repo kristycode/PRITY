@@ -66,8 +66,8 @@ looksByUser = async (req, res) => {
     const { id } = req.params;
     const user = await User.findById(id).populate('looks');
 
-     res.send(user.looks);
- }
+    res.send(user.looks);
+}
 
 module.exports = {
     createUser,
