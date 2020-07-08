@@ -1,18 +1,18 @@
 const express = require("express");
+const app = express();
 
-// const mongoose = require("mongoose");
+var cors = require('cors');
+app.use(cors());
+
 const routes = require("./routes/user-route");
 const routes2 = require("./routes/look-route");
 const routes3 = require("./routes/avatar-route");
 const routes4 = require("./routes/beautyBag-routes");
-const app = express();
+const makeuproute = require("./routes/makeup-route");
+
 const PORT = process.env.PORT || 3001;
 
 const passport = require("passport");
-// const users = require("./routes/api/users"); -- routes var
-
-var cors = require('cors')
-app.use(cors())
 
 const bodyParser = require("body-parser");
 // Bodyparser middleware
@@ -41,6 +41,7 @@ app.use('/api', routes);
 app.use('/api', routes2);
 app.use('/api', routes3);
 app.use('/api', routes4);
+app.use('/api', makeuproute);
 
 const db = require('./client/src/db');
 

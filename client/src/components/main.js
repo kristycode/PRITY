@@ -40,18 +40,20 @@ if (localStorage.jwtToken) {
 }
 
 const Main = () => (
-  <Provider store={store}><Switch>
-    <PrivateRoute exact path="/looktabs" component={LookTabs} />
-    <Route exact path="/" component={Body} />
-    <Route path="/searchProd" component={SearchProd} />
-    <Route path="/selectProd" component={SelectProd} />
-    <Route exact path="/Login" component={Login} />
-    <Route exact path="/Register" component={Register} />
-    {/* <Route path="/looktabs" component={LookTabs} /> */}
-    <Route path="/APIComp" component={APIComponent} />
-    <Route path="/avatarTestingPage" component={AvatarTestingPage}></Route>
-    <Route path="/vanity" component={Vanity} />
-  </Switch></Provider>
+  <Provider store={store}>
+      <Switch>
+      {/* <PrivateRoute exact path="/looktabs" component={LookTabs} /> */}
+      <Route exact path="/" component={Body} />
+      <Route path="/searchProd" component={SearchProd} />
+      <Route path="/selectProd" component={SelectProd} />
+      <Route exact path="/Login" component={Login} />
+      <Route exact path="/Register" component={Register} />
+      <Route path="/looktabs" component={LookTabs} />
+      <Route path="/APIComp" component={APIComponent} />
+      <Route path="/avatarTestingPage" component={AvatarTestingPage}></Route>
+      <Route path="/vanity" component={Vanity} />
+    </Switch>
+  </Provider>
 );
 
 export default Main;
