@@ -8,6 +8,21 @@ const routes4 = require("./routes/beautyBag-routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+const passport = require("passport");
+// const users = require("./routes/api/users"); -- routes var
+
+var cors = require('cors')
+app.use(cors())
+
+const bodyParser = require("body-parser");
+// Bodyparser middleware
+app.use(
+  bodyParser.urlencoded({
+    extended: false
+  })
+);
+app.use(bodyParser.json());
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -15,6 +30,12 @@ app.use(express.json());
 if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
+
+// Passport middleware
+app.use(passport.initialize());
+// Passport config
+require("./config/passport")(passport);
+
 // Add routes, both API and view
 app.use('/api', routes);
 app.use('/api', routes2);

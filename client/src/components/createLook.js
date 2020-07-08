@@ -1,11 +1,19 @@
 import React, { Component } from "react";
 import axios from "axios";
 import { Grid, Button, Chip } from "@material-ui/core";
+import PropTypes from "prop-types";
+import { connect } from "react-redux";
+import { logoutUser } from "../../actions/authActions";
 
 class createLookApi extends Component {
   state = {
     products: [],
     isLoading: true,
+  };
+
+  onLogoutClick = e => {
+    e.preventDefault();
+    this.props.logoutUser();
   };
 
   getProducts() {
@@ -45,6 +53,8 @@ class createLookApi extends Component {
 
   render() {
     const { products, isLoading } = this.state;
+
+    const { user } = this.props.auth;
 
     return (
       <Grid container>
@@ -96,4 +106,18 @@ class createLookApi extends Component {
   }
 }
 
-export default createLookApi;
+createLookApi.propTypes = {
+  logoutUser: PropTypes.func.isRequired,
+  auth: PropTypes.object.isRequired
+};
+
+const mapStateToProps = state => ({
+  auth: state.auth
+});
+
+export default connect(
+  mapStateToProps,
+  { logoutUser }
+)(createLookApi);
+
+// export default createLookApi;
