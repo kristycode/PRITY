@@ -102,24 +102,15 @@ class Login extends Component {
                                 invalid: errors.password || errors.passwordincorrect
                             })}
                             label="Password" variant="outlined" />
-                        <span className="red-text">
+                        <Typography className="red-text">
                             {errors.password}
                             {errors.passwordincorrect}
-                        </span>
+                        </Typography>
                         <Button
                         variant="contained"
                         color="secondary"
                         type="submit"
                         className={styles.buttonStyles}
-                        // onClick={() => {
-                        //     prev
-                        //     console.log(document.getElementById('username').value)
-                        //     loginUser({
-                        //         email: (document.getElementById('email').value),
-                        //         password: (document.getElementById('password1').value)
-                        //     });
-
-                        // }}
                         >
                             Submit
                         </Button>

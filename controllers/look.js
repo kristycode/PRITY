@@ -19,6 +19,13 @@ createLook = (req, res) => {
     look
         .save()
         .then(() => {
+
+            async (req,res)=>{
+                const { id } = req.params;
+                const userByLook = await Look.findById(id).populate('_creator');
+                res.send(userByLook);
+            }
+
             return res.status(201).json({
                 success: true,
                 id: look._id,
@@ -62,8 +69,15 @@ getLooks = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+userByLook = async (req,res)=>{
+    const { id } = req.params;
+    const userByLook = await Look.findById(id).populate('_creator');
+    res.send(userByLook);
+}
+
 module.exports = {
     createLook,
     getLooks,
     getLookById,
+    userByLook
 }

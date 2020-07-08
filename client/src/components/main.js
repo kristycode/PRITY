@@ -8,6 +8,7 @@ import APIComponent from "./APIComp";
 import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
 import LookTabs from "./CreateLookTabs";
 import Vanity from "./Vanity";
+import Vanity2 from "./Vanity2";
 // import LogIN from "./LogIN";
 // import RegisterU from "./RegisterU";
 import Login from "./auth/Login";
@@ -52,6 +53,7 @@ const Main = () => (
       <Route path="/APIComp" component={APIComponent} />
       <Route path="/avatarTestingPage" component={AvatarTestingPage}></Route>
       <Route path="/vanity" component={Vanity} />
+      <Route path="/vanitytest" component={Vanity2} />
     </Switch>
   </Provider>
 );

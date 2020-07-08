@@ -59,6 +59,16 @@ const Header = () => {
               </IconButton>
               <IconButton>
                 <Link
+                  to="/vanitytest"
+                  color="secondary"
+                  className={classes.linkStyle}
+                >
+                  <LocalMallIcon className={classes.bagIconStyle} />
+                  Vanity Test
+                </Link>
+              </IconButton>
+              <IconButton>
+                <Link
                   to="/Login"
                   color="secondary"
                   className={classes.linkStyle}
