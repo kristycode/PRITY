@@ -248,7 +248,7 @@ function AvatarTest2() {
       >
         This is it!
       </Button>
-      <CustomizeAvatarMenu />
+      {/* <CustomizeAvatarMenu /> */}
       
     </div>
   );
