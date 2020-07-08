@@ -64,7 +64,7 @@ export default function EyeshadowCall(props) {
   };
 
   const getProducts = (brand) => {
-    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=eyeshadow`;
+    const makeupURL = `/api/products/eyeshadow/${brand}`;
     // console.log("getproducts called");
     axios
       .get(makeupURL)

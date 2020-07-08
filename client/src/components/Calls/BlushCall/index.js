@@ -79,7 +79,7 @@ export default function BlushCall(props) {
   };
 
   const getProducts = (brand) => {
-    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=blush`;
+    const makeupURL = `/api/products/blush/${brand}`;
     // console.log("getproducts called");
     axios
       .get(makeupURL)

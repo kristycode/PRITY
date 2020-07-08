@@ -79,7 +79,7 @@ export default function BronzerCall(props) {
   };
 
   const getProducts = (brand) => {
-    const makeupURL = `http://makeup-api.herokuapp.com/api/v1/products.json?brand=${brand}&product_type=bronzer`;
+    const makeupURL = `/api/products/bronzer/${brand}`;
     // console.log("getproducts called");
     axios
       .get(makeupURL)
