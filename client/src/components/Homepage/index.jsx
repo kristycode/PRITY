@@ -16,15 +16,13 @@ const Body = () => {
 
   return (
     <Grid container>
+      <Grid item={12}>
+        <AboutPaper />
+      </Grid>
       <Grid item xs={12}>
         <Typography variant="h4">Latest Looks</Typography>
       </Grid>
       {randomUserList.map((userCardObj) => getUserCard(userCardObj))}
-      <Grid container direction="column">
-        <Grid item>
-          <AboutPaper />
-        </Grid>
-      </Grid>
     </Grid>
   );
 };
