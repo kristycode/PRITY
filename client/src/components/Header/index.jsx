@@ -1,4 +1,5 @@
 import React from "react";
+import Logout from "../auth/Logout";
 import {
   AppBar,
   Toolbar,
@@ -57,7 +58,7 @@ const Header = () => {
                   My Vanity
                 </Link>
               </IconButton>
-              <IconButton>
+              {/* <IconButton>
                 <Link
                   to="/vanitytest"
                   color="secondary"
@@ -66,7 +67,7 @@ const Header = () => {
                   <LocalMallIcon className={classes.bagIconStyle} />
                   Vanity Test
                 </Link>
-              </IconButton>
+              </IconButton> */}
               <IconButton>
                 <Link
                   to="/Login"

@@ -1,4 +1,6 @@
 import React, { useContext } from "react";
+import axios from "axios";
+import { setCurrentUser } from "../../actions/authActions";
 //--- removing { css } from line 3 because React says it is not being used
 import styled from "styled-components";
 import Base from "./SVG/SvgAvatarMakeupBase";
@@ -68,6 +70,24 @@ function LightenDarkenColor(col, amt) {
 
 
 function AvatarTest2() {
+  // console.log("wrapper");
+  // console.log(this.state);
+  // console.log(this.state.data);
+  // console.log("wrapper");
+
+  // const componentDidMount = () => {
+  //   const data = this.state.data //i put state data for example you can use any data source
+  //   const url=`http://localhost:5000/api/users/viewFarm/?userId=${data._id}`;
+  //   fetch (url,{
+  //       method: "GET"
+  //   }).then(response=> response.json()).then(result=>{
+  //       console.log(result);
+
+  //      this.setState({
+  //        farmList : result
+  //      }); 
+  //   });
+  // }
 
   
   const classes = useStyles();
@@ -128,6 +148,8 @@ function AvatarTest2() {
     width: 310.45px;
     height: 395.77px;
   `;
+
+  // axios.get("/api/user/:id").then();
 
   const SavedLook = {
     eyes: chipObj.eyeColor,
@@ -221,6 +243,7 @@ function AvatarTest2() {
       onClick={() => {
        insertAvatar(SavedLook);
        console.log ("Avatar Saved to the DB!");
+      //  window.location.href();
       }}
       >
         This is it!

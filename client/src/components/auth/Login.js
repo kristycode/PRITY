@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Typography } from "@material-ui/core";
 import { Grid, Button, TextField } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
