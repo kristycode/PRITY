@@ -1,7 +1,10 @@
 const Look = require('../models/looks');
+const User = require('../models/users');
 
 createLook = (req, res) => {
     const body = req.body;
+
+    console.log(req.user);
 
     if (!body) {
         return res.status(400).json({
@@ -10,27 +13,59 @@ createLook = (req, res) => {
         });
     }
 
-    const look = new Look(body)
+    // const look = new Look(body)
 
-    if (!look) {
-        return res.status(400).json({ success: false, error: err });
-    }
+    // if (!look) {
+    //     return res.status(400).json({ success: false, error: err });
+    // }
 
-    look
-        .save()
-        .then(() => {
-            return res.status(201).json({
-                success: true,
-                id: look._id,
-                message: 'Look created!',
+    User.findOne({email: "al@email.com"}, function (error, user) {
+        if(error){
+            console.log(error);
+        }
+        else{
+            Look.create(req.body, function (error, look){
+                if(error){
+                    console.log(error);
+                }
+                else{
+                    user.looks.push(look);
+                    user.save()
+                    .then(() => {
+
+                        return res.status(201).json({
+                            success: true,
+                            id: look._id,
+                            message: 'Look created!',
+                        })
+                    })
+                    .catch(error => {
+                        return res.status(400).json({
+                            error,
+                            message: 'Look not created!',
+                        })
+                    });
+                }
             })
-        })
-        .catch(error => {
-            return res.status(400).json({
-                error,
-                message: 'Look not created!',
-            })
-        });
+        }
+    })
+
+    // look
+    //     .save()
+    //     .then(() => {
+
+    //         return res.status(201).json({
+    //             success: true,
+    //             id: look._id,
+    //             message: 'Look created!',
+    //         })
+    //     })
+    //     .catch(error => {
+    //         return res.status(400).json({
+    //             error,
+    //             message: 'Look not created!',
+    //         })
+    //     });
 }
 
 getLookById = async (req, res) => {
@@ -62,8 +97,15 @@ getLooks = async (req, res) => {
     }).catch(err => console.log(err))
 }
 
+userByLook = async (req,res)=>{
+    const { id } = req.params;
+    const userByLook = await Look.findById(id).populate('_creator');
+    res.send(userByLook);
+}
+
 module.exports = {
     createLook,
     getLooks,
     getLookById,
+    userByLook
 }

@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import { Typography } from "@material-ui/core";
 import { Grid, Button, TextField } from "@material-ui/core";
-import { makeStyles } from '@material-ui/core/styles';
-import API from "../../utils/API";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
@@ -102,24 +100,15 @@ class Login extends Component {
                                 invalid: errors.password || errors.passwordincorrect
                             })}
                             label="Password" variant="outlined" />
-                        <span className="red-text">
+                        <Typography className="red-text">
                             {errors.password}
                             {errors.passwordincorrect}
-                        </span>
+                        </Typography>
                         <Button
                         variant="contained"
                         color="secondary"
                         type="submit"
                         className={styles.buttonStyles}
-                        // onClick={() => {
-                        //     prev
-                        //     console.log(document.getElementById('username').value)
-                        //     loginUser({
-                        //         email: (document.getElementById('email').value),
-                        //         password: (document.getElementById('password1').value)
-                        //     });
-
-                        // }}
                         >
                             Submit
                         </Button>

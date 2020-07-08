@@ -72,6 +72,7 @@ class Register extends Component {
         
         console.log(newUser);
     };
+    
     render() {
         const { errors } = this.state;
         // const classes = useStyles();
@@ -128,20 +129,6 @@ class Register extends Component {
                         color="secondary"
                         type="submit"
                         className={styles.buttonStyles}
-                        // onSubmit={this.onSubmit}
-                        // onClick = {() => {
-                        //     s
-                        // }}
-                        // onClick={() => {
-                        //     console.log(document.getElementById('username').value)
-                        //     registerUser({
-                        //         username: (document.getElementById('username').value),
-                        //         email: (document.getElementById('email').value),
-                        //         password: (document.getElementById('password1').value),
-                        //         password2: (document.getElementById('password2').value)
-                        //     });
-
-                        // }}
                         >
                             Submit
                         </Button>

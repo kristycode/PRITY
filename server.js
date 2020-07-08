@@ -1,6 +1,9 @@
 const express = require("express");
 const app = express();
 
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+
 var cors = require('cors');
 app.use(cors());
 
@@ -31,8 +34,18 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// Passport middleware
+
+app.use(cookieParser("secret"));
+app.use(session({ secret: "secret",
+cookie : {
+  expires: false
+  },
+resave: true,
+saveUninitialized: true
+}));
 app.use(passport.initialize());
+app.use(passport.session());
+
 // Passport config
 require("./config/passport")(passport);
 

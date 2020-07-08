@@ -8,6 +8,7 @@ import LipstickCall from "../Calls/LipstickCall";
 import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
+// import FaceIcon from "@material-ui/icons/Face";
 import "./style.css";
 
 const LookTabs = () => {
