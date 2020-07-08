@@ -1,40 +1,21 @@
-import React, { useContext } from "react";
-import { Typography } from "@material-ui/core";
-import { ChipContext } from "../../components/Context/ChipContext";
+import React from "react";
 import BeautyBag from "../BeautyBag";
-import { makeStyles } from "@material-ui/core/styles";
-// import Paper from '@material-ui/core/Paper';
-import Grid from "@material-ui/core/Grid";
+import { Grid } from "@material-ui/core";
 import AvatarTestingPage from "../../components/AvatarTesting/AvatarTestingPage";
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
-  paper: {
-    padding: theme.spacing(2),
-    textAlign: "center",
-    // color: theme.palette.text.secondary,
-  },
-}));
+import NestedList from "../Avatar/CustomizeAvatarMenu";
 
 export default function Vanity() {
-  const classes = useStyles();
-
   return (
-    <div className={classes.root}>
-      <Grid container spacing={3}>
-        <Grid item xs={8}>
-          <span className={classes.paper}>
-            <BeautyBag />
-          </span>
-        </Grid>
-        <Grid item xs={4}>
-          <span className={classes.paper}>
-            <AvatarTestingPage />
-          </span>
-        </Grid>
+    <Grid container>
+      <Grid item xs={0} sm={0} md={4}>
+        <BeautyBag />
       </Grid>
-    </div>
+      <Grid item xs={0} sm={0} md={4}>
+        <AvatarTestingPage />
+      </Grid>
+      <Grid xs={0} sm={0} md={4}>
+        <NestedList />
+      </Grid>
+    </Grid>
   );
 }
