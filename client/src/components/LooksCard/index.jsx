@@ -13,8 +13,6 @@ import Avatar from "@material-ui/core/Avatar";
 import RandomAvatar from "../Homepage/staticImages/RandomAvatar";
 
 const LooksCard = (props) => {
-  const { avatarUrl, title, subtitle, description, imageUrl } = props;
-
   const homeCardsStyle = {
     textAlign: "center",
     margin: 5,
@@ -29,22 +27,10 @@ const LooksCard = (props) => {
 
   return (
     <Card style={homeCardsStyle}>
-      {/* <CardHeader
-        avatar={<Avatar src={avatarUrl}></Avatar>}
-        // IconButton is a wrapper that makes icons 'clickable' w/o functionality
-        title={title}
-        subheader={subtitle}
-      /> */}
-      {/* <CardMedia style={{ height: 150 }} image={imageUrl} /> */}
       <CardContent>
         <RandomAvatar />
-        <Typography variant="body2" component="p">
-          {description}
-        </Typography>
+        <Typography variant="body2" component="p"></Typography>
       </CardContent>
-      {/* <CardActions>
-        <Button size="small">Get this Look!</Button>
-      </CardActions> */}
     </Card>
   );
 };
