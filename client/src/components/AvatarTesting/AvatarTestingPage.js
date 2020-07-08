@@ -70,8 +70,6 @@ function LightenDarkenColor(col, amt) {
 
 };
 
-// this is a chroma function that should create a scale //
-
 
 function AvatarTestingPage() {
 

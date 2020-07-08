@@ -4,12 +4,13 @@ import { Grid } from "@material-ui/core";
 import randomUserList from "./staticTrends";
 import OutlinedCard from "../AboutPrity";
 // import AboutPrity from "../AboutPrity/";
+import RandomAvatar from "../Body/staticImages/RandomAvatar"
 
 const Body = () => {
   const getUserCard = (userCardObj) => {
     return (
       <Grid item xs={12} sm={4}>
-        <LooksCard {...userCardObj} />
+        <LooksCard />
       </Grid>
     );
   };
