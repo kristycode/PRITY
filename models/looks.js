@@ -5,7 +5,11 @@ const Look = new Schema(
     {
         lookname: { type: String, required: true },
         username: {type: String, required: true},
-        imgURL: {type: String, required:true}
+        imgURL: {type: String, required:true},
+        _creator: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'users'
+        }
     },
     { timestamps: true },
 );

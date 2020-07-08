@@ -7,7 +7,11 @@ const Avatar = new Schema(
         eye_color: {type: String, required: true},
         face_shape: {type: String, required:true},
         hair_color: {type: String, required: true},
-        skin_tone: {type: String, required: true}
+        skin_tone: {type: String, required: true},
+        _creator: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'users'
+        }
     },
     { timestamps: true },
 );

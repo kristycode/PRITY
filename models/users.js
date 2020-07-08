@@ -1,15 +1,31 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var bcrypt = require("bcryptjs");
+//var mongoose-bcrypt = require("mongoose-bcrypt");
 
 const User = new Schema(
     {
         username: { type: String, required: true, unique: true },
-        password: {type: String, required: true},
-        email: {type: String, required:true, unique: true}
+        password: {type: String, required: true/*, bcrypt: true*/},
+        email: {type: String, required:true, unique: true},
+        looks: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'looks'
+        }],
+        avatars: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'avatars'
+        }],
+        color: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'colors'
+        }],
     },
     { timestamps: true },
 );
+
+
+  // Attach to predefined password and secret field
+// User.plugin(require('mongoose-bcrypt'));
 
 // User.associate = function (models) {
 //     User.hasMany(models.Look, {
