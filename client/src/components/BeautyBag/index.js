@@ -53,11 +53,19 @@ const BeautyBag = () => {
     setChipObj({ ...chipObj, [type]: hexcolor });
   }
 
+  const cardStyle = {
+    margin: "auto",
+    width: 200,
+    justify: "center",
+    padding: 5,
+  };
+
   return (
     <div>
-      <Typography variant="h4">Selected Products:</Typography>
+      <Typography variant="h4">Selected Products</Typography>
+      <hr />
       <Typography variant="subtitle1">
-        Click a Color to try on your avatar
+        Click a Color Swatch to Try on Your Avatar!
       </Typography>
 
       {chipObj.beautyBag.map((product) => {
@@ -71,7 +79,7 @@ const BeautyBag = () => {
         };
 
         return (
-          <List className={classes.root}>
+          <List>
             <ListItem key={itemKey}>
               <ListItemAvatar>
                 <Chip

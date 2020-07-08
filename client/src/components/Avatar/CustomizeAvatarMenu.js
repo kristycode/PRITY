@@ -1,8 +1,5 @@
 import React, { useContext } from "react";
-// import styled from "styled-components";
-// import Base from "./SVG/SvgAvatarMakeupBase";
 import ChipContext from "../Context/ChipContext";
-import { makeStyles } from "@material-ui/core/styles";
 import { Container, IconButton, Paper, Card } from "@material-ui/core/";
 import { Chip, Box, Grid } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
@@ -169,19 +166,8 @@ const chipBackground = {
   borderStyle: "outset",
 };
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    width: "100%",
-    maxWidth: 360,
-    backgroundColor: theme.palette.background.paper,
-  },
-  nested: {
-    paddingLeft: theme.spacing(4),
-  },
-}));
-
 export default function NestedList() {
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const { chipObj, setChipObj } = useContext(ChipContext);
 
@@ -255,13 +241,13 @@ export default function NestedList() {
 
   const cardStyle = {
     margin: "auto",
-    width: 200,
+    width: 300,
     justify: "center",
     padding: 5,
   };
 
   return (
-    <Grid item>
+    <div>
       <Box style={cardStyle} variant="square" elevation={10}>
         <Typography variant="h5">Hair Colors</Typography>
         <HairColorSelections />
@@ -276,6 +262,6 @@ export default function NestedList() {
         <Typography variant="h5">Eye Colors</Typography>
         <EyeColorSelections />
       </Box>
-    </Grid>
+    </div>
   );
 }
