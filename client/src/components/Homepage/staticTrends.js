@@ -1,7 +1,7 @@
 // These is dummy data for trending looks cards - this is only for development
-import React, { Component } from "react";
+// import React, { Component } from "react";
 import Silhouette from "./staticImages/face-silhouette.png";
-import RandomAvatar from "./staticImages/RandomAvatar";
+// import RandomAvatar from "./staticImages/RandomAvatar";
 
 export default [
   {},

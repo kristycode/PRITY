@@ -19,7 +19,7 @@ export default function EyelinerCall(props) {
     isLoading: true,
   });
   // snackbar state below
-  const [open, setOpen] = React.useState(false);
+  // const [__, setOpen] = React.useState(false);
 
   // below state is for updating chip selection state
   // const [chipObj, setChipObj] = React.useState([]);
@@ -74,8 +74,8 @@ export default function EyelinerCall(props) {
       ],
     });
 
-    setOpen(true);
-    console.log("setOpen true?");
+    // setOpen(true);
+    // console.log("setOpen true?");
     // API.insertColor({
     //   hexColor: this.value,
     //   productType: chipObj.productType,
@@ -172,17 +172,17 @@ export default function EyelinerCall(props) {
         apiState.products.map((product) => {
           const arr = [];
           // 'colors' is referring to the actual color names ex: Peachy Pal
-          const { hexValue, colors } = product;
-          const colorName = colors.split(",").map((e) => arr.push(e));
+          const { hexValue } = product;
+          // const colorName = colors.split(",").map((e) => arr.push(e));
           // this creates a condition for chips to render ONLY if they have a hex value
           const newChip = hexValue
             .split(",")
             .filter((trueColor) => trueColor !== "");
           // console.log(`this is newChip ${newChip}`);
           // this const will create a condition to only return products names if hexcolor is true
-          const trueColorName = colors
-            .split(",")
-            .filter((colorName) => colorName !== "");
+          // const trueColorName = colors
+          //   .split(",")
+          //   .filter((colorName) => colorName !== "");
           // console.log(`trueColorName: ${trueColorName}`);
 
           // hexChip creates separate chips that render the colors from product
