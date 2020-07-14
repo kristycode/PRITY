@@ -12,6 +12,7 @@ const routes2 = require("./routes/look-route");
 const routes3 = require("./routes/avatar-route");
 const routes4 = require("./routes/beautyBag-routes");
 const makeuproute = require("./routes/makeup-route");
+const logoutroute = require("./routes/logout-route");
 
 const PORT = process.env.PORT || 3001;
 
@@ -55,6 +56,7 @@ app.use('/api', routes2);
 app.use('/api', routes3);
 app.use('/api', routes4);
 app.use('/api', makeuproute);
+app.use('/api', logoutroute);
 
 const db = require('./client/src/db');
 

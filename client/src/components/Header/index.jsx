@@ -76,6 +76,15 @@ const Header = () => {
                   Log In
                 </Link>
               </IconButton>
+              <IconButton>
+                <Link
+                  to="/Logout"
+                  color="secondary"
+                  className={classes.linkStyle}
+                >
+                  Log Out
+                </Link>
+              </IconButton>
             </Typography>
           </Grid>
         </Grid>

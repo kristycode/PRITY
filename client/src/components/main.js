@@ -12,6 +12,7 @@ import Vanity2 from "./Vanity2";
 // import LogIN from "./LogIN";
 // import RegisterU from "./RegisterU";
 import Login from "./auth/Login";
+import LogoutPage from "./auth/LogOut";
 import Register from "./auth/Register";
 
 import { Provider } from "react-redux";
@@ -49,7 +50,7 @@ const Main = () => (
       <Route path="/selectProd" component={SelectProd} />
       <Route exact path="/Login" component={Login} />
       <Route exact path="/Register" component={Register} />
-      {/* <Route path="/looktabs" component={LookTabs} /> */}
+      <Route path="/Logout" component={LogoutPage} />
       <Route path="/APIComp" component={APIComponent} />
       <Route path="/avatarTestingPage" component={AvatarTestingPage}></Route>
       <Route path="/vanity" component={Vanity} />

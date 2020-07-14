@@ -91,6 +91,11 @@ router.post("/login", (req, res) => {
     });
 });
 
+router.get('/logout', (req,res) => {
+  req.logout();
+  res.redirect("/");
+})
+
 //router.post('/user', UserCtrl.createUser);
 router.get('/user/:id', UserCtrl.getUserById);
 router.get('/users', UserCtrl.getUsers);
