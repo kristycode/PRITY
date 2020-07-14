@@ -188,7 +188,7 @@ export default function EyeshadowCall(props) {
                   variant="outlined"
                   value={singleSwatch}
                   style={singleSwatch}
-                  message="item added to bag!"
+                  message="Item added to bag!"
                   onClick={() => {
                     handleChip(product, singleSwatch);
                     props.setOpenToTrue();

@@ -28,9 +28,6 @@ const theme = createMuiTheme({
         "@font-face": ["open sans"],
       },
     },
-    MuiContainer: {
-      backgroundColor: "black",
-    },
   },
 });
 
