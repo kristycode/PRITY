@@ -12,7 +12,7 @@ export const getAllLooks = () => api.get(`/looks`);
 export const getLookById = (id) => api.get(`/look/${id}`);
 export const getAllColors = () => api.get(`colors`);
 export const insertColor = (payload) => api.post(`/color`, payload);
-export const registerUser = (payload) => api.post(`/Register`, payload);
+export const registerUser = (payload) => api.post(`/register`, payload);
 export const loginUser = (payload) => api.post(`/login`, payload);
 
 const apis = {

@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-const mongoose = require("mongoose");
 
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
@@ -67,7 +66,7 @@ const db = require("./client/src/db");
 
 // Connect to the Mongo DB
 db.on("error", console.error.bind(console, "MongoDB connection error:"));
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/makeuplist");
+// mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/makeuplist");
 
 // Start the API server
 app.listen(PORT, function () {

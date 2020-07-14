@@ -13,7 +13,7 @@ const keys = require("../config/keys");
 const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
 
-router.post("/Register", (req, res) => {
+router.post("/register", (req, res) => {
   // Form validation
   const { errors, isValid } = validateRegisterInput(req.body);
   // Check validation
