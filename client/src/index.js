@@ -7,23 +7,18 @@ import App from "./App";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 const theme = createMuiTheme({
-  // palette: {
-  //   primary: {
-  //     main: "#84C0F2",
-  //   },
-  //   secondary: {
-  //     main: "#D2CB42",
-  //   },
-  // },
+  palette: {
+    primary: {
+      main: "#84C0F2",
+    },
+    secondary: {
+      main: "#e37656",
+    },
+  },
   typography: {
     fontFamily: ["Open Sans", "sans serif"],
   },
   overrides: {
-    // MuiContainer: {
-    //   root: {
-    //     backgroundColor: "#BDDCF2",
-    //   },
-    // },
     MuiToolbar: {
       root: {
         backgroundColor: "#88c7d0",
@@ -40,7 +35,6 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      {/* <CssBaseline /> */}
       <App />
     </ThemeProvider>
   </React.StrictMode>,
