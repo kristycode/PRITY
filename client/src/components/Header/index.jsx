@@ -1,5 +1,4 @@
 import React from "react";
-import Logout from "../auth/Logout";
 import {
   AppBar,
   Toolbar,
