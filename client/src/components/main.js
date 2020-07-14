@@ -9,8 +9,6 @@ import AvatarTestingPage from "./AvatarTesting/AvatarTestingPage";
 import LookTabs from "./CreateLookTabs";
 import Vanity from "./Vanity";
 import Vanity2 from "./Vanity2";
-// import LogIN from "./LogIN";
-// import RegisterU from "./RegisterU";
 import Login from "./auth/Login";
 import Register from "./auth/Register";
 

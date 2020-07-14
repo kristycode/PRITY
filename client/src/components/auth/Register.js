@@ -134,7 +134,12 @@ class Register extends Component {
                         </Button>
                     </form>
                     
-                    <h5>Already have an account? <a href="/Login">Log in here</a></h5>
+                    <Link
+                        to="/Login"
+                        color="secondary"
+                    >
+                        Login here
+                    </Link>
 
                 </Grid>
             </Grid>
