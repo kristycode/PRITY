@@ -7,15 +7,7 @@ import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { withStyles } from "@material-ui/core/styles";
 import { Link } from "react-router-dom";
-
-// const useStyles = makeStyles((theme) => ({
-//     root: {
-//       '& .MuiTextField-root': {
-//         margin: theme.spacing(1),
-//         width: '25ch',
-//       },
-//     },
-// }));
+import LoginFace from "./images/loginFace.png";
 
 const styles = (theme) => (
   {
@@ -74,18 +66,36 @@ class Login extends Component {
   render() {
     const { errors } = this.state;
     // const classes = useStyles();
+    const faceStyle = {
+      height: 425,
+      margin: 10,
+      display: "block",
+      marginLeft: "auto",
+      marginRight: "auto",
+    };
 
+    const btnStyle = {
+      margin: 10,
+    };
+
+    const loginStyle = {
+      margin: 10,
+    };
     return (
-      <Grid container direction="column" justify="center" alignItems="center">
-        <Grid item>
-          <h2>Log In</h2>
+      <Grid container>
+        <Grid item xs={5}>
+          <img src={LoginFace} alt="face with makeup" style={faceStyle}></img>
+        </Grid>
+
+        <Grid item xs={6} style={loginStyle}>
+          <Typography variant="h4">Log In</Typography>
           <form
             noValidate
-            className={styles.root}
+            // className={styles.root}
             onSubmit={(e) => this.onSubmit(e)}
             autoComplete="off"
           >
-            <Typography>Email:</Typography>
+            <Typography variant="subtitle1">Email</Typography>
             <TextField
               required
               id="email"
@@ -103,7 +113,7 @@ class Login extends Component {
               {errors.email}
               {errors.emailnotfound}
             </Typography>
-            <Typography>Password:</Typography>
+            <Typography variant="subtitle1">Password</Typography>
             <TextField
               required
               id="password"
@@ -117,7 +127,7 @@ class Login extends Component {
               label="Password"
               variant="outlined"
             />
-            <Typography className="red-text">
+            <Typography variant="subtitle2" className="red-text">
               {errors.password}
               {errors.passwordincorrect}
             </Typography>
@@ -125,16 +135,16 @@ class Login extends Component {
               variant="contained"
               color="secondary"
               type="submit"
-              className={styles.buttonStyles}
+              // className={styles.buttonStyles}
+              style={btnStyle}
             >
               Submit
             </Button>
           </form>
 
           <Link to="/Register" color="secondary">
-            Register here
+            <Typography variant="h6">Signup Here</Typography>
           </Link>
-
         </Grid>
       </Grid>
     );
