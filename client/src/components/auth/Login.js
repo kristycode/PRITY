@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { withStyles } from '@material-ui/core/styles';
-import { Link } from "react-router-dom";
+import {Link} from "react-router-dom";
 
 // const useStyles = makeStyles((theme) => ({
 //     root: {
