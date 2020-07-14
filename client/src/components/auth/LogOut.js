@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
+// commentary for merging
+
 import * as authActionCreators from "../../actions/authActions";
 
 class LogoutPage extends Component {
