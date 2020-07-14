@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
 import { withStyles } from '@material-ui/core/styles';
+import {Link} from "react-router-dom";
 
 // const useStyles = makeStyles((theme) => ({
 //     root: {
@@ -114,7 +115,12 @@ class Login extends Component {
                         </Button>
                     </form>
                     
-                    <h5>Don't have an account? <a href="/Register">Register here</a></h5>
+                    <Link
+                        to="/Register"
+                        color="secondary"
+                    >
+                        Register here
+                    </Link>
 
                 </Grid>
             </Grid>
