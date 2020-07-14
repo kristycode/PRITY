@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
-import { Typography, Link } from "@material-ui/core";
+import { withRouter, Link } from "react-router-dom";
+import { Typography} from "@material-ui/core";
 import { Grid, Button, TextField } from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
 import API from "../../utils/API";
