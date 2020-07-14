@@ -14,6 +14,10 @@ const routes3 = require("./routes/avatar-route");
 const routes4 = require("./routes/beautyBag-routes");
 const makeuproute = require("./routes/makeup-route");
 
+// my changes
+var distDir = __dirname + "/dist/";
+app.use(express.static(distDir));
+
 const PORT = process.env.PORT || 3001;
 
 const passport = require("passport");
