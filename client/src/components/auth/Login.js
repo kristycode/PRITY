@@ -135,9 +135,6 @@ class Login extends Component {
             Register here
           </Link>
 
-          <h5>
-            Don't have an account? <a href="/Register">Register here</a>
-          </h5>
         </Grid>
       </Grid>
     );
