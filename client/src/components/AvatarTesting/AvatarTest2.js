@@ -1,18 +1,17 @@
 import React, { useContext } from "react";
-import axios from "axios";
-import { setCurrentUser } from "../../actions/authActions";
+// import { setCurrentUser } from "../../actions/authActions";
 //--- removing { css } from line 3 because React says it is not being used
 import styled from "styled-components";
 import Base from "./SVG/SvgAvatarMakeupBase";
 import ChipContext from "../Context/ChipContext";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button } from "@material-ui/core/";
+// import { Button } from "@material-ui/core/";
 // import FaceIcon from "@material-ui/icons/Face";
 // import DoneIcon from "@material-ui/icons/Done";
 // --- adding in list components for chipObj
-import CustomizeAvatarMenu from "../Avatar/CustomizeAvatarMenu";
+// import CustomizeAvatarMenu from "../Avatar/CustomizeAvatarMenu";
 import chroma from "chroma-js";
-import { insertAvatar } from "../../actions/avatarActions";
+// import { insertAvatar } from "../../actions/avatarActions";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -86,7 +85,7 @@ function AvatarTest2() {
   //   });
   // }
 
-  const classes = useStyles();
+  // const classes = useStyles();
 
   const { chipObj, setChipObj } = useContext(ChipContext);
 
@@ -133,28 +132,28 @@ function AvatarTest2() {
 
   // axios.get("/api/user/:id").then();
 
-  const SavedLook = {
-    eyes: chipObj.eyeColor,
-    eyeshadow: chipObj.eyeshadow,
-    cls_42: chipObj.eyeshadow,
-    hair: chipObj.hairColor,
-    skin: chipObj.skinColor,
-    blush: chipObj.blush,
-    bronzer: chipObj.bronzer,
-    eyeliner: chipObj.eyeliner,
-    lipstick: chipObj.lipstick,
-    eyebrowR: chipObj.hairColor,
-    eyebrowL: chipObj.hairColor,
-    cls_6: DarkenLashes,
-    cls_7: DarkenLashes,
-    cls_1: chipObj.skinColor,
-    cls_8: DarkenFaceOutline,
-    cls_9: DarkenFaceShapeOutline,
-    cls_5: chipObj.eyeColor,
-    cls_11: LightenEyeReflection,
-    cls_4F: LightenMakeupArea,
-    cls_4S: DarkenFaceOutline,
-  };
+  // const SavedLook = {
+  //   eyes: chipObj.eyeColor,
+  //   eyeshadow: chipObj.eyeshadow,
+  //   cls_42: chipObj.eyeshadow,
+  //   hair: chipObj.hairColor,
+  //   skin: chipObj.skinColor,
+  //   blush: chipObj.blush,
+  //   bronzer: chipObj.bronzer,
+  //   eyeliner: chipObj.eyeliner,
+  //   lipstick: chipObj.lipstick,
+  //   eyebrowR: chipObj.hairColor,
+  //   eyebrowL: chipObj.hairColor,
+  //   cls_6: DarkenLashes,
+  //   cls_7: DarkenLashes,
+  //   cls_1: chipObj.skinColor,
+  //   cls_8: DarkenFaceOutline,
+  //   cls_9: DarkenFaceShapeOutline,
+  //   cls_5: chipObj.eyeColor,
+  //   cls_11: LightenEyeReflection,
+  //   cls_4F: LightenMakeupArea,
+  //   cls_4S: DarkenFaceOutline,
+  // };
 
   // console.log(this);
   // console.log(this.state);

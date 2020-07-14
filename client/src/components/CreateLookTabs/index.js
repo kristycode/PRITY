@@ -1,5 +1,5 @@
 import React from "react";
-import { Tabs, Tab, Alert } from "@material-ui/core";
+import { Tabs, Tab } from "@material-ui/core";
 import EyeshadowCall from "../Calls/EyeshadowCall";
 import EyelinerCall from "../Calls/EyeLinerCall";
 import BronzerCall from "../Calls/BronzerCall";
@@ -18,10 +18,6 @@ const LookTabs = () => {
 
   const snackBarStyle = {
     color: "green",
-  };
-
-  const handleSnackbar = () => {
-    setOpen(true);
   };
 
   const handleChange = (event, newValue) => {

@@ -14,10 +14,8 @@ const useStyles = makeStyles((theme) => ({
     },
     textAlign: "center",
     margin: 5,
-    padding: 0,
     padding: 10,
     borderRadius: 10,
-    margin: 10,
     borderColor: "#C47CA8",
     borderStyle: "outset",
   },
@@ -26,20 +24,16 @@ const useStyles = makeStyles((theme) => ({
 const beautyA = {
   textAlign: "center",
   margin: 5,
-  padding: 0,
   padding: 10,
   borderRadius: 10,
-  margin: 10,
-  borderColor: "#C47CA8",
+  borderColor: "red",
   borderStyle: "outset",
 };
 const beautyB = {
   textAlign: "center",
   margin: 5,
-  padding: 0,
   padding: 10,
   borderRadius: 10,
-  margin: 10,
   borderColor: "green",
   borderStyle: "outset",
 };
@@ -47,10 +41,8 @@ const beautyB = {
 const beautyC = {
   textAlign: "center",
   margin: 5,
-  padding: 0,
   padding: 10,
   borderRadius: 10,
-  margin: 10,
   borderColor: "blue",
   borderStyle: "outset",
 };
