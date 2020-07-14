@@ -2,24 +2,14 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import { Grid, Typography, Container } from "@material-ui/core";
+// import Makeup03 from "./images/makeup01.png";
+import Makeup01 from "./images/makeup02.png";
+import Vanity from "./images/vanity.png";
+import MakeupC from "./images/makeupC.png";
 
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: "flex",
-    flexWrap: "wrap",
-    "& > *": {
-      margin: theme.spacing(1),
-      width: theme.spacing(10),
-      // height: theme.spacing(16),
-    },
-    textAlign: "center",
-    margin: 5,
-    padding: 10,
-    borderRadius: 10,
-    borderColor: "#C47CA8",
-    borderStyle: "outset",
-  },
-}));
+const makeupImg = {
+  height: 150,
+};
 
 const beautyA = {
   textAlign: "center",
@@ -48,8 +38,6 @@ const beautyC = {
 };
 
 export default function AboutPaper() {
-  const classes = useStyles();
-
   return (
     <Grid container>
       <Grid item xs={12}>
@@ -57,17 +45,20 @@ export default function AboutPaper() {
       </Grid>
       <Grid item xs={4}>
         <Paper style={beautyA} elevation={3}>
-          Browse Color Palettes
+          <Typography variant="h6">Browse Color Palettes</Typography>
+          <img src={Makeup01} alt="lipstick" style={makeupImg}></img>
         </Paper>
       </Grid>
-      <Grid xs={4}>
-        <Paper style={beautyA} elevation={3}>
-          Visit Your Vanity
+      <Grid item xs={4}>
+        <Paper style={beautyB} elevation={3}>
+          <Typography variant="h6">Visit Your Vanity</Typography>
+          <img src={Vanity} alt="lipstick" style={makeupImg}></img>
         </Paper>
       </Grid>
-      <Grid xs={4}>
-        <Paper style={beautyA} elevation={3}>
-          Try Them On!
+      <Grid item xs={4}>
+        <Paper style={beautyC} elevation={3}>
+          <Typography variant="h6">Try Them On!</Typography>
+          <img src={MakeupC} alt="lipstick" style={makeupImg}></img>
         </Paper>
       </Grid>
     </Grid>

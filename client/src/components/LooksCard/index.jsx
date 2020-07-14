@@ -15,7 +15,7 @@ import RandomAvatar from "../Homepage/staticImages/RandomAvatar";
 const LooksCard = (props) => {
   const homeCardsStyle = {
     textAlign: "center",
-    margin: 5,
+    // margin: 5,
     padding: 0,
     backgroundColor: "#f7c4c4",
     padding: 10,
@@ -29,7 +29,7 @@ const LooksCard = (props) => {
     <Card style={homeCardsStyle}>
       <CardContent>
         <RandomAvatar />
-        <Typography variant="body2" component="p"></Typography>
+        {/* <Typography variant="body2" component="p"></Typography> */}
       </CardContent>
     </Card>
   );
