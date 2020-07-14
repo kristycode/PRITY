@@ -28,9 +28,6 @@ const theme = createMuiTheme({
       h2: {
         color: "#e37656",
       },
-      // h4: {
-      //   padding: 20,
-      // },
     },
   },
 });
