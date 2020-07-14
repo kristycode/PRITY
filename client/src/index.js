@@ -3,29 +3,35 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 // import * as serviceWorker from "./serviceWorker";
+// import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core";
 
 const theme = createMuiTheme({
-  overrides: {
-    MuiLink: {
-      color: "orange",
-    },
-  },
-  palette: {
-    primary: {
-      main: "#84C0F2",
-    },
-    secondary: {
-      main: "#D2CB42",
-    },
-  },
+  // palette: {
+  //   primary: {
+  //     main: "#84C0F2",
+  //   },
+  //   secondary: {
+  //     main: "#D2CB42",
+  //   },
+  // },
   typography: {
     fontFamily: ["Open Sans", "sans serif"],
   },
   overrides: {
-    MuiCssBaseline: {
-      "@global": {
-        "@font-face": ["open sans"],
+    // MuiContainer: {
+    //   root: {
+    //     backgroundColor: "#BDDCF2",
+    //   },
+    // },
+    MuiToolbar: {
+      root: {
+        backgroundColor: "#88c7d0",
+      },
+    },
+    MuiTypography: {
+      h2: {
+        color: "#e37656",
       },
     },
   },
@@ -34,6 +40,7 @@ const theme = createMuiTheme({
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+      {/* <CssBaseline /> */}
       <App />
     </ThemeProvider>
   </React.StrictMode>,

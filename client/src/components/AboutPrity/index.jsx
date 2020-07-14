@@ -51,27 +51,25 @@ export default function AboutPaper() {
   const classes = useStyles();
 
   return (
-    <Container>
-      <Grid container>
-        <Grid item xs={12}>
-          <Typography variant="h4">Enhance Your Beauty...</Typography>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper style={beautyA} elevation={3}>
-            Browse Color Palettes
-          </Paper>
-        </Grid>
-        <Grid xs={4}>
-          <Paper style={beautyA} elevation={3}>
-            Visit Your Vanity
-          </Paper>
-        </Grid>
-        <Grid xs={4}>
-          <Paper style={beautyA} elevation={3}>
-            Try Them On!
-          </Paper>
-        </Grid>
+    <Grid container>
+      <Grid item xs={12}>
+        <Typography variant="h4">Enhance Your Beauty...</Typography>
       </Grid>
-    </Container>
+      <Grid item xs={4}>
+        <Paper style={beautyA} elevation={3}>
+          Browse Color Palettes
+        </Paper>
+      </Grid>
+      <Grid xs={4}>
+        <Paper style={beautyA} elevation={3}>
+          Visit Your Vanity
+        </Paper>
+      </Grid>
+      <Grid xs={4}>
+        <Paper style={beautyA} elevation={3}>
+          Try Them On!
+        </Paper>
+      </Grid>
+    </Grid>
   );
 }
