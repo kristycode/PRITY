@@ -28,27 +28,27 @@ const enhanceStyle = {
 
 const beautyA = {
   textAlign: "center",
-  // margin: 5,
-  // padding: 10,
+  margin: 10,
+  padding: 0,
   borderRadius: 10,
-  borderColor: "red",
+  borderColor: "#b7c296",
   borderStyle: "outset",
 };
 const beautyB = {
   textAlign: "center",
-  // margin: 5,
-  // padding: 10,
+  margin: 10,
+  padding: 0,
   borderRadius: 10,
-  borderColor: "green",
+  borderColor: "#84c0f2",
   borderStyle: "outset",
 };
 
 const beautyC = {
   textAlign: "center",
-  // margin: 5,
-  // padding: 10,
+  margin: 10,
+  padding: 0,
   borderRadius: 10,
-  borderColor: "blue",
+  borderColor: "#cd819e",
   borderStyle: "outset",
 };
 
@@ -56,7 +56,7 @@ export default function AboutPaper() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <Grid container spacing={7}>
+      <Grid container spacing={2}>
         <Grid item xs={12} style={enhanceStyle}>
           <Typography variant="h4">Enhance Your Beauty...</Typography>
         </Grid>
