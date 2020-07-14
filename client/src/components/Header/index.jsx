@@ -40,13 +40,15 @@ const Header = () => {
           </Grid>
           <Grid item>
             <Typography variant="h5">
-              <Link
-                to="/looktabs"
-                color="secondary"
-                className={classes.linkStyle}
-              >
-                Create Look
-              </Link>
+              <IconButton>
+                <Link
+                  to="/looktabs"
+                  color="secondary"
+                  className={classes.linkStyle}
+                >
+                  Create Look
+                </Link>
+              </IconButton>
               <IconButton>
                 <Link
                   to="/vanity"
@@ -57,16 +59,6 @@ const Header = () => {
                   My Vanity
                 </Link>
               </IconButton>
-              {/* <IconButton>
-                <Link
-                  to="/vanitytest"
-                  color="secondary"
-                  className={classes.linkStyle}
-                >
-                  <LocalMallIcon className={classes.bagIconStyle} />
-                  Vanity Test
-                </Link>
-              </IconButton> */}
               <IconButton>
                 <Link
                   to="/Login"

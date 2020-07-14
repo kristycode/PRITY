@@ -3,7 +3,7 @@ import LooksCard from "../LooksCard";
 import { Grid, Typography } from "@material-ui/core";
 import randomUserList from "./staticTrends";
 import AboutPaper from "../AboutPrity";
-import RandomAvatar from "./staticImages/RandomAvatar";
+// import RandomAvatar from "./staticImages/RandomAvatar";
 
 const Body = () => {
   const getUserCard = (userCardObj) => {
@@ -16,9 +16,7 @@ const Body = () => {
 
   return (
     <Grid container>
-      <Grid item={12}>
-        <AboutPaper />
-      </Grid>
+      <AboutPaper />
       <Grid item xs={12}>
         <Typography variant="h4">Latest Looks</Typography>
       </Grid>
